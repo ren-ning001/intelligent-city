@@ -1,0 +1,24 @@
+- insert:
+    - id: zyourroad-osm-mcp
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: zyourroad
+        transport: stdio
+        command: !!js process.env.ZYOURROAD_PYTHON || 'python'
+        args: ['-m', 'backend.app.mcp_server']
+        cwd: !!js process.env.ZYOURROAD_ROOT || process.cwd()
+        toolCallTimeoutMs: 180000
+        startupTimeoutMs: 30000
+        closeTimeoutMs: 5000
+        failOnStartupError: true
+        reconnect:
+          enabled: true
+          initialDelayMs: 500
+          maxDelayMs: 10000
+          maxAttempts: 5
+
+- id: sessions
+  name: '@deepseek-ai/dsh-session-persistence-jsonl'
+  config:
+    root: !!js process.env.ZYOURROAD_SESSION_ROOT
+    compression: none

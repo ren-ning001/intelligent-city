@@ -1,0 +1,34 @@
+{
+  "region_id": "beijing",
+  "name": "北京市",
+  "generated_at_utc": "2026-11-10T08:14:06.964602+00:00",
+  "mode": "full-pbf-with-on-demand-spatial-cache",
+  "pbf": "regions/beijing/source/beijing-latest.osm.pbf",
+  "pbf_size_bytes": 37011501,
+  "bounds": [
+    115.4,
+    39.4,
+    117.6,
+    41.1
+  ],
+  "sample_center": {
+    "latitude": 39.9163,
+    "longitude": 116.3972
+  },
+  "sample_radius_m": 3000,
+  "location_index": {
+    "path": "regions/beijing/processed/locations.csv",
+    "location_count": 67543,
+    "region_id": "beijing"
+  },
+  "sample_cache": {
+    "cache_key": "d362133cd43d4b1bec3a",
+    "network_type": "walk",
+    "node_count": 7939,
+    "edge_count": 22128,
+    "poi_count": 281,
+    "poi_source": "offline-region",
+    "attribution": "© OpenStreetMap contributors"
+  },
+  "attribution": "© OpenStreetMap contributors"
+}

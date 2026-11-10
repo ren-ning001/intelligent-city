@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "regions": [
+    {
+      "id": "shanghai",
+      "name": "上海市",
+      "pbf": "shanghai/source/shanghai-latest.osm.pbf",
+      "bounds": [120.84, 30.65, 122.20, 31.90],
+      "priority": 100,
+      "sample_center": [31.2304, 121.4737]
+    },
+    {
+      "id": "beijing",
+      "name": "北京市",
+      "pbf": "beijing/source/beijing-latest.osm.pbf",
+      "bounds": [115.40, 39.40, 117.60, 41.10],
+      "priority": 90,
+      "sample_center": [39.9163, 116.3972]
+    },
+    {
+      "id": "zhejiang",
+      "name": "浙江省",
+      "pbf": "zhejiang/source/zhejiang-latest.osm.pbf",
+      "bounds": [118.00, 27.00, 123.00, 31.30],
+      "priority": 50,
+      "sample_center": [29.8683, 121.5440]
+    }
+  ]
+}

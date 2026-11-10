@@ -1,0 +1,48 @@
+{
+  "dataset_name": "hangzhou_west_lake_walk",
+  "generated_at_utc": "2026-11-10T02:42:32.297138+00:00",
+  "source": "OpenStreetMap",
+  "license": "ODbL",
+  "attribution": "© OpenStreetMap contributors",
+  "center_point": [
+    30.2525,
+    120.1552
+  ],
+  "radius_m": 5000.0,
+  "network_type": "walk",
+  "poi_tags": {
+    "tourism": true,
+    "historic": true,
+    "leisure": [
+      "park",
+      "garden",
+      "nature_reserve"
+    ],
+    "amenity": [
+      "arts_centre",
+      "theatre"
+    ]
+  },
+  "poi_exclusions": {
+    "tourism": [
+      "apartment",
+      "camp_site",
+      "chalet",
+      "guest_house",
+      "hostel",
+      "hotel",
+      "motel"
+    ]
+  },
+  "require_poi_name": true,
+  "node_count": 15006,
+  "edge_count": 42224,
+  "raw_feature_count": 917,
+  "poi_count": 386,
+  "files": {
+    "graphml": "raw/osm_graph.graphml",
+    "network_geopackage": "processed/network.gpkg",
+    "features_geopackage": "raw/osm_features.gpkg",
+    "poi_csv": "processed/poi_candidates.csv"
+  }
+}

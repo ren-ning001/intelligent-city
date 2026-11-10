@@ -1,0 +1,34 @@
+{
+  "dataset_name": "hangzhou_west_lake_walk",
+  "center_point": [
+    30.2525,
+    120.1552
+  ],
+  "radius_m": 5000,
+  "network_type": "walk",
+  "poi_tags": {
+    "tourism": true,
+    "historic": true,
+    "leisure": [
+      "park",
+      "garden",
+      "nature_reserve"
+    ],
+    "amenity": [
+      "arts_centre",
+      "theatre"
+    ]
+  },
+  "poi_exclusions": {
+    "tourism": [
+      "apartment",
+      "camp_site",
+      "chalet",
+      "guest_house",
+      "hostel",
+      "hotel",
+      "motel"
+    ]
+  },
+  "require_poi_name": true
+}

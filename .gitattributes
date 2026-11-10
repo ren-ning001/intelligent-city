@@ -1,0 +1,4 @@
+Datasets/**/*.osm.pbf filter=lfs diff=lfs merge=lfs -text
+Datasets/**/*.graphml filter=lfs diff=lfs merge=lfs -text
+Datasets/**/*.gpkg filter=lfs diff=lfs merge=lfs -text
+Datasets/regions/*/processed/*.csv filter=lfs diff=lfs merge=lfs -text
