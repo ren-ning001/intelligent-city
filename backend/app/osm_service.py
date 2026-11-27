@@ -53,6 +53,52 @@ OFFLINE_LOCATION_TAGS: dict[str, bool | list[str]] = {
 }
 NAME_COLUMNS = ("name:zh", "name", "official_name", "alt_name")
 SPEED_KMH = {"walk": 4.8, "bike": 15.0, "drive": 30.0}
+SPEED_PROFILE_ID = "highway-speed-v1"
+# P4 的时间口径按道路等级估速，而不是把整段距离除以一个常数。
+# 数值是可解释的实验假设，不是实时路况或导航 ETA。
+HIGHWAY_SPEED_KMH: dict[str, dict[str, float]] = {
+    "walk": {
+        "steps": 2.5,
+        "track": 3.5,
+        "path": 4.0,
+        "footway": 4.8,
+        "pedestrian": 4.8,
+        "corridor": 4.8,
+        "living_street": 4.6,
+        "residential": 4.8,
+        "service": 4.6,
+        "unclassified": 4.6,
+        "tertiary": 4.8,
+        "secondary": 4.8,
+        "primary": 4.8,
+        "cycleway": 4.8,
+    },
+    "bike": {
+        "steps": 3.0,
+        "path": 12.0,
+        "track": 10.0,
+        "footway": 6.0,
+        "pedestrian": 6.0,
+        "cycleway": 16.0,
+        "living_street": 12.0,
+        "residential": 15.0,
+        "service": 13.0,
+        "tertiary": 16.0,
+        "secondary": 17.0,
+        "primary": 18.0,
+    },
+    "drive": {
+        "living_street": 10.0,
+        "service": 15.0,
+        "residential": 25.0,
+        "unclassified": 30.0,
+        "tertiary": 35.0,
+        "secondary": 45.0,
+        "primary": 55.0,
+        "trunk": 65.0,
+        "motorway": 80.0,
+    },
+}
 CITY_QUERY_PREFIXES = {
     "北京市": "北京市",
     "北京": "北京市",
@@ -83,6 +129,80 @@ def _haversine_m(first: Coordinate, second: Coordinate) -> float:
 def _stable_key(payload: dict[str, Any]) -> str:
     encoded = json.dumps(payload, sort_keys=True, ensure_ascii=True).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()[:20]
+
+
+def _first_tag(value: Any) -> str:
+    if isinstance(value, (list, tuple)):
+        return str(value[0]).strip().lower() if value else ""
+    return str(value or "").strip().lower()
+
+
+def highway_speed_kmh(highway: Any, network_type: str) -> float:
+    """按 OSM highway 标签返回该出行方式的速度假设（km/h）。"""
+    table = HIGHWAY_SPEED_KMH.get(network_type, {})
+    return float(table.get(_first_tag(highway), SPEED_KMH.get(network_type, 4.8)))
+
+
+def annotate_travel_times(graph: nx.MultiDiGraph, network_type: str) -> None:
+    """给每条有向边写入 travel_time_s 与 speed_kmh，供时间权重 Dijkstra 使用。"""
+    for _, _, _, data in graph.edges(keys=True, data=True):
+        try:
+            length = float(data.get("length", 0.0) or 0.0)
+        except (TypeError, ValueError):
+            length = 0.0
+        speed = highway_speed_kmh(data.get("highway"), network_type)
+        data["speed_kmh"] = round(speed, 3)
+        # length 缺失时给一个很大的时间值，避免 Dijkstra 误选异常边。
+        data["travel_time_s"] = (
+            round(length / (speed / 3.6), 3) if length > 0 else 1.0e9
+        )
+    graph.graph["speed_profile"] = SPEED_PROFILE_ID
+
+
+def keep_largest_strong_component(
+    graph: nx.MultiDiGraph,
+) -> tuple[nx.MultiDiGraph, dict[str, Any]]:
+    """只保留最大强连通分量，并记录清洗前后的规模。
+
+    OSMnx/Pyrosm 的 retain_all=False 只保证弱连通；单行道、断头路和孤立
+    子图仍可能让某个景点无法到达另一个景点。这里统一取最大强连通分量，
+    保证后续任意两个吸附节点之间都存在有向路径。
+    """
+    nodes_before = int(graph.number_of_nodes())
+    edges_before = int(graph.number_of_edges())
+    if nodes_before == 0:
+        stats = {
+            "method": "largest_strongly_connected",
+            "nodes_before": 0,
+            "nodes_after": 0,
+            "edges_before": 0,
+            "edges_after": 0,
+            "removed_nodes": 0,
+            "removed_edges": 0,
+            "strongly_connected": True,
+        }
+        return graph, stats
+
+    if nx.is_strongly_connected(graph):
+        reduced = graph
+    else:
+        largest = max(nx.strongly_connected_components(graph), key=len)
+        reduced = graph.subgraph(largest).copy()
+        reduced.graph.update(graph.graph)
+
+    nodes_after = int(reduced.number_of_nodes())
+    edges_after = int(reduced.number_of_edges())
+    stats = {
+        "method": "largest_strongly_connected",
+        "nodes_before": nodes_before,
+        "nodes_after": nodes_after,
+        "edges_before": edges_before,
+        "edges_after": edges_after,
+        "removed_nodes": nodes_before - nodes_after,
+        "removed_edges": edges_before - edges_after,
+        "strongly_connected": True,
+    }
+    return reduced, stats
 
 
 def _scalar(value: Any) -> Any:
@@ -124,6 +244,7 @@ class OsmService:
         self._lock = threading.RLock()
         self._download_lock = threading.RLock()
         self._graphs: dict[str, nx.MultiDiGraph] = {}
+        self._component_stats: dict[str, dict[str, Any]] = {}
         self._demo_manifest = self._read_json(self.datasets_dir / "processed" / "manifest.json")
         self._geocode_cache = self._read_json(self.geocode_path)
         self._demo_location_index: list[dict[str, Any]] | None = None
@@ -785,6 +906,7 @@ class OsmService:
         center: Coordinate,
         radius_m: int,
         network_type: str,
+        coverage_points: list[Coordinate] | None = None,
     ) -> str:
         if network_type == "walk" and self._demo_manifest:
             demo_center_raw = self._demo_manifest.get("center_point", [])
@@ -794,10 +916,20 @@ class OsmService:
                     latitude=float(demo_center_raw[0]),
                     longitude=float(demo_center_raw[1]),
                 )
-                if (
-                    radius_m <= demo_radius
-                    and _haversine_m(center, demo_center) <= demo_radius
-                ):
+                # 有具体访问点时，只要求这些点落在演示图内；否则要求整个
+                # 查询圆被覆盖。这样既不会把边缘点吸附到图外，也不会因为
+                # search_radius_m 的 5 km 默认值而错过可用的演示图。
+                if coverage_points:
+                    inside_demo = all(
+                        _haversine_m(point, demo_center) <= demo_radius - 10
+                        for point in coverage_points
+                    )
+                else:
+                    inside_demo = (
+                        _haversine_m(center, demo_center) + radius_m
+                        <= demo_radius + 1
+                    )
+                if inside_demo:
                     return "demo-west-lake-walk"
         offline_region = self.offline_regions.find(center, radius_m)
         return _stable_key(
@@ -857,8 +989,14 @@ class OsmService:
         center: Coordinate,
         radius_m: int,
         network_type: str,
+        coverage_points: list[Coordinate] | None = None,
     ) -> tuple[nx.MultiDiGraph, str]:
-        key = self._network_cache_key(center, radius_m, network_type)
+        key = self._network_cache_key(
+            center,
+            radius_m,
+            network_type,
+            coverage_points,
+        )
         with self._lock:
             if key in self._graphs:
                 return self._graphs[key], key
@@ -868,6 +1006,7 @@ class OsmService:
             else:
                 path = self.network_dir / f"{key}.graphml"
 
+            generated = False
             if path.is_file():
                 graph = ox.load_graphml(path)
             else:
@@ -890,20 +1029,61 @@ class OsmService:
                         ),
                         "获取区域路网",
                     )
+                generated = True
+
+            graph, stats = self._prepare_graph(graph, network_type)
+            self._component_stats[key] = stats
+            if generated:
+                path.parent.mkdir(parents=True, exist_ok=True)
                 ox.save_graphml(graph, filepath=path)
             self._graphs[key] = graph
             return graph, key
+
+    def _prepare_graph(
+        self,
+        graph: nx.MultiDiGraph,
+        network_type: str,
+    ) -> tuple[nx.MultiDiGraph, dict[str, Any]]:
+        # 已清洗的 GraphML 再次加载时，节点数已经是清洗后的值；用图属性
+        # 保留第一次清洗前的规模，避免报告里的 removed_nodes 变成 0。
+        recorded_nodes_before = int(graph.graph.get("component_nodes_before", 0) or 0)
+        recorded_edges_before = int(graph.graph.get("component_edges_before", 0) or 0)
+        reduced, stats = keep_largest_strong_component(graph)
+        if recorded_nodes_before > stats["nodes_after"]:
+            stats["nodes_before"] = recorded_nodes_before
+            stats["removed_nodes"] = recorded_nodes_before - stats["nodes_after"]
+        if recorded_edges_before > stats["edges_after"]:
+            stats["edges_before"] = recorded_edges_before
+            stats["removed_edges"] = recorded_edges_before - stats["edges_after"]
+        annotate_travel_times(reduced, network_type)
+        reduced.graph["component_nodes_before"] = stats["nodes_before"]
+        reduced.graph["component_nodes_after"] = stats["nodes_after"]
+        reduced.graph["component_edges_before"] = stats["edges_before"]
+        reduced.graph["component_edges_after"] = stats["edges_after"]
+        reduced.graph["network_type"] = network_type
+        return reduced, stats
+
+    def component_stats_for_key(self, key: str) -> dict[str, Any] | None:
+        """返回某次建图的最大强连通分量统计，供优化结果和报告引用。"""
+        with self._lock:
+            stats = self._component_stats.get(key)
+            return dict(stats) if stats is not None else None
 
     @staticmethod
     def _edge_coordinates(
         graph: nx.MultiDiGraph,
         first: int,
         second: int,
-    ) -> tuple[list[list[float]], float]:
+        weight: str = "length",
+    ) -> tuple[list[list[float]], float, float]:
         edges = graph.get_edge_data(first, second)
         if not edges:
             raise nx.NetworkXNoPath(f"道路边不存在：{first} → {second}")
-        edge = min(edges.values(), key=lambda item: float(item.get("length", math.inf)))
+        weight_attr = "travel_time_s" if weight == "time" else "length"
+        edge = min(
+            edges.values(),
+            key=lambda item: float(item.get(weight_attr, math.inf)),
+        )
         geometry = edge.get("geometry")
         if geometry is None:
             coordinates = [
@@ -923,7 +1103,15 @@ class OsmService:
             )
             if reverse_error < forward_error:
                 coordinates.reverse()
-        return coordinates, float(edge.get("length", 0.0))
+        distance = float(edge.get("length", 0.0))
+        travel_time = edge.get("travel_time_s")
+        if travel_time is None:
+            speed = float(
+                edge.get("speed_kmh")
+                or highway_speed_kmh(edge.get("highway"), "walk")
+            )
+            travel_time = distance / (speed / 3.6) if distance > 0 else 0.0
+        return coordinates, distance, float(travel_time)
 
     def plan_route(self, request: RouteRequest) -> RouteResult:
         points = [request.start, *request.waypoints, request.end]
@@ -939,7 +1127,12 @@ class OsmService:
                 f"{self.settings.max_query_radius_m}米；请缩小区域或分段规划"
             )
 
-        graph, _ = self.ensure_network(center, math.ceil(radius_m), request.network_type)
+        graph, _ = self.ensure_network(
+            center,
+            math.ceil(radius_m),
+            request.network_type,
+            coverage_points=points,
+        )
         nodes = ox.nearest_nodes(
             graph,
             X=[point.longitude for point in points],
@@ -949,38 +1142,63 @@ class OsmService:
         all_coordinates: list[list[float]] = []
         segments: list[dict[str, Any]] = []
         total_distance = 0.0
+        total_time_s = 0.0
+        weight_attr = "travel_time_s" if request.weight == "time" else "length"
         for index, (origin, destination) in enumerate(
             zip(nodes[:-1], nodes[1:], strict=True)
         ):
-            route = nx.shortest_path(graph, origin, destination, weight="length")
+            route = nx.shortest_path(graph, origin, destination, weight=weight_attr)
             segment_coordinates: list[list[float]] = []
             segment_distance = 0.0
+            segment_time_s = 0.0
             for first, second in zip(route[:-1], route[1:], strict=True):
-                coordinates, distance = self._edge_coordinates(graph, first, second)
+                coordinates, distance, travel_s = self._edge_coordinates(
+                    graph,
+                    first,
+                    second,
+                    request.weight,
+                )
                 if segment_coordinates and coordinates:
                     coordinates = coordinates[1:]
                 segment_coordinates.extend(coordinates)
                 segment_distance += distance
+                segment_time_s += travel_s
 
             if all_coordinates and segment_coordinates:
                 segment_coordinates = segment_coordinates[1:]
             all_coordinates.extend(segment_coordinates)
             total_distance += segment_distance
+            total_time_s += segment_time_s
             segments.append(
                 {
                     "index": index,
                     "distance_m": round(segment_distance, 1),
+                    "duration_min": round(segment_time_s / 60, 2),
                     "from": points[index].model_dump(),
                     "to": points[index + 1].model_dump(),
                 }
             )
 
-        duration_min = total_distance / 1000 / SPEED_KMH[request.network_type] * 60
+        if total_time_s > 0:
+            duration_min = total_time_s / 60
+        else:
+            duration_min = total_distance / 1000 / SPEED_KMH[request.network_type] * 60
+        visited_points = points
+        if (
+            request.closed_loop
+            and len(points) >= 2
+            and abs(points[0].latitude - points[-1].latitude) < 1e-9
+            and abs(points[0].longitude - points[-1].longitude) < 1e-9
+        ):
+            visited_points = points[:-1]
         return RouteResult(
             distance_m=round(total_distance, 1),
             estimated_duration_min=round(duration_min, 1),
             network_type=request.network_type,
-            visited_points=points,
+            weight=request.weight,
+            closed_loop=request.closed_loop,
+            speed_profile=SPEED_PROFILE_ID,
+            visited_points=visited_points,
             geometry={
                 "type": "LineString",
                 "coordinates": all_coordinates,
@@ -1008,6 +1226,7 @@ class OsmService:
                         end=points[-1],
                         waypoints=points[1:-1],
                         network_type=request.network_type,
+                        weight=request.weight,
                         search_radius_m=request.search_radius_m,
                     )
                 )
@@ -1035,8 +1254,10 @@ class OsmService:
         return {
             "cache_key": cache_key,
             "network_type": request.network_type,
+            "speed_profile": SPEED_PROFILE_ID,
             "node_count": graph.number_of_nodes(),
             "edge_count": graph.number_of_edges(),
+            "component": self.component_stats_for_key(cache_key),
             "poi_count": pois.total,
             "poi_source": pois.source,
             "attribution": "© OpenStreetMap contributors",

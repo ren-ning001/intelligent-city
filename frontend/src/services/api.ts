@@ -7,8 +7,12 @@ import type {
   GeocodeResult,
   HealthStatus,
   LocationSearchResult,
+  NetworkType,
+  OptimizeResult,
   PoiSearchResult,
+  RouteContext,
   RouteResult,
+  WeightKind,
 } from '../types'
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? ''
@@ -64,10 +68,46 @@ export const searchPois = (
     }),
   })
 
+export interface OptimizeOptions {
+  weight?: WeightKind
+  closedLoop?: boolean
+  networkType?: NetworkType
+  searchRadiusM?: number
+}
+
+export const optimizeRoute = (
+  start: Coordinate,
+  attractions: Coordinate[],
+  startName = '起点',
+  attractionNames: string[] = [],
+  options: OptimizeOptions = {},
+) =>
+  request<OptimizeResult>('/api/routes/optimize', {
+    method: 'POST',
+    body: JSON.stringify({
+      start,
+      start_name: startName,
+      attractions,
+      attraction_names: attractionNames,
+      weight: options.weight ?? 'length',
+      closed_loop: options.closedLoop ?? false,
+      network_type: options.networkType ?? 'walk',
+      search_radius_m: options.searchRadiusM ?? 5000,
+    }),
+  })
+
+export interface PlanOptions {
+  weight?: WeightKind
+  closedLoop?: boolean
+  networkType?: NetworkType
+  searchRadiusM?: number
+}
+
 export const planRoute = (
   start: Coordinate,
   end: Coordinate,
   waypoints: Coordinate[] = [],
+  options: PlanOptions = {},
 ) =>
   request<RouteResult>('/api/routes/plan', {
     method: 'POST',
@@ -75,8 +115,10 @@ export const planRoute = (
       start,
       end,
       waypoints,
-      network_type: 'walk',
-      search_radius_m: 5000,
+      network_type: options.networkType ?? 'walk',
+      weight: options.weight ?? 'length',
+      closed_loop: options.closedLoop ?? false,
+      search_radius_m: options.searchRadiusM ?? 5000,
     }),
   })
 
@@ -91,11 +133,16 @@ export async function streamAgentChat(
   message: string,
   sessionId: string,
   callbacks: StreamCallbacks,
+  routeContext: RouteContext | null = null,
 ): Promise<void> {
   const response = await fetch(`${API_BASE}/api/agent/chat/stream`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ message, session_id: sessionId }),
+    body: JSON.stringify({
+      message,
+      session_id: sessionId,
+      route_context: routeContext ?? undefined,
+    }),
   })
   if (!response.ok || !response.body) {
     const payload = await response.json().catch(() => ({ detail: response.statusText }))

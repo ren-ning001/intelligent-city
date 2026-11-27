@@ -1,0 +1,144 @@
+{
+  "matrix_key": "e3c68c5229b949183a74",
+  "matrix_version": 2,
+  "network_cache_key": "47f4fac52f1ef5b84b2b",
+  "network_type": "walk",
+  "speed_profile": "highway-speed-v1",
+  "weights": [
+    "length",
+    "time"
+  ],
+  "network_m": [
+    [
+      0.0,
+      12552.852,
+      7702.198
+    ],
+    [
+      12552.852,
+      0.0,
+      10592.552
+    ],
+    [
+      7702.198,
+      10592.552,
+      0.0
+    ]
+  ],
+  "travel_s": [
+    [
+      0.0,
+      9414.646,
+      5779.25
+    ],
+    [
+      9414.644,
+      0.0,
+      7944.416
+    ],
+    [
+      5779.249,
+      7944.417,
+      0.0
+    ]
+  ],
+  "straight_m": [
+    [
+      0.0,
+      11786.866,
+      6197.71
+    ],
+    [
+      11786.866,
+      0.0,
+      8879.412
+    ],
+    [
+      6197.71,
+      8879.412,
+      0.0
+    ]
+  ],
+  "unreachable": [],
+  "pairs": [
+    {
+      "from_index": 0,
+      "to_index": 1,
+      "from_name": "华东师大（上海市离线数据）",
+      "to_name": "复旦大学（上海市离线数据）",
+      "network_m": 12552.852,
+      "travel_s": 9414.646,
+      "straight_m": 11786.866,
+      "ratio": 1.065
+    },
+    {
+      "from_index": 0,
+      "to_index": 2,
+      "from_name": "华东师大（上海市离线数据）",
+      "to_name": "新天地（上海市离线数据）",
+      "network_m": 7702.198,
+      "travel_s": 5779.25,
+      "straight_m": 6197.71,
+      "ratio": 1.2427
+    },
+    {
+      "from_index": 1,
+      "to_index": 2,
+      "from_name": "复旦大学（上海市离线数据）",
+      "to_name": "新天地（上海市离线数据）",
+      "network_m": 10592.552,
+      "travel_s": 7944.416,
+      "straight_m": 8879.412,
+      "ratio": 1.1929
+    }
+  ],
+  "snap": [
+    {
+      "index": 0,
+      "role": "start",
+      "name": "华东师大（上海市离线数据）",
+      "latitude": 31.2307802,
+      "longitude": 121.4053201,
+      "node_id": 565245039,
+      "snap_distance_m": 28.1
+    },
+    {
+      "index": 1,
+      "role": "attraction",
+      "name": "复旦大学（上海市离线数据）",
+      "latitude": 31.2988024,
+      "longitude": 121.50043,
+      "node_id": 600134645,
+      "snap_distance_m": 31.8
+    },
+    {
+      "index": 2,
+      "role": "attraction",
+      "name": "新天地（上海市离线数据）",
+      "latitude": 31.2233283,
+      "longitude": 121.4699156,
+      "node_id": 2629524985,
+      "snap_distance_m": 6.7
+    }
+  ],
+  "straight_line": {
+    "pair_count": 6,
+    "mean_ratio": 1.1669,
+    "min_ratio": 1.065,
+    "max_ratio": 1.2427
+  },
+  "matrix_build_ms": 707.529200008139,
+  "matrix_lookup_ms": 0.0,
+  "matrix_elapsed_ms": 707.529200008139,
+  "cache_hit": false,
+  "component": {
+    "method": "largest_strongly_connected",
+    "nodes_before": 24697,
+    "nodes_after": 24697,
+    "edges_before": 70240,
+    "edges_after": 70240,
+    "removed_nodes": 0,
+    "removed_edges": 0,
+    "strongly_connected": true
+  }
+}

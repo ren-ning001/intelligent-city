@@ -17,6 +17,7 @@ DSH Agent
 mcp__zyourroad__geocode_location
 mcp__zyourroad__search_tourism_pois
 mcp__zyourroad__plan_walking_route
+mcp__zyourroad__optimize_itinerary_order
 mcp__zyourroad__publish_tourism_itinerary
 mcp__zyourroad__prepare_osm_region
 ```

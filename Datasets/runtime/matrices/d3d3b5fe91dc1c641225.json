@@ -1,0 +1,210 @@
+{
+  "matrix_key": "d3d3b5fe91dc1c641225",
+  "matrix_version": 2,
+  "network_cache_key": "demo-west-lake-walk",
+  "network_type": "walk",
+  "speed_profile": "highway-speed-v1",
+  "weights": [
+    "length",
+    "time"
+  ],
+  "network_m": [
+    [
+      0.0,
+      1018.552,
+      1406.512,
+      1659.78
+    ],
+    [
+      1018.552,
+      0.0,
+      444.791,
+      698.058
+    ],
+    [
+      1406.512,
+      444.791,
+      0.0,
+      509.124
+    ],
+    [
+      1659.78,
+      698.058,
+      509.124,
+      0.0
+    ]
+  ],
+  "travel_s": [
+    [
+      0.0,
+      763.914,
+      1068.461,
+      1265.921
+    ],
+    [
+      763.914,
+      0.0,
+      346.327,
+      543.787
+    ],
+    [
+      1068.461,
+      346.327,
+      0.0,
+      396.388
+    ],
+    [
+      1265.921,
+      543.787,
+      396.388,
+      0.0
+    ]
+  ],
+  "straight_m": [
+    [
+      0.0,
+      984.658,
+      1212.889,
+      1497.913
+    ],
+    [
+      984.658,
+      0.0,
+      281.914,
+      607.904
+    ],
+    [
+      1212.889,
+      281.914,
+      0.0,
+      326.003
+    ],
+    [
+      1497.913,
+      607.904,
+      326.003,
+      0.0
+    ]
+  ],
+  "unreachable": [],
+  "pairs": [
+    {
+      "from_index": 0,
+      "to_index": 1,
+      "from_name": "起点",
+      "to_name": "平湖秋月",
+      "network_m": 1018.552,
+      "travel_s": 763.914,
+      "straight_m": 984.658,
+      "ratio": 1.0344
+    },
+    {
+      "from_index": 0,
+      "to_index": 2,
+      "from_name": "起点",
+      "to_name": "浙江省博物馆",
+      "network_m": 1406.512,
+      "travel_s": 1068.461,
+      "straight_m": 1212.889,
+      "ratio": 1.1596
+    },
+    {
+      "from_index": 0,
+      "to_index": 3,
+      "from_name": "起点",
+      "to_name": "西泠印社",
+      "network_m": 1659.78,
+      "travel_s": 1265.921,
+      "straight_m": 1497.913,
+      "ratio": 1.1081
+    },
+    {
+      "from_index": 1,
+      "to_index": 2,
+      "from_name": "平湖秋月",
+      "to_name": "浙江省博物馆",
+      "network_m": 444.791,
+      "travel_s": 346.327,
+      "straight_m": 281.914,
+      "ratio": 1.5778
+    },
+    {
+      "from_index": 1,
+      "to_index": 3,
+      "from_name": "平湖秋月",
+      "to_name": "西泠印社",
+      "network_m": 698.058,
+      "travel_s": 543.787,
+      "straight_m": 607.904,
+      "ratio": 1.1483
+    },
+    {
+      "from_index": 2,
+      "to_index": 3,
+      "from_name": "浙江省博物馆",
+      "to_name": "西泠印社",
+      "network_m": 509.124,
+      "travel_s": 396.388,
+      "straight_m": 326.003,
+      "ratio": 1.5617
+    }
+  ],
+  "snap": [
+    {
+      "index": 0,
+      "role": "start",
+      "name": "起点",
+      "latitude": 30.261531,
+      "longitude": 120.147367,
+      "node_id": 27271890,
+      "snap_distance_m": 15.6
+    },
+    {
+      "index": 1,
+      "role": "attraction",
+      "name": "平湖秋月",
+      "latitude": 30.2542019,
+      "longitude": 120.1416133,
+      "node_id": 13482813347,
+      "snap_distance_m": 28.5
+    },
+    {
+      "index": 2,
+      "role": "attraction",
+      "name": "浙江省博物馆",
+      "latitude": 30.2535309,
+      "longitude": 120.1387829,
+      "node_id": 14357646169,
+      "snap_distance_m": 26.8
+    },
+    {
+      "index": 3,
+      "role": "attraction",
+      "name": "西泠印社",
+      "latitude": 30.252792,
+      "longitude": 120.1354984,
+      "node_id": 5297337700,
+      "snap_distance_m": 3.8
+    }
+  ],
+  "straight_line": {
+    "pair_count": 12,
+    "mean_ratio": 1.265,
+    "min_ratio": 1.0344,
+    "max_ratio": 1.5778
+  },
+  "matrix_build_ms": 574.7874000226147,
+  "matrix_lookup_ms": 0.0,
+  "matrix_elapsed_ms": 574.7874000226147,
+  "cache_hit": false,
+  "component": {
+    "method": "largest_strongly_connected",
+    "nodes_before": 15006,
+    "nodes_after": 15006,
+    "edges_before": 42224,
+    "edges_after": 42224,
+    "removed_nodes": 0,
+    "removed_edges": 0,
+    "strongly_connected": true
+  }
+}

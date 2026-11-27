@@ -60,6 +60,9 @@ def merge_route_results(routes: list[RouteResult]) -> RouteResult | None:
             1,
         ),
         network_type=routes[0].network_type,
+        weight=routes[0].weight,
+        closed_loop=False,
+        speed_profile=routes[0].speed_profile,
         visited_points=visited,
         geometry={
             "type": "MultiLineString",

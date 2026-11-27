@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import {
   ArrowDown,
   ArrowUp,
   Compass,
+  Download,
   Footprints,
   ListPlus,
   MapPinned,
@@ -11,20 +12,58 @@ import {
   Sparkles,
   X,
 } from 'lucide-vue-next'
-import type { GeocodeResult, PoiFeature, RouteResult } from '../types'
+import type {
+  AlgorithmName,
+  Coordinate,
+  GeocodeResult,
+  OptimizeResult,
+  PoiFeature,
+  RouteResult,
+  WeightKind,
+} from '../types'
+import {
+  comparisonCsv,
+  downloadText,
+  exportStamp,
+  pairsCsv,
+  routeGeoJson,
+  routeGpx,
+} from '../utils/export'
 import LocationSearchInput from './LocationSearchInput.vue'
 
 type PlannerMode = 'endpoints' | 'places'
 
 const props = defineProps<{
   loading: boolean
+  optimizing?: boolean
   route: RouteResult | null
-  poiCount: number
+  pois?: PoiFeature[]
+  poiCount: number | null
   dataSource: string
+  comparison?: OptimizeResult | null
+  selectedAlgorithm?: AlgorithmName | ''
 }>()
 
 const emit = defineEmits<{
-  plan: [payload: { points: GeocodeResult[]; categories: string[] }]
+  plan: [payload: {
+    points: GeocodeResult[]
+    categories: string[]
+    weight: WeightKind
+  }]
+  optimize: [payload: {
+    start: GeocodeResult
+    attractions: GeocodeResult[]
+    categories: string[]
+    weight: WeightKind
+    closedLoop: boolean
+  }]
+  replan: [payload: {
+    points: GeocodeResult[]
+    categories: string[]
+    weight: WeightKind
+    closedLoop: boolean
+  }]
+  selectAlgorithm: [algorithm: AlgorithmName]
 }>()
 
 const mode = ref<PlannerMode>('endpoints')
@@ -33,8 +72,21 @@ const end = ref<GeocodeResult | null>(null)
 const waypoints = ref<GeocodeResult[]>([])
 const places = ref<GeocodeResult[]>([])
 const returnToStart = ref(false)
+interface RemovalStop {
+  point: GeocodeResult
+  name: string
+  key: string
+}
+
+const weight = ref<WeightKind>('length')
+const routeStops = ref<RemovalStop[]>([])
+const removedStopKeys = ref<string[]>([])
+const preserveRemoval = ref(false)
+const hasAppliedRemoval = ref(false)
 const startKey = ref(0)
 const endKey = ref(0)
+const waypointKey = ref(0)
+const placeKey = ref(0)
 
 const categoryOptions = [
   { value: 'attraction', label: '景点' },
@@ -63,8 +115,156 @@ const canSubmit = computed(() =>
     ? Boolean(start.value && end.value)
     : places.value.length >= 2,
 )
+const optimizeSelection = computed(() => {
+  if (mode.value === 'endpoints') {
+    if (!start.value) return null
+    const attractions: GeocodeResult[] = []
+    waypoints.value.forEach((point) => addUnique(attractions, point))
+    if (end.value && !sameLocation(start.value, end.value)) {
+      addUnique(attractions, end.value)
+    }
+    return { start: start.value, attractions }
+  }
+  const [first, ...rest] = places.value
+  if (!first) return null
+  const attractions: GeocodeResult[] = []
+  rest.forEach((point) => addUnique(attractions, point))
+  return { start: first, attractions }
+})
+const canOptimize = computed(() => {
+  const count = optimizeSelection.value?.attractions.length ?? 0
+  return count >= 2 && count <= 15
+})
+const selectedSolution = computed(() =>
+  props.comparison?.algorithms.find((item) => item.algorithm === props.selectedAlgorithm) ?? null,
+)
+const maxSnapDistance = computed(() => {
+  const distances = props.comparison?.snap.map((item) => item.snap_distance_m) ?? []
+  if (!distances.length) return null
+  return Math.max(...distances).toFixed(0)
+})
+
+const isClosedRoute = computed(() => {
+  const current = props.route
+  if (!current) return false
+  if (current.closed_loop) return true
+  const points = current.visited_points
+  return Boolean(
+    points.length > 1
+    && sameCoordinate(points[0]!, points[points.length - 1]!),
+  )
+})
+
+function buildRouteStops(current: RouteResult | null): RemovalStop[] {
+  if (!current) return []
+  const unique: Coordinate[] = []
+  current.visited_points.forEach((point) => {
+    const previous = unique[unique.length - 1]
+    if (!previous || !sameCoordinate(previous, point)) unique.push(point)
+  })
+  if (unique.length > 1 && sameCoordinate(unique[0]!, unique[unique.length - 1]!)) {
+    unique.pop()
+  }
+
+  const solution = selectedSolution.value
+  const startName = props.comparison?.snap[0]?.name
+  let names: string[]
+  if (solution && startName && solution.names.length === unique.length - 1) {
+    names = [startName, ...solution.names]
+  } else {
+    names = unique.map((point, index) => {
+      const matched = activePoints.value.find((item) => sameCoordinate(item, point))
+      if (matched) return shortName(matched)
+      const poi = props.pois?.find((item) => sameCoordinate(item, point))
+      return poi?.name ?? `地点${index + 1}`
+    })
+  }
+
+  return unique.map((point, index) => ({
+    point: {
+      query: names[index]!,
+      display_name: names[index]!,
+      latitude: point.latitude,
+      longitude: point.longitude,
+    },
+    name: names[index]!,
+    key: `${index}-${point.latitude.toFixed(6)}-${point.longitude.toFixed(6)}`,
+  }))
+}
+
+const remainingStops = computed(() =>
+  routeStops.value.filter((stop) => !removedStopKeys.value.includes(stop.key)),
+)
+const removedCount = computed(() => removedStopKeys.value.length)
+
+watch(() => props.route, (current) => {
+  if (preserveRemoval.value) {
+    preserveRemoval.value = false
+    return
+  }
+  routeStops.value = buildRouteStops(current)
+  removedStopKeys.value = []
+  hasAppliedRemoval.value = false
+}, { immediate: true })
+
+// If a replan fails, the route watcher never consumes preserveRemoval. Clear it
+// shortly after loading ends so a later external plan rebuilds the base list.
+watch(() => props.loading, (loading) => {
+  if (loading) return
+  window.setTimeout(() => {
+    preserveRemoval.value = false
+  }, 250)
+})
+
+function toggleRemoval(key: string) {
+  removedStopKeys.value = removedStopKeys.value.includes(key)
+    ? removedStopKeys.value.filter((item) => item !== key)
+    : [...removedStopKeys.value, key]
+}
+
+function clearRemoval() {
+  removedStopKeys.value = []
+}
+
+function applyRemoval() {
+  const remaining = remainingStops.value
+  if (props.loading || remaining.length < 2) return
+  if (!removedCount.value && !hasAppliedRemoval.value) return
+  const points = remaining.map((stop) => stop.point)
+  const restoringAll = removedCount.value === 0
+  const closed = isClosedRoute.value
+  if (mode.value === 'places') {
+    places.value = points
+    returnToStart.value = closed
+  } else {
+    start.value = points[0]!
+    end.value = closed ? points[0]! : points[points.length - 1]!
+    waypoints.value = closed ? points.slice(1) : points.slice(1, -1)
+    startKey.value += 1
+    endKey.value += 1
+  }
+  waypointKey.value += 1
+  placeKey.value += 1
+  preserveRemoval.value = true
+  hasAppliedRemoval.value = !restoringAll
+  emit('replan', {
+    points,
+    categories: selected.value.length ? selected.value : ['attraction'],
+    weight: weight.value,
+    closedLoop: closed,
+  })
+  // If the request fails, the route watcher never consumes the flag. Clear it
+  // later so a future external plan does not skip rebuilding the base list.
+  window.setTimeout(() => {
+    preserveRemoval.value = false
+  }, 120_000)
+}
 
 function sameLocation(first: GeocodeResult, second: GeocodeResult) {
+  return sameCoordinate(first, second)
+}
+
+function sameCoordinate(first: Coordinate, second: Coordinate) {
   return (
     Math.abs(first.latitude - second.latitude) < 0.000001
     && Math.abs(first.longitude - second.longitude) < 0.000001
@@ -123,6 +323,89 @@ function toggleCategory(value: string) {
     : [...selected.value, value]
 }
 
+function segmentText(index: number, distanceM: number, durationMin?: number) {
+  const distance = `${(distanceM / 1000).toFixed(2)} km`
+  const duration = durationMin === undefined ? '' : ` · ${Math.round(durationMin)} min`
+  const solution = selectedSolution.value
+  const startName = props.comparison?.snap[0]?.name
+  if (!solution || !startName || index > solution.names.length) {
+    return `第 ${index + 1} 段 ${distance}${duration}`
+  }
+  const from = index === 0 ? startName : solution.names[index - 1]
+  const to = index >= solution.names.length ? startName : solution.names[index]
+  return `${from} → ${to} ${distance}${duration}`
+}
+
+function formatGap(value: number | null) {
+  if (value === null) return '无精确解'
+  return `${value.toFixed(2)}%`
+}
+
+function formatCost(item: OptimizeResult['algorithms'][number]) {
+  if (item.cost_unit === 's') return `${(item.cost / 60).toFixed(1)} min`
+  return `${(item.cost / 1000).toFixed(2)} km`
+}
+
+function routeNames() {
+  const startName = props.comparison?.snap[0]?.name ?? '起点'
+  const names = selectedSolution.value?.names ?? []
+  return [startName, ...names]
+}
+
+function exportComparison() {
+  if (!props.comparison) return
+  downloadText(
+    `zyourroad-${exportStamp()}-compare.csv`,
+    comparisonCsv(props.comparison),
+    'text/csv;charset=utf-8',
+  )
+}
+
+function exportPairs() {
+  if (!props.comparison) return
+  downloadText(
+    `zyourroad-${exportStamp()}-pairs.csv`,
+    pairsCsv(props.comparison),
+    'text/csv;charset=utf-8',
+  )
+}
+
+function exportGeoJson() {
+  if (!props.route) return
+  downloadText(
+    `zyourroad-${exportStamp()}-route.geojson`,
+    routeGeoJson(props.route, routeNames()),
+    'application/geo+json;charset=utf-8',
+  )
+}
+
+function exportGpx() {
+  if (!props.route) return
+  downloadText(
+    `zyourroad-${exportStamp()}-route.gpx`,
+    routeGpx(props.route),
+    'application/gpx+xml;charset=utf-8',
+  )
+}
+
+function submitOptimize() {
+  if (!canOptimize.value || props.loading || props.optimizing) return
+  const selection = optimizeSelection.value
+  if (!selection) return
+  const closedLoop = (mode.value === 'places' && returnToStart.value)
+    || (
+      mode.value === 'endpoints'
+      && Boolean(start.value && end.value && sameLocation(start.value, end.value))
+    )
+  emit('optimize', {
+    start: selection.start,
+    attractions: selection.attractions,
+    categories: selected.value.length ? selected.value : ['attraction'],
+    weight: weight.value,
+    closedLoop,
+  })
+}
+
 function submit() {
   if (!canSubmit.value || props.loading) return
   const points = [...activePoints.value]
@@ -132,6 +415,7 @@ function submit() {
   emit('plan', {
     points,
     categories: selected.value.length ? selected.value : ['attraction'],
+    weight: weight.value,
   })
 }
 
@@ -209,6 +493,7 @@ defineExpose({ addPoi })
       <div class="planner-field">
         <span class="field-label">途经点（可选）</span>
         <LocationSearchInput
+          :key="`waypoint-${waypointKey}`"
           placeholder="搜索景点，或从地图POI卡片加入"
           @select="addWaypoint"
         />
@@ -245,6 +530,7 @@ defineExpose({ addPoi })
       <div class="planner-field">
         <span class="field-label">添加游览地点</span>
         <LocationSearchInput
+          :key="`place-${placeKey}`"
           placeholder="例如：断桥残雪、苏堤春晓"
           @select="addPlace"
         />
@@ -298,6 +584,33 @@ defineExpose({ addPoi })
       </div>
     </div>
 
+    <div class="weight-section">
+      <span class="field-label">路线代价口径</span>
+      <div class="weight-toggle">
+        <button
+          type="button"
+          :class="{ active: weight === 'length' }"
+          @click="weight = 'length'"
+        >
+          距离优先
+        </button>
+        <button
+          type="button"
+          :class="{ active: weight === 'time' }"
+          @click="weight = 'time'"
+        >
+          时间优先
+        </button>
+      </div>
+      <p class="optimize-hint">
+        {{
+          weight === 'time'
+            ? '按道路等级估速选择路径，不是实时路况；结果同时报告公里数。'
+            : '按路网长度最短选择路径；预计时间由同一路径的道路等级估速得到。'
+        }}
+      </p>
+    </div>
+
     <button class="plan-button" type="button" :disabled="loading || !canSubmit" @click="submit">
       <span class="button-shine" />
       <Sparkles v-if="!loading" :size="18" />
@@ -313,19 +626,165 @@ defineExpose({ addPoi })
       }}
     </button>
 
+    <button
+      class="optimize-button"
+      type="button"
+      :disabled="props.loading || props.optimizing || !canOptimize"
+      @click="submitOptimize"
+    >
+      <span v-if="props.optimizing" class="spinner spinner--blue" />
+      {{
+        props.optimizing
+          ? '正在计算代价矩阵…'
+          : canOptimize
+            ? '优化访问顺序'
+            : '优化需要起点和2至15个景点'
+      }}
+    </button>
+    <p class="optimize-hint">
+      {{
+        mode === 'places' && returnToStart
+          ? '固定起点、最后回到起点的闭环行程。'
+          : '固定起点的开放行程，不返回起点。'
+      }}
+      终点和途经点都作为待排序景点；当前为
+      {{ weight === 'time' ? '时间口径' : '距离口径' }}。
+    </p>
+
+    <div v-if="comparison?.algorithms.length" class="comparison">
+      <div class="comparison-head">
+        <span>
+          {{ comparison.weight === 'time' ? '时间口径' : '距离口径' }}
+          · {{ comparison.closed_loop ? '闭环' : '开放' }}
+        </span>
+        <span>
+          {{ comparison.cache_hit ? '缓存命中' : '矩阵构建' }}
+          {{ comparison.matrix_elapsed_ms.toFixed(0) }} ms
+        </span>
+      </div>
+      <button
+        v-for="item in comparison.algorithms"
+        :key="item.algorithm"
+        type="button"
+        class="comparison-row"
+        :class="{ active: item.algorithm === selectedAlgorithm }"
+        @click="emit('selectAlgorithm', item.algorithm)"
+      >
+        <strong>{{ item.label }}</strong>
+        <span>{{ formatCost(item) }}</span>
+        <span>{{ item.elapsed_ms.toFixed(1) }} ms</span>
+        <span>Gap {{ formatGap(item.gap_percent) }}</span>
+        <small>{{ item.names.join(' → ') }}</small>
+        <small v-if="item.improvement_percent !== null">
+          2-opt 改进 {{ item.improvement_percent.toFixed(2) }}%
+        </small>
+      </button>
+      <p class="optimize-hint">
+        路网距离 / 直线距离平均
+        {{ comparison.straight_line.mean_ratio?.toFixed(2) ?? '—' }}
+        <template v-if="maxSnapDistance !== null">，最大映射 {{ maxSnapDistance }} m</template>
+        <template v-if="comparison.component">
+          ，强连通清洗剔除 {{ comparison.component.removed_nodes }} 个节点 /
+          {{ comparison.component.removed_edges }} 条边
+        </template>
+      </p>
+      <p v-if="comparison.cache_hit && comparison.matrix_build_ms" class="optimize-hint">
+        首次构建矩阵 {{ comparison.matrix_build_ms.toFixed(0) }} ms，本次读取
+        {{ comparison.matrix_lookup_ms.toFixed(1) }} ms。
+      </p>
+      <div class="export-row">
+        <button type="button" @click="exportComparison">
+          <Download :size="11" />对照 CSV
+        </button>
+        <button type="button" @click="exportPairs">
+          <Download :size="11" />距离明细 CSV
+        </button>
+        <button type="button" @click="exportGeoJson">
+          <Download :size="11" />路线 GeoJSON
+        </button>
+        <button type="button" @click="exportGpx">
+          <Download :size="11" />路线 GPX
+        </button>
+      </div>
+    </div>
+
     <div class="metric-grid">
       <div class="metric-card">
         <span>总距离</span>
         <strong>{{ distance }}</strong>
       </div>
       <div class="metric-card">
-        <span>步行时间</span>
+        <span>{{ route?.weight === 'time' ? '预计时间' : '步行时间' }}</span>
         <strong>{{ duration }}</strong>
       </div>
       <div class="metric-card">
         <span>周边POI</span>
-        <strong>{{ poiCount || '—' }}</strong>
+        <strong>{{ poiCount ?? '—' }}</strong>
       </div>
+    </div>
+
+    <ol v-if="route?.segments.length" class="segment-list">
+      <li v-for="segment in route.segments" :key="segment.index">
+        {{ segmentText(segment.index, segment.distance_m, segment.duration_min) }}
+      </li>
+    </ol>
+
+    <div v-if="route && !comparison" class="export-row">
+      <button type="button" @click="exportGeoJson">
+        <Download :size="11" />路线 GeoJSON
+      </button>
+      <button type="button" @click="exportGpx">
+        <Download :size="11" />路线 GPX
+      </button>
+    </div>
+
+    <div v-if="routeStops.length > 2" class="removal-section">
+      <div class="removal-head">
+        <span>路线地点</span>
+        <small>勾选要移出本次规划的地点</small>
+      </div>
+      <div class="removal-list">
+        <label
+          v-for="(stop, index) in routeStops"
+          :key="stop.key"
+          class="removal-item"
+          :class="{ removed: removedStopKeys.includes(stop.key) }"
+        >
+          <input
+            type="checkbox"
+            :checked="removedStopKeys.includes(stop.key)"
+            @change="toggleRemoval(stop.key)"
+          />
+          <b>{{ index + 1 }}</b>
+          <span>{{ stop.name }}</span>
+          <em v-if="removedStopKeys.includes(stop.key)">移出</em>
+        </label>
+      </div>
+      <div class="removal-actions">
+        <button
+          type="button"
+          :disabled="props.loading
+            || remainingStops.length < 2
+            || (!removedCount && !hasAppliedRemoval)"
+          @click="applyRemoval"
+        >
+          {{
+            props.loading
+              ? '正在重算保留地点…'
+              : removedCount
+                ? `仅规划保留的 ${remainingStops.length} 个地点`
+                : hasAppliedRemoval
+                  ? `恢复全部 ${remainingStops.length} 个地点并重规划`
+                  : `仅规划保留的 ${remainingStops.length} 个地点`
+          }}
+        </button>
+        <button v-if="removedCount" type="button" class="removal-clear" @click="clearRemoval">
+          清空选择
+        </button>
+      </div>
+      <p class="optimize-hint">
+        暗色：原路线与已移出地点；亮色：当前保留路线。重合路段显示新路线。
+      </p>
     </div>
 
     <div class="data-footnote">
@@ -667,6 +1126,60 @@ h1 {
   box-shadow: inset 0 0 18px rgba(77, 107, 254, 0.05);
 }
 
+.weight-section { margin-top: 14px; }
+
+.weight-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  padding: 4px;
+  border: 1px solid rgba(77, 107, 254, 0.12);
+  border-radius: 11px;
+  background: rgba(77, 107, 254, 0.045);
+}
+
+.weight-toggle button {
+  height: 30px;
+  color: rgba(37, 58, 111, 0.56);
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 10px;
+  font-weight: 650;
+  transition: 180ms ease;
+}
+
+.weight-toggle button.active {
+  color: #2949ad;
+  background: rgba(77, 107, 254, 0.14);
+  box-shadow: inset 0 0 16px rgba(77, 107, 254, 0.05);
+}
+
+.export-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.export-row button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 9px;
+  color: rgba(35, 56, 108, 0.62);
+  border: 1px solid rgba(77, 107, 254, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 9px;
+}
+
+.export-row button:hover {
+  color: #2949ad;
+  border-color: rgba(77, 107, 254, 0.32);
+  background: rgba(77, 107, 254, 0.08);
+}
+
 .plan-button {
   position: relative;
   display: flex;
@@ -692,6 +1205,95 @@ h1 {
 }
 
 .plan-button:disabled { cursor: progress; opacity: 0.82; }
+
+.optimize-button {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  color: #2949ad;
+  border: 1px solid rgba(77, 107, 254, 0.28);
+  border-radius: 12px;
+  background: rgba(77, 107, 254, 0.06);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.optimize-button:disabled { cursor: not-allowed; opacity: 0.55; }
+
+.optimize-hint {
+  margin: 8px 2px 0;
+  color: rgba(38, 58, 108, 0.5);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.comparison {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.comparison-head,
+.comparison-row {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr 0.7fr 0.8fr;
+  gap: 4px 8px;
+  align-items: center;
+}
+
+.comparison-head {
+  color: rgba(38, 58, 108, 0.48);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+}
+
+.comparison-row {
+  padding: 8px;
+  border: 1px solid rgba(77, 107, 254, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.45);
+  text-align: left;
+}
+
+.comparison-row strong,
+.comparison-row span {
+  color: #1f387c;
+  font-size: 11px;
+}
+
+.comparison-row small {
+  grid-column: 1 / -1;
+  color: rgba(38, 58, 108, 0.62);
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.comparison-row.active {
+  border-color: rgba(77, 107, 254, 0.45);
+  background: rgba(77, 107, 254, 0.1);
+}
+
+.segment-list {
+  display: grid;
+  gap: 4px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.segment-list li {
+  color: rgba(31, 56, 124, 0.78);
+  font-size: 11px;
+}
+
+.spinner--blue {
+  border-color: rgba(41, 73, 173, 0.25);
+  border-top-color: #2949ad;
+}
 .button-shine {
   position: absolute;
   top: -50%;
@@ -737,6 +1339,123 @@ h1 {
   margin-top: 3px;
   color: #1f387c;
   font-size: 14px;
+}
+
+.removal-section {
+  margin-top: 14px;
+  padding: 10px;
+  border: 1px solid rgba(77, 107, 254, 0.12);
+  border-radius: 12px;
+  background: rgba(77, 107, 254, 0.035);
+}
+
+.removal-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+
+.removal-head span {
+  color: #1f387c;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.removal-head small {
+  color: rgba(38, 58, 108, 0.48);
+  font-size: 9px;
+}
+
+.removal-list {
+  display: grid;
+  max-height: 164px;
+  gap: 4px;
+  overflow-y: auto;
+}
+
+.removal-item {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 7px;
+  border: 1px solid rgba(77, 107, 254, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.48);
+  transition: 160ms ease;
+}
+
+.removal-item.removed {
+  border-color: rgba(120, 130, 155, 0.24);
+  background: rgba(120, 130, 155, 0.1);
+  opacity: 0.72;
+}
+
+.removal-item input {
+  flex: 0 0 auto;
+  accent-color: #4d6bfe;
+}
+
+.removal-item b {
+  display: grid;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  place-items: center;
+  color: #fff;
+  border-radius: 6px;
+  background: #607df5;
+  font-size: 8px;
+}
+
+.removal-item.removed b {
+  background: #8690a8;
+}
+
+.removal-item span {
+  overflow: hidden;
+  flex: 1;
+  color: rgba(29, 49, 98, 0.78);
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.removal-item em {
+  color: #7c879e;
+  font-size: 8px;
+  font-style: normal;
+}
+
+.removal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.removal-actions button {
+  padding: 7px 10px;
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  background: linear-gradient(105deg, #3f5ee9, #6683ff);
+  font-size: 9px;
+  font-weight: 650;
+}
+
+.removal-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.removal-actions .removal-clear {
+  color: rgba(35, 56, 108, 0.62);
+  border: 1px solid rgba(77, 107, 254, 0.14);
+  background: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
 }
 
 .data-footnote {

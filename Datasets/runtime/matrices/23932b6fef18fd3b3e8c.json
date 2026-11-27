@@ -1,0 +1,390 @@
+{
+  "matrix_key": "23932b6fef18fd3b3e8c",
+  "matrix_version": 2,
+  "network_cache_key": "6e0264c2990c31e6ea12",
+  "network_type": "walk",
+  "speed_profile": "highway-speed-v1",
+  "weights": [
+    "length",
+    "time"
+  ],
+  "network_m": [
+    [
+      0.0,
+      5543.002,
+      8021.392,
+      10178.808,
+      5940.523,
+      13090.131
+    ],
+    [
+      5543.002,
+      0.0,
+      5022.638,
+      9249.741,
+      688.133,
+      15010.806
+    ],
+    [
+      8021.392,
+      5022.638,
+      0.0,
+      4513.495,
+      5117.827,
+      10592.552
+    ],
+    [
+      10178.808,
+      9249.741,
+      4513.495,
+      0.0,
+      9344.93,
+      7351.295
+    ],
+    [
+      5940.523,
+      688.133,
+      5117.827,
+      9344.93,
+      0.0,
+      15105.995
+    ],
+    [
+      13090.131,
+      15010.806,
+      10592.552,
+      7351.295,
+      15105.995,
+      0.0
+    ]
+  ],
+  "travel_s": [
+    [
+      0.0,
+      4172.249,
+      6032.896,
+      7678.186,
+      4470.391,
+      9831.855
+    ],
+    [
+      4172.251,
+      0.0,
+      3766.983,
+      6937.317,
+      516.101,
+      11258.113
+    ],
+    [
+      6032.896,
+      3766.984,
+      0.0,
+      3385.129,
+      3838.379,
+      7944.417
+    ],
+    [
+      7678.184,
+      6937.317,
+      3385.129,
+      0.0,
+      7008.712,
+      5514.731
+    ],
+    [
+      4470.393,
+      516.101,
+      3838.378,
+      7008.712,
+      0.0,
+      11329.508
+    ],
+    [
+      9831.853,
+      11258.112,
+      7944.416,
+      5514.73,
+      11329.507,
+      0.0
+    ]
+  ],
+  "straight_m": [
+    [
+      0.0,
+      4272.123,
+      6481.871,
+      9223.013,
+      4813.598,
+      12173.924
+    ],
+    [
+      4272.123,
+      0.0,
+      4534.584,
+      7802.913,
+      554.229,
+      12853.46
+    ],
+    [
+      6481.871,
+      4534.584,
+      0.0,
+      3268.545,
+      4647.488,
+      8879.412
+    ],
+    [
+      9223.013,
+      7802.913,
+      3268.545,
+      0.0,
+      7898.984,
+      6527.18
+    ],
+    [
+      4813.598,
+      554.229,
+      4647.488,
+      7898.984,
+      0.0,
+      13154.037
+    ],
+    [
+      12173.924,
+      12853.46,
+      8879.412,
+      6527.18,
+      13154.037,
+      0.0
+    ]
+  ],
+  "unreachable": [],
+  "pairs": [
+    {
+      "from_index": 0,
+      "to_index": 1,
+      "from_name": "华东师范大学（上海市离线数据）",
+      "to_name": "交通大学（上海市离线数据）",
+      "network_m": 5543.002,
+      "travel_s": 4172.249,
+      "straight_m": 4272.123,
+      "ratio": 1.2975
+    },
+    {
+      "from_index": 0,
+      "to_index": 2,
+      "from_name": "华东师范大学（上海市离线数据）",
+      "to_name": "新天地（上海市离线数据）",
+      "network_m": 8021.392,
+      "travel_s": 6032.896,
+      "straight_m": 6481.871,
+      "ratio": 1.2375
+    },
+    {
+      "from_index": 0,
+      "to_index": 3,
+      "from_name": "华东师范大学（上海市离线数据）",
+      "to_name": "陆家嘴（上海市离线数据）",
+      "network_m": 10178.808,
+      "travel_s": 7678.186,
+      "straight_m": 9223.013,
+      "ratio": 1.1036
+    },
+    {
+      "from_index": 0,
+      "to_index": 4,
+      "from_name": "华东师范大学（上海市离线数据）",
+      "to_name": "徐家汇（上海市离线数据）",
+      "network_m": 5940.523,
+      "travel_s": 4470.391,
+      "straight_m": 4813.598,
+      "ratio": 1.2341
+    },
+    {
+      "from_index": 0,
+      "to_index": 5,
+      "from_name": "华东师范大学（上海市离线数据）",
+      "to_name": "复旦大学（上海市离线数据）",
+      "network_m": 13090.131,
+      "travel_s": 9831.855,
+      "straight_m": 12173.924,
+      "ratio": 1.0753
+    },
+    {
+      "from_index": 1,
+      "to_index": 2,
+      "from_name": "交通大学（上海市离线数据）",
+      "to_name": "新天地（上海市离线数据）",
+      "network_m": 5022.638,
+      "travel_s": 3766.983,
+      "straight_m": 4534.584,
+      "ratio": 1.1076
+    },
+    {
+      "from_index": 1,
+      "to_index": 3,
+      "from_name": "交通大学（上海市离线数据）",
+      "to_name": "陆家嘴（上海市离线数据）",
+      "network_m": 9249.741,
+      "travel_s": 6937.317,
+      "straight_m": 7802.913,
+      "ratio": 1.1854
+    },
+    {
+      "from_index": 1,
+      "to_index": 4,
+      "from_name": "交通大学（上海市离线数据）",
+      "to_name": "徐家汇（上海市离线数据）",
+      "network_m": 688.133,
+      "travel_s": 516.101,
+      "straight_m": 554.229,
+      "ratio": 1.2416
+    },
+    {
+      "from_index": 1,
+      "to_index": 5,
+      "from_name": "交通大学（上海市离线数据）",
+      "to_name": "复旦大学（上海市离线数据）",
+      "network_m": 15010.806,
+      "travel_s": 11258.113,
+      "straight_m": 12853.46,
+      "ratio": 1.1678
+    },
+    {
+      "from_index": 2,
+      "to_index": 3,
+      "from_name": "新天地（上海市离线数据）",
+      "to_name": "陆家嘴（上海市离线数据）",
+      "network_m": 4513.495,
+      "travel_s": 3385.129,
+      "straight_m": 3268.545,
+      "ratio": 1.3809
+    },
+    {
+      "from_index": 2,
+      "to_index": 4,
+      "from_name": "新天地（上海市离线数据）",
+      "to_name": "徐家汇（上海市离线数据）",
+      "network_m": 5117.827,
+      "travel_s": 3838.379,
+      "straight_m": 4647.488,
+      "ratio": 1.1012
+    },
+    {
+      "from_index": 2,
+      "to_index": 5,
+      "from_name": "新天地（上海市离线数据）",
+      "to_name": "复旦大学（上海市离线数据）",
+      "network_m": 10592.552,
+      "travel_s": 7944.417,
+      "straight_m": 8879.412,
+      "ratio": 1.1929
+    },
+    {
+      "from_index": 3,
+      "to_index": 4,
+      "from_name": "陆家嘴（上海市离线数据）",
+      "to_name": "徐家汇（上海市离线数据）",
+      "network_m": 9344.93,
+      "travel_s": 7008.712,
+      "straight_m": 7898.984,
+      "ratio": 1.1831
+    },
+    {
+      "from_index": 3,
+      "to_index": 5,
+      "from_name": "陆家嘴（上海市离线数据）",
+      "to_name": "复旦大学（上海市离线数据）",
+      "network_m": 7351.295,
+      "travel_s": 5514.731,
+      "straight_m": 6527.18,
+      "ratio": 1.1263
+    },
+    {
+      "from_index": 4,
+      "to_index": 5,
+      "from_name": "徐家汇（上海市离线数据）",
+      "to_name": "复旦大学（上海市离线数据）",
+      "network_m": 15105.995,
+      "travel_s": 11329.508,
+      "straight_m": 13154.037,
+      "ratio": 1.1484
+    }
+  ],
+  "snap": [
+    {
+      "index": 0,
+      "role": "start",
+      "name": "华东师范大学（上海市离线数据）",
+      "latitude": 31.2287099,
+      "longitude": 121.4020383,
+      "node_id": 3808214960,
+      "snap_distance_m": 31.3
+    },
+    {
+      "index": 1,
+      "role": "attraction",
+      "name": "交通大学（上海市离线数据）",
+      "latitude": 31.1994999,
+      "longitude": 121.4312203,
+      "node_id": 1984190476,
+      "snap_distance_m": 52.7
+    },
+    {
+      "index": 2,
+      "role": "attraction",
+      "name": "新天地（上海市离线数据）",
+      "latitude": 31.2233283,
+      "longitude": 121.4699156,
+      "node_id": 2629524985,
+      "snap_distance_m": 6.7
+    },
+    {
+      "index": 3,
+      "role": "attraction",
+      "name": "陆家嘴（上海市离线数据）",
+      "latitude": 31.2401354,
+      "longitude": 121.4981186,
+      "node_id": 6150750017,
+      "snap_distance_m": 991.8
+    },
+    {
+      "index": 4,
+      "role": "attraction",
+      "name": "徐家汇（上海市离线数据）",
+      "latitude": 31.1950755,
+      "longitude": 121.4339035,
+      "node_id": 640458067,
+      "snap_distance_m": 21.9
+    },
+    {
+      "index": 5,
+      "role": "attraction",
+      "name": "复旦大学（上海市离线数据）",
+      "latitude": 31.2988024,
+      "longitude": 121.50043,
+      "node_id": 600134645,
+      "snap_distance_m": 31.8
+    }
+  ],
+  "straight_line": {
+    "pair_count": 30,
+    "mean_ratio": 1.1855,
+    "min_ratio": 1.0753,
+    "max_ratio": 1.3809
+  },
+  "matrix_build_ms": 1655.1177999936044,
+  "matrix_lookup_ms": 0.0,
+  "matrix_elapsed_ms": 1655.1177999936044,
+  "cache_hit": false,
+  "component": {
+    "method": "largest_strongly_connected",
+    "nodes_before": 29963,
+    "nodes_after": 29963,
+    "edges_before": 85594,
+    "edges_after": 85594,
+    "removed_nodes": 0,
+    "removed_edges": 0,
+    "strongly_connected": true
+  }
+}

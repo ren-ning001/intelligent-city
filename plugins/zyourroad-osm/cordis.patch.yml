@@ -22,3 +22,12 @@
   config:
     root: !!js process.env.ZYOURROAD_SESSION_ROOT
     compression: none
+
+# The bundled Windows runtime otherwise resolves pwsh to a bare PATH entry that
+# the managed subprocess environment may not see. Pin the absolute executable
+# chosen by the backend so the persistent PTY can start.
+- id: terminal-pwsh
+  config:
+    shellDialect: pwsh
+    shellPath: !!js process.env.ZYOURROAD_PWSH_PATH
+    timeoutMs: 300000

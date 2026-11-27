@@ -1,0 +1,210 @@
+{
+  "matrix_key": "3a1617883488f309c5ef",
+  "matrix_version": 2,
+  "network_cache_key": "3477d7b84ee3d5e4ccb6",
+  "network_type": "walk",
+  "speed_profile": "highway-speed-v1",
+  "weights": [
+    "length",
+    "time"
+  ],
+  "network_m": [
+    [
+      0.0,
+      12552.852,
+      7702.198,
+      8121.964
+    ],
+    [
+      12552.852,
+      0.0,
+      10592.552,
+      8529.547
+    ],
+    [
+      7702.198,
+      10592.552,
+      0.0,
+      2163.964
+    ],
+    [
+      8121.964,
+      8529.547,
+      2163.964,
+      0.0
+    ]
+  ],
+  "travel_s": [
+    [
+      0.0,
+      9414.646,
+      5779.25,
+      6128.269
+    ],
+    [
+      9414.644,
+      0.0,
+      7944.416,
+      6403.906
+    ],
+    [
+      5779.249,
+      7944.417,
+      0.0,
+      1622.974
+    ],
+    [
+      6128.267,
+      6403.907,
+      1622.974,
+      0.0
+    ]
+  ],
+  "straight_m": [
+    [
+      0.0,
+      11786.866,
+      6197.71,
+      6792.533
+    ],
+    [
+      11786.866,
+      0.0,
+      8879.412,
+      7187.806
+    ],
+    [
+      6197.71,
+      8879.412,
+      0.0,
+      1692.926
+    ],
+    [
+      6792.533,
+      7187.806,
+      1692.926,
+      0.0
+    ]
+  ],
+  "unreachable": [],
+  "pairs": [
+    {
+      "from_index": 0,
+      "to_index": 1,
+      "from_name": "华东师大（上海市离线数据）",
+      "to_name": "复旦大学（上海市离线数据）",
+      "network_m": 12552.852,
+      "travel_s": 9414.646,
+      "straight_m": 11786.866,
+      "ratio": 1.065
+    },
+    {
+      "from_index": 0,
+      "to_index": 2,
+      "from_name": "华东师大（上海市离线数据）",
+      "to_name": "新天地（上海市离线数据）",
+      "network_m": 7702.198,
+      "travel_s": 5779.25,
+      "straight_m": 6197.71,
+      "ratio": 1.2427
+    },
+    {
+      "from_index": 0,
+      "to_index": 3,
+      "from_name": "华东师大（上海市离线数据）",
+      "to_name": "索菲特海仑宾馆",
+      "network_m": 8121.964,
+      "travel_s": 6128.269,
+      "straight_m": 6792.533,
+      "ratio": 1.1957
+    },
+    {
+      "from_index": 1,
+      "to_index": 2,
+      "from_name": "复旦大学（上海市离线数据）",
+      "to_name": "新天地（上海市离线数据）",
+      "network_m": 10592.552,
+      "travel_s": 7944.416,
+      "straight_m": 8879.412,
+      "ratio": 1.1929
+    },
+    {
+      "from_index": 1,
+      "to_index": 3,
+      "from_name": "复旦大学（上海市离线数据）",
+      "to_name": "索菲特海仑宾馆",
+      "network_m": 8529.547,
+      "travel_s": 6403.906,
+      "straight_m": 7187.806,
+      "ratio": 1.1867
+    },
+    {
+      "from_index": 2,
+      "to_index": 3,
+      "from_name": "新天地（上海市离线数据）",
+      "to_name": "索菲特海仑宾馆",
+      "network_m": 2163.964,
+      "travel_s": 1622.974,
+      "straight_m": 1692.926,
+      "ratio": 1.2782
+    }
+  ],
+  "snap": [
+    {
+      "index": 0,
+      "role": "start",
+      "name": "华东师大（上海市离线数据）",
+      "latitude": 31.2307802,
+      "longitude": 121.4053201,
+      "node_id": 565245039,
+      "snap_distance_m": 28.1
+    },
+    {
+      "index": 1,
+      "role": "attraction",
+      "name": "复旦大学（上海市离线数据）",
+      "latitude": 31.2988024,
+      "longitude": 121.50043,
+      "node_id": 600134645,
+      "snap_distance_m": 31.8
+    },
+    {
+      "index": 2,
+      "role": "attraction",
+      "name": "新天地（上海市离线数据）",
+      "latitude": 31.2233283,
+      "longitude": 121.4699156,
+      "node_id": 2629524985,
+      "snap_distance_m": 6.7
+    },
+    {
+      "index": 3,
+      "role": "attraction",
+      "name": "索菲特海仑宾馆",
+      "latitude": 31.2375328,
+      "longitude": 121.476324,
+      "node_id": 1887591399,
+      "snap_distance_m": 38.5
+    }
+  ],
+  "straight_line": {
+    "pair_count": 12,
+    "mean_ratio": 1.1935,
+    "min_ratio": 1.065,
+    "max_ratio": 1.2782
+  },
+  "matrix_build_ms": 845.6434000399895,
+  "matrix_lookup_ms": 0.0,
+  "matrix_elapsed_ms": 845.6434000399895,
+  "cache_hit": false,
+  "component": {
+    "method": "largest_strongly_connected",
+    "nodes_before": 24535,
+    "nodes_after": 24535,
+    "edges_before": 69854,
+    "edges_after": 69854,
+    "removed_nodes": 0,
+    "removed_edges": 0,
+    "strongly_connected": true
+  }
+}

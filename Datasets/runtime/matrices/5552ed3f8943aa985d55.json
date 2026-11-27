@@ -1,0 +1,104 @@
+{
+  "matrix_key": "5552ed3f8943aa985d55",
+  "network_cache_key": "demo-west-lake-walk",
+  "weight": "length",
+  "network_m": [
+    [
+      0.0,
+      2768.233,
+      4745.763,
+      4465.218
+    ],
+    [
+      2768.233,
+      0.0,
+      5661.62,
+      3354.559
+    ],
+    [
+      4745.763,
+      5661.62,
+      0.0,
+      2317.857
+    ],
+    [
+      4465.218,
+      3354.559,
+      2317.857,
+      0.0
+    ]
+  ],
+  "straight_m": [
+    [
+      0.0,
+      1872.732,
+      1525.079,
+      2619.924
+    ],
+    [
+      1872.732,
+      0.0,
+      2914.782,
+      2700.546
+    ],
+    [
+      1525.079,
+      2914.782,
+      0.0,
+      1909.367
+    ],
+    [
+      2619.924,
+      2700.546,
+      1909.367,
+      0.0
+    ]
+  ],
+  "unreachable": [],
+  "snap": [
+    {
+      "index": 0,
+      "role": "start",
+      "name": "雷峰夕照",
+      "latitude": 30.2399079,
+      "longitude": 120.1409416,
+      "node_id": 6298761977,
+      "snap_distance_m": 514.2
+    },
+    {
+      "index": 1,
+      "role": "attraction",
+      "name": "十二生肖石",
+      "latitude": 30.2376386,
+      "longitude": 120.1602582,
+      "node_id": 765317582,
+      "snap_distance_m": 11.6
+    },
+    {
+      "index": 2,
+      "role": "attraction",
+      "name": "西泠印社",
+      "latitude": 30.252792,
+      "longitude": 120.1354984,
+      "node_id": 5297337700,
+      "snap_distance_m": 3.8
+    },
+    {
+      "index": 3,
+      "role": "attraction",
+      "name": "马可波罗像",
+      "latitude": 30.2610806,
+      "longitude": 120.1529085,
+      "node_id": 1254131946,
+      "snap_distance_m": 46.8
+    }
+  ],
+  "straight_line": {
+    "pair_count": 12,
+    "mean_ratio": 1.7821,
+    "min_ratio": 1.2139,
+    "max_ratio": 3.1118
+  },
+  "matrix_elapsed_ms": 175.18489999929443,
+  "cache_hit": false
+}

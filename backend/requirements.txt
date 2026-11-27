@@ -1,6 +1,7 @@
 deepseek-harness-sdk>=0.2.0rc1,<0.3
 fastapi>=0.115,<1.0
 mcp>=1.20,<2.0
+matplotlib>=3.8,<4.0
 osmnx>=2.0,<3.0
 pandas>=2.2,<4.0
 pydantic-settings>=2.6,<3.0

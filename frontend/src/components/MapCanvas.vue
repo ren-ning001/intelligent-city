@@ -11,6 +11,7 @@ import type { PoiFeature, RouteResult } from '../types'
 
 const props = defineProps<{
   route: RouteResult | null
+  priorRoutes?: RouteResult[]
   pois: PoiFeature[]
 }>()
 
@@ -22,6 +23,7 @@ const container = ref<HTMLDivElement>()
 let map: Map | null = null
 let loaded = false
 let endpointMarkers: Marker[] = []
+let priorMarkers: Marker[] = []
 
 const emptyCollection = {
   type: 'FeatureCollection' as const,
@@ -54,9 +56,14 @@ function updatePois() {
 function clearMarkers() {
   endpointMarkers.forEach((marker) => marker.remove())
   endpointMarkers = []
+  priorMarkers.forEach((marker) => marker.remove())
+  priorMarkers = []
 }
 
-function markerElement(kind: 'start' | 'waypoint' | 'end', label: string) {
+function markerElement(
+  kind: 'start' | 'waypoint' | 'end' | 'prior',
+  label: string,
+) {
   const element = document.createElement('div')
   element.className = `route-marker route-marker--${kind}`
   const badge = document.createElement('span')
@@ -65,11 +72,41 @@ function markerElement(kind: 'start' | 'waypoint' | 'end', label: string) {
   return element
 }
 
-function routeLines(): [number, number][][] {
-  if (!props.route) return []
-  return props.route.geometry.type === 'MultiLineString'
-    ? props.route.geometry.coordinates
-    : [props.route.geometry.coordinates]
+function routeLines(route: RouteResult | null = props.route): [number, number][][] {
+  if (!route) return []
+  return route.geometry.type === 'MultiLineString'
+    ? route.geometry.coordinates
+    : [route.geometry.coordinates]
+}
+
+function priorRouteGeoJson() {
+  return {
+    type: 'FeatureCollection' as const,
+    features: (props.priorRoutes ?? []).map((route) => ({
+      type: 'Feature' as const,
+      properties: { kind: 'prior' },
+      geometry: route.geometry,
+    })),
+  }
+}
+
+function priorTransferGeoJson() {
+  return {
+    type: 'FeatureCollection' as const,
+    features: (props.priorRoutes ?? []).flatMap((route) =>
+      (route.transfers ?? []).map((transfer) => ({
+        type: 'Feature' as const,
+        properties: { kind: transfer.kind },
+        geometry: {
+          type: 'LineString' as const,
+          coordinates: [
+            [transfer.start.longitude, transfer.start.latitude],
+            [transfer.end.longitude, transfer.end.latitude],
+          ],
+        },
+      })),
+    ),
+  }
 }
 
 function transferGeoJson() {
@@ -89,16 +126,50 @@ function transferGeoJson() {
   }
 }
 
+function fitRouteLines(lines: [number, number][][]) {
+  if (!map) return
+  const coordinates = lines.flat()
+  if (!coordinates.length) return
+  const bounds = coordinates.reduce(
+    (result, coordinate) => result.extend(coordinate),
+    new LngLatBounds(coordinates[0], coordinates[0]),
+  )
+  map.fitBounds(bounds, {
+    padding: { top: 110, right: 110, bottom: 110, left: 110 },
+    duration: 1200,
+    maxZoom: 16,
+  })
+}
+
 function updateRoute() {
   if (!map || !loaded) return
   const source = map.getSource('route') as GeoJSONSource | undefined
   const transferSource = map.getSource('transfers') as GeoJSONSource | undefined
+  const priorSource = map.getSource('prior-route') as GeoJSONSource | undefined
+  const priorTransferSource = map.getSource('prior-transfers') as GeoJSONSource | undefined
   clearMarkers()
 
-  const lines = routeLines().filter((line) => line.length)
+  priorSource?.setData(priorRouteGeoJson())
+  priorTransferSource?.setData(priorTransferGeoJson())
+  priorMarkers = (props.priorRoutes ?? []).flatMap((prior) =>
+    prior.visited_points.map((point) =>
+      new Marker({
+        element: markerElement('prior', ''),
+        anchor: 'center',
+      })
+        .setLngLat([point.longitude, point.latitude])
+        .addTo(map!),
+    ),
+  )
+
+  const lines = routeLines(props.route).filter((line) => line.length)
+  const priorLines = (props.priorRoutes ?? [])
+    .flatMap((prior) => routeLines(prior))
+    .filter((line) => line.length)
   if (!props.route || !lines.length) {
     source?.setData(emptyCollection)
     transferSource?.setData(emptyCollection)
+    fitRouteLines(priorLines)
     return
   }
 
@@ -110,8 +181,11 @@ function updateRoute() {
   transferSource?.setData(transferGeoJson())
 
   endpointMarkers = props.route.visited_points.map((point, index, points) => {
-    const kind =
-      index === 0 ? 'start' : index === points.length - 1 ? 'end' : 'waypoint'
+    const kind = index === 0
+      ? 'start'
+      : index === points.length - 1 && !props.route?.closed_loop
+        ? 'end'
+        : 'waypoint'
     return new Marker({
       element: markerElement(kind, String(index + 1)),
       anchor: 'center',
@@ -120,16 +194,7 @@ function updateRoute() {
       .addTo(map!)
   })
 
-  const coordinates = lines.flat()
-  const bounds = coordinates.reduce(
-    (result, coordinate) => result.extend(coordinate),
-    new LngLatBounds(coordinates[0], coordinates[0]),
-  )
-  map.fitBounds(bounds, {
-    padding: { top: 110, right: 110, bottom: 110, left: 110 },
-    duration: 1200,
-    maxZoom: 16,
-  })
+  fitRouteLines([...priorLines, ...lines])
 }
 
 onMounted(() => {
@@ -195,6 +260,31 @@ onMounted(() => {
         'circle-stroke-width': 1.5,
       },
     })
+    map.addSource('prior-route', { type: 'geojson', data: emptyCollection })
+    map.addSource('prior-transfers', { type: 'geojson', data: emptyCollection })
+    map.addLayer({
+      id: 'prior-transfer',
+      type: 'line',
+      source: 'prior-transfers',
+      layout: { 'line-cap': 'round', 'line-join': 'round' },
+      paint: {
+        'line-color': '#8d8069',
+        'line-width': 2,
+        'line-opacity': 0.45,
+        'line-dasharray': [2, 2],
+      },
+    })
+    map.addLayer({
+      id: 'prior-route-line',
+      type: 'line',
+      source: 'prior-route',
+      layout: { 'line-cap': 'round', 'line-join': 'round' },
+      paint: {
+        'line-color': '#5f6b85',
+        'line-width': 4,
+        'line-opacity': 0.78,
+      },
+    })
     map.addSource('route', { type: 'geojson', data: emptyCollection })
     map.addSource('transfers', { type: 'geojson', data: emptyCollection })
     map.addLayer({
@@ -250,6 +340,7 @@ onMounted(() => {
 
 watch(() => props.pois, updatePois, { deep: true })
 watch(() => props.route, updateRoute, { deep: true })
+watch(() => props.priorRoutes, updateRoute, { deep: true })
 
 onBeforeUnmount(() => {
   clearMarkers()
@@ -334,5 +425,18 @@ onBeforeUnmount(() => {
   border-radius: 2px;
   background: #2947b8;
   transform: rotate(-12deg);
+}
+
+:global(.route-marker--prior) {
+  width: 16px;
+  height: 16px;
+  border-color: rgba(70, 82, 108, 0.7);
+  background: rgba(95, 107, 133, 0.78);
+  box-shadow: none;
+  opacity: 0.8;
+}
+
+:global(.route-marker--prior span) {
+  display: none;
 }
 </style>

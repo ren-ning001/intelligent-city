@@ -10,10 +10,52 @@ from deepseek_harness.errors import JsonRpcError
 
 from .config import Settings, get_settings
 from .conversation_store import ConversationStore, get_conversation_store
-from .models import ChatResponse, PoiSearchResult, RouteResult
+from .models import ChatResponse, PoiSearchResult, RouteContext, RouteResult
 
 
 NotificationCallback = Callable[[dict[str, Any]], None]
+
+
+def _route_context_block(context: RouteContext) -> str:
+    """Render the route currently shown by the frontend for the next turn."""
+    network = {"walk": "步行", "bike": "骑行", "drive": "驾车"}.get(
+        context.network_type,
+        context.network_type,
+    )
+    weight = "最短时间" if context.weight == "time" else "最短距离"
+    loop = "闭环（最后回到起点）" if context.closed_loop else "开放路线"
+    lines = [
+        "【当前界面路线（规划器已显示）】",
+        "说明：这是用户界面上正在显示的路线，不是本轮 MCP 工具的历史记录。",
+        "用户问“解释当前路线/为什么这样走”时必须以此为准，不要声称没有"
+        "已规划或已发布的路线；若用户要改路线，再调用工具重新规划。",
+        "上下文没有给出的算法细节不要编造；来源不是 optimize/agent 时，"
+        "不要声称做过 TSP、2-opt 或算法对比。",
+        f"- 出行方式：{network}；优化口径：{weight}；{loop}",
+        (
+            f"- 总距离：{context.distance_m / 1000:.2f} km；"
+            f"预计时间：{context.estimated_duration_min:.1f} 分钟；"
+            f"来源：{context.source}"
+        ),
+    ]
+    if context.stops:
+        lines.append(
+            "- 访问顺序："
+            + " -> ".join(
+                f"{stop.index}.{stop.name}({stop.latitude:.5f},{stop.longitude:.5f})"
+                for stop in context.stops
+            )
+        )
+    if context.segments:
+        lines.append(
+            "- 分段："
+            + "；".join(
+                f"第{segment.index + 1}段 {segment.distance_m / 1000:.2f} km"
+                f"/{segment.duration_min:.0f} min"
+                for segment in context.segments
+            )
+        )
+    return "\n".join(lines)
 
 
 def _content_texts(value: Any) -> list[str]:
@@ -187,6 +229,7 @@ class AgentService:
         message: str,
         session_id: str,
         on_notification: NotificationCallback | None = None,
+        route_context: RouteContext | None = None,
     ) -> ChatResponse:
         with self._lock:
             stored_context = self.conversations.context(session_id)
@@ -219,6 +262,9 @@ class AgentService:
                         )
 
                 input_message = message
+                route_block = (
+                    _route_context_block(route_context) if route_context else ""
+                )
                 native_context_available = active_before or (
                     resumed and native_transcript
                 )
@@ -226,8 +272,13 @@ class AgentService:
                     input_message = (
                         "后端刚恢复，但原生DSH会话日志不可用。以下是本应用可靠保存的"
                         "先前对话，请据此无缝继续，不要逐字复述：\n\n"
-                        f"{stored_context}\n\n当前用户消息：{message}"
+                        f"{stored_context}"
                     )
+                    if route_block:
+                        input_message += f"\n\n{route_block}"
+                    input_message += f"\n\n当前用户消息：{message}"
+                elif route_block:
+                    input_message = f"{route_block}\n\n当前用户消息：{message}"
                 result = session.run(
                     input_message,
                     on_notification=callback,

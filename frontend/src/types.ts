@@ -3,6 +3,10 @@ export interface Coordinate {
   longitude: number
 }
 
+export type NetworkType = 'walk' | 'bike' | 'drive'
+export type WeightKind = 'length' | 'time'
+export type CostUnit = 'm' | 's'
+
 export interface HealthStatus {
   status: string
   service: string
@@ -52,6 +56,7 @@ export interface PoiSearchResult {
 export interface RouteSegment {
   index: number
   distance_m: number
+  duration_min?: number
   from: Coordinate
   to: Coordinate
 }
@@ -59,7 +64,10 @@ export interface RouteSegment {
 export interface RouteResult {
   distance_m: number
   estimated_duration_min: number
-  network_type: 'walk' | 'bike' | 'drive'
+  network_type: NetworkType
+  weight: WeightKind
+  closed_loop: boolean
+  speed_profile: string
   visited_points: Coordinate[]
   geometry:
     | {
@@ -118,4 +126,109 @@ export interface ChatResponse {
   finish_reason?: string | null
   route?: RouteResult | null
   poi_result?: PoiSearchResult | null
+}
+
+export type AlgorithmName =
+  | 'given_order'
+  | 'nearest_neighbor'
+  | 'nearest_neighbor_2opt'
+  | 'held_karp'
+
+export interface OrderAlgorithmResult {
+  algorithm: AlgorithmName
+  label: string
+  order: number[]
+  names: string[]
+  cost: number
+  cost_unit: CostUnit
+  cost_m: number
+  cost_s: number
+  elapsed_ms: number
+  gap_percent: number | null
+  improvement_percent: number | null
+  route: RouteResult
+}
+
+export interface PairRecord {
+  from_index: number
+  to_index: number
+  from_name: string
+  to_name: string
+  network_m: number | null
+  travel_s: number | null
+  straight_m: number
+  ratio: number | null
+}
+
+export interface ComponentStats {
+  method: string
+  nodes_before: number
+  nodes_after: number
+  edges_before: number
+  edges_after: number
+  removed_nodes: number
+  removed_edges: number
+  strongly_connected: boolean
+}
+
+export interface UnreachablePair {
+  from_index: number
+  to_index: number
+  from_name: string
+  to_name: string
+}
+
+export interface RouteContextStop {
+  index: number
+  name: string
+  latitude: number
+  longitude: number
+}
+
+export interface RouteContextSegment {
+  index: number
+  distance_m: number
+  duration_min: number
+}
+
+export interface RouteContext {
+  distance_m: number
+  estimated_duration_min: number
+  network_type: NetworkType
+  weight: WeightKind
+  closed_loop: boolean
+  source: string
+  stops: RouteContextStop[]
+  segments: RouteContextSegment[]
+}
+
+export interface OptimizeResult {
+  matrix_key: string
+  network_cache_key: string
+  preferred_algorithm: AlgorithmName
+  weight: WeightKind
+  closed_loop: boolean
+  cache_hit: boolean
+  matrix_elapsed_ms: number
+  matrix_build_ms: number
+  matrix_lookup_ms: number
+  pairs: PairRecord[]
+  unreachable: UnreachablePair[]
+  component: ComponentStats | null
+  snap: Array<{
+    index: number
+    role: 'start' | 'attraction'
+    name: string
+    latitude: number
+    longitude: number
+    node_id: number
+    snap_distance_m: number
+  }>
+  straight_line: {
+    pair_count: number
+    mean_ratio: number | null
+    min_ratio: number | null
+    max_ratio: number | null
+  }
+  algorithms: OrderAlgorithmResult[]
 }

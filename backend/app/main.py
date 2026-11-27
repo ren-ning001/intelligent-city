@@ -1,7 +1,10 @@
 from __future__ import annotations
 
 import asyncio
+import csv
+import io
 import json
+import re
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from typing import Any
@@ -9,7 +12,7 @@ from typing import Any
 from fastapi import FastAPI, HTTPException
 from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
+from fastapi.responses import Response, StreamingResponse
 
 from .agent_service import get_agent_service
 from .config import get_settings
@@ -23,6 +26,8 @@ from .models import (
     GeocodeResult,
     LocationSearchRequest,
     LocationSearchResult,
+    OptimizeRequest,
+    OptimizeResult,
     PoiSearchRequest,
     PoiSearchResult,
     PrepareRegionRequest,
@@ -30,6 +35,7 @@ from .models import (
     RouteResult,
     ToolEventHistory,
 )
+from .order_optimizer import optimize_open_tour
 from .osm_service import get_osm_service
 
 
@@ -146,6 +152,8 @@ async def agent_chat(request: ChatRequest) -> ChatResponse:
             get_agent_service().chat,
             request.message,
             request.session_id,
+            None,
+            request.route_context,
         )
     except Exception as error:
         raise _bad_request(error) from error
@@ -202,7 +210,13 @@ TOOL_LABELS = {
     "search_tourism_pois": "检索旅游POI",
     "prepare_osm_region": "准备区域地图数据",
     "plan_walking_route": "计算真实步行路线",
+    "optimize_itinerary_order": "优化景点访问顺序",
     "publish_tourism_itinerary": "发布最终游览路线",
+    "list_mcp_resources": "列出 MCP 资源",
+    "list_mcp_resource_templates": "列出 MCP 资源模板",
+    "pwsh": "执行 PowerShell",
+    "bash": "执行 Shell",
+    "read_file": "读取本地文件",
 }
 
 
@@ -231,16 +245,48 @@ def _tool_detail(name: str, raw_arguments: Any) -> str:
     if name == "plan_walking_route":
         waypoints = arguments.get("waypoints") or []
         return f"在真实路网上连接起终点与 {len(waypoints)} 个途经点"
+    if name == "optimize_itinerary_order":
+        attractions = arguments.get("attractions") or []
+        weight = "时间" if arguments.get("weight") == "time" else "距离"
+        loop = "闭环" if arguments.get("closed_loop") else "开放"
+        return f"按{weight}权重比较 {len(attractions)} 个景点的{loop}顺序"
     if name == "publish_tourism_itinerary":
         points = arguments.get("points") or []
         breaks = arguments.get("break_before_indexes") or []
         return f"发布 {len(points)} 个地点，包含 {len(breaks)} 处非步行衔接"
+    if name in {"list_mcp_resources", "list_mcp_resource_templates"}:
+        server = arguments.get("server") or "全部 MCP 服务"
+        kind = "资源模板" if name.endswith("templates") else "资源清单"
+        return f"查询 {server} 的{kind}（用于探查，不是路线数据）"
+    if name in {"pwsh", "bash"}:
+        command = str(arguments.get("command") or "").strip().replace("\n", " ")
+        label = "PowerShell" if name == "pwsh" else "Shell"
+        return f"执行{label}命令：{command[:150]}"
+    if name == "read_file":
+        path = str(arguments.get("path") or arguments.get("target_file") or "")
+        return f"读取 {path[:150]}"
     return "正在执行受约束的地图工具"
+
+
+def _tool_error_text(message: dict[str, Any]) -> str | None:
+    content = message.get("content")
+    if not isinstance(content, list):
+        return None
+    for item in content:
+        if not isinstance(item, dict) or item.get("type") != "text":
+            continue
+        text = str(item.get("text") or "").strip()
+        if not text:
+            continue
+        first = next((line.strip() for line in text.splitlines() if line.strip()), "")
+        return first[:180] or None
+    return None
 
 
 def _trace_from_notification(
     notification: dict[str, Any],
     call_names: dict[str, str],
+    call_details: dict[str, str] | None = None,
 ) -> dict[str, Any] | None:
     if notification.get("method") != "session.event":
         return None
@@ -259,11 +305,14 @@ def _trace_from_notification(
             return None
         name = _tool_name(public_name)
         call_names[call_id] = name
+        detail = _tool_detail(name, data.get("arguments"))
+        if call_details is not None:
+            call_details[call_id] = detail
         return {
             "id": call_id,
             "tool": name,
             "title": TOOL_LABELS.get(name, "调用工具"),
-            "detail": _tool_detail(name, data.get("arguments")),
+            "detail": detail,
             "status": "running",
         }
 
@@ -282,19 +331,27 @@ def _trace_from_notification(
     failed = message.get("isError") is True
     error = data.get("error")
     reason = error.get("reason") if isinstance(error, dict) else None
+    base = (call_details or {}).get(call_id)
+    if failed:
+        error_text = str(reason) if reason else _tool_error_text(message)
+        detail = (
+            f"{base}；失败：{error_text}" if base and error_text
+            else base or (f"失败：{error_text}" if error_text else "调用失败，Agent将停止无效重试")
+        )
+    else:
+        detail = f"{base}；已完成" if base else "已获得可验证的数据"
     return {
         "id": call_id,
         "tool": name,
         "title": TOOL_LABELS.get(name, "调用工具"),
-        "detail": str(reason) if failed and reason else (
-            "调用失败，Agent将停止无效重试" if failed else "已获得可验证的数据"
-        ),
+        "detail": detail[:260],
         "status": "failed" if failed else "completed",
     }
 
 
 def _stored_traces(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
     call_names: dict[str, str] = {}
+    call_details: dict[str, str] = {}
     traces: list[dict[str, Any]] = []
     indexes: dict[str, int] = {}
     for record in records:
@@ -304,6 +361,7 @@ def _stored_traces(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "payload": record.get("payload"),
             },
             call_names,
+            call_details,
         )
         if trace is None:
             continue
@@ -323,6 +381,7 @@ async def agent_chat_stream(request: ChatRequest) -> StreamingResponse:
         loop = asyncio.get_running_loop()
         notifications: asyncio.Queue[dict[str, Any]] = asyncio.Queue()
         call_names: dict[str, str] = {}
+        call_details: dict[str, str] = {}
 
         def on_notification(notification: dict[str, Any]) -> None:
             loop.call_soon_threadsafe(notifications.put_nowait, notification)
@@ -334,6 +393,7 @@ async def agent_chat_stream(request: ChatRequest) -> StreamingResponse:
                 request.message,
                 request.session_id,
                 on_notification,
+                request.route_context,
             )
         )
 
@@ -345,7 +405,11 @@ async def agent_chat_stream(request: ChatRequest) -> StreamingResponse:
             method = str(notification.get("method", "notification"))
             if method in {"session.event", "session.status", "session.query.completed"}:
                 yield _sse("notification", notification)
-            trace = _trace_from_notification(notification, call_names)
+            trace = _trace_from_notification(
+                notification,
+                call_names,
+                call_details,
+            )
             if trace is not None:
                 yield _sse("trace", trace)
 
@@ -362,5 +426,63 @@ async def agent_chat_stream(request: ChatRequest) -> StreamingResponse:
         headers={
             "Cache-Control": "no-cache",
             "X-Accel-Buffering": "no",
+        },
+    )
+
+
+@app.post("/api/routes/optimize", response_model=OptimizeResult)
+async def optimize_route(request: OptimizeRequest) -> OptimizeResult:
+    try:
+        return await run_in_threadpool(optimize_open_tour, request)
+    except Exception as error:
+        raise _bad_request(error) from error
+
+
+_MATRIX_KEY_PATTERN = re.compile(r"^[a-f0-9]{20}$")
+
+
+@app.get("/api/routes/optimize/{matrix_key}/pairs.csv")
+async def export_matrix_pairs(matrix_key: str) -> Response:
+    """导出已缓存矩阵的逐对距离，便于报告绘图和复核。"""
+    if not _MATRIX_KEY_PATTERN.fullmatch(matrix_key):
+        raise HTTPException(status_code=400, detail="matrix_key 格式不正确")
+    path = settings.datasets_dir / "runtime" / "matrices" / f"{matrix_key}.json"
+    if not path.is_file():
+        raise HTTPException(status_code=404, detail="没有找到该矩阵缓存")
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    buffer = io.StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(
+        [
+            "from_index",
+            "from_name",
+            "to_index",
+            "to_name",
+            "network_m",
+            "travel_s",
+            "straight_m",
+            "ratio",
+        ]
+    )
+    for pair in payload.get("pairs", []):
+        writer.writerow(
+            [
+                pair.get("from_index"),
+                pair.get("from_name"),
+                pair.get("to_index"),
+                pair.get("to_name"),
+                pair.get("network_m"),
+                pair.get("travel_s"),
+                pair.get("straight_m"),
+                pair.get("ratio"),
+            ]
+        )
+    return Response(
+        content="\ufeff" + buffer.getvalue(),
+        media_type="text/csv; charset=utf-8",
+        headers={
+            "Content-Disposition": (
+                f'attachment; filename="zyourroad-pairs-{matrix_key}.csv"'
+            )
         },
     )

@@ -1,0 +1,77 @@
+{
+  "matrix_key": "90d822d11a0b662fb4d5",
+  "network_cache_key": "demo-west-lake-walk",
+  "weight": "length",
+  "network_m": [
+    [
+      0.0,
+      1018.552,
+      3243.024
+    ],
+    [
+      1018.552,
+      0.0,
+      2563.909
+    ],
+    [
+      3243.024,
+      2563.909,
+      0.0
+    ]
+  ],
+  "straight_m": [
+    [
+      0.0,
+      984.658,
+      2338.061
+    ],
+    [
+      984.658,
+      0.0,
+      1353.926
+    ],
+    [
+      2338.061,
+      1353.926,
+      0.0
+    ]
+  ],
+  "unreachable": [],
+  "snap": [
+    {
+      "index": 0,
+      "role": "start",
+      "name": "断桥残雪",
+      "latitude": 30.261531000000005,
+      "longitude": 120.147367,
+      "node_id": 27271890,
+      "snap_distance_m": 15.6
+    },
+    {
+      "index": 1,
+      "role": "attraction",
+      "name": "平湖秋月",
+      "latitude": 30.25420190000001,
+      "longitude": 120.14161329999999,
+      "node_id": 13482813347,
+      "snap_distance_m": 28.5
+    },
+    {
+      "index": 2,
+      "role": "attraction",
+      "name": "苏堤春晓",
+      "latitude": 30.243840300000002,
+      "longitude": 120.1342104,
+      "node_id": 6024709127,
+      "snap_distance_m": 203.7
+    }
+  ],
+  "straight_line": {
+    "pair_count": 6,
+    "mean_ratio": 1.4384,
+    "min_ratio": 1.0344,
+    "max_ratio": 1.8937
+  },
+  "matrix_elapsed_ms": 279.1868000058457,
+  "cache_hit": false
+}

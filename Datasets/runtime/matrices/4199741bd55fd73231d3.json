@@ -1,0 +1,210 @@
+{
+  "matrix_key": "4199741bd55fd73231d3",
+  "matrix_version": 2,
+  "network_cache_key": "818d4aa3d5a686f94fec",
+  "network_type": "walk",
+  "speed_profile": "highway-speed-v1",
+  "weights": [
+    "length",
+    "time"
+  ],
+  "network_m": [
+    [
+      0.0,
+      4889.434,
+      13090.131,
+      12841.733
+    ],
+    [
+      4889.434,
+      0.0,
+      14456.348,
+      16177.381
+    ],
+    [
+      13090.131,
+      14456.348,
+      0.0,
+      13667.882
+    ],
+    [
+      12841.733,
+      16177.381,
+      13667.882,
+      0.0
+    ]
+  ],
+  "travel_s": [
+    [
+      0.0,
+      3682.073,
+      9831.855,
+      9698.456
+    ],
+    [
+      3682.074,
+      0.0,
+      10842.269,
+      12172.786
+    ],
+    [
+      9831.853,
+      10842.268,
+      0.0,
+      10273.008
+    ],
+    [
+      9698.457,
+      12172.786,
+      10273.009,
+      0.0
+    ]
+  ],
+  "straight_m": [
+    [
+      0.0,
+      3853.667,
+      12173.924,
+      10555.861
+    ],
+    [
+      3853.667,
+      0.0,
+      12461.71,
+      13872.5
+    ],
+    [
+      12173.924,
+      12461.71,
+      0.0,
+      11309.156
+    ],
+    [
+      10555.861,
+      13872.5,
+      11309.156,
+      0.0
+    ]
+  ],
+  "unreachable": [],
+  "pairs": [
+    {
+      "from_index": 0,
+      "to_index": 1,
+      "from_name": "华东师范大学（上海市离线数据）",
+      "to_name": "交通大学（上海市离线数据）",
+      "network_m": 4889.434,
+      "travel_s": 3682.073,
+      "straight_m": 3853.667,
+      "ratio": 1.2688
+    },
+    {
+      "from_index": 0,
+      "to_index": 2,
+      "from_name": "华东师范大学（上海市离线数据）",
+      "to_name": "复旦大学（上海市离线数据）",
+      "network_m": 13090.131,
+      "travel_s": 9831.855,
+      "straight_m": 12173.924,
+      "ratio": 1.0753
+    },
+    {
+      "from_index": 0,
+      "to_index": 3,
+      "from_name": "华东师范大学（上海市离线数据）",
+      "to_name": "上海大学（上海市离线数据）",
+      "network_m": 12841.733,
+      "travel_s": 9698.456,
+      "straight_m": 10555.861,
+      "ratio": 1.2166
+    },
+    {
+      "from_index": 1,
+      "to_index": 2,
+      "from_name": "交通大学（上海市离线数据）",
+      "to_name": "复旦大学（上海市离线数据）",
+      "network_m": 14456.348,
+      "travel_s": 10842.269,
+      "straight_m": 12461.71,
+      "ratio": 1.1601
+    },
+    {
+      "from_index": 1,
+      "to_index": 3,
+      "from_name": "交通大学（上海市离线数据）",
+      "to_name": "上海大学（上海市离线数据）",
+      "network_m": 16177.381,
+      "travel_s": 12172.786,
+      "straight_m": 13872.5,
+      "ratio": 1.1661
+    },
+    {
+      "from_index": 2,
+      "to_index": 3,
+      "from_name": "复旦大学（上海市离线数据）",
+      "to_name": "上海大学（上海市离线数据）",
+      "network_m": 13667.882,
+      "travel_s": 10273.008,
+      "straight_m": 11309.156,
+      "ratio": 1.2086
+    }
+  ],
+  "snap": [
+    {
+      "index": 0,
+      "role": "start",
+      "name": "华东师范大学（上海市离线数据）",
+      "latitude": 31.2287099,
+      "longitude": 121.4020383,
+      "node_id": 3808214960,
+      "snap_distance_m": 31.3
+    },
+    {
+      "index": 1,
+      "role": "attraction",
+      "name": "交通大学（上海市离线数据）",
+      "latitude": 31.2040209,
+      "longitude": 121.4304776,
+      "node_id": 243843284,
+      "snap_distance_m": 16.8
+    },
+    {
+      "index": 2,
+      "role": "attraction",
+      "name": "复旦大学（上海市离线数据）",
+      "latitude": 31.2988024,
+      "longitude": 121.50043,
+      "node_id": 600134645,
+      "snap_distance_m": 31.8
+    },
+    {
+      "index": 3,
+      "role": "attraction",
+      "name": "上海大学（上海市离线数据）",
+      "latitude": 31.3224712,
+      "longitude": 121.3846558,
+      "node_id": 622397771,
+      "snap_distance_m": 32.2
+    }
+  ],
+  "straight_line": {
+    "pair_count": 12,
+    "mean_ratio": 1.1826,
+    "min_ratio": 1.0753,
+    "max_ratio": 1.2688
+  },
+  "matrix_build_ms": 1107.5909999781288,
+  "matrix_lookup_ms": 0.0,
+  "matrix_elapsed_ms": 1107.5909999781288,
+  "cache_hit": false,
+  "component": {
+    "method": "largest_strongly_connected",
+    "nodes_before": 29913,
+    "nodes_after": 29913,
+    "edges_before": 85490,
+    "edges_after": 85490,
+    "removed_nodes": 0,
+    "removed_edges": 0,
+    "strongly_connected": true
+  }
+}

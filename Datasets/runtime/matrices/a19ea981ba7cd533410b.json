@@ -1,0 +1,780 @@
+{
+  "matrix_key": "a19ea981ba7cd533410b",
+  "matrix_version": 2,
+  "network_cache_key": "demo-west-lake-walk",
+  "network_type": "walk",
+  "speed_profile": "highway-speed-v1",
+  "weights": [
+    "length",
+    "time"
+  ],
+  "network_m": [
+    [
+      0.0,
+      2509.829,
+      1748.324,
+      2113.215,
+      1396.122,
+      1003.87,
+      1271.875,
+      801.055,
+      610.792
+    ],
+    [
+      2509.829,
+      0.0,
+      1118.294,
+      3261.946,
+      1629.084,
+      1505.959,
+      1268.792,
+      3310.884,
+      2324.009
+    ],
+    [
+      1748.324,
+      1118.294,
+      0.0,
+      3622.56,
+      1877.61,
+      957.15,
+      719.983,
+      2549.379,
+      1743.117
+    ],
+    [
+      2113.215,
+      3261.946,
+      3622.56,
+      0.0,
+      1970.497,
+      3035.139,
+      3017.772,
+      2467.388,
+      2696.879
+    ],
+    [
+      1396.122,
+      1629.084,
+      1877.61,
+      1970.497,
+      0.0,
+      1220.141,
+      1157.627,
+      2197.177,
+      1158.158
+    ],
+    [
+      1003.87,
+      1505.959,
+      957.15,
+      3035.139,
+      1220.141,
+      0.0,
+      281.22,
+      1804.925,
+      818.05
+    ],
+    [
+      1271.875,
+      1268.792,
+      719.983,
+      3017.772,
+      1157.627,
+      281.22,
+      0.0,
+      2072.93,
+      1086.055
+    ],
+    [
+      801.055,
+      3310.884,
+      2549.379,
+      2467.388,
+      2197.177,
+      1804.925,
+      2072.93,
+      0.0,
+      1411.847
+    ],
+    [
+      610.792,
+      2324.009,
+      1743.117,
+      2696.879,
+      1158.158,
+      818.05,
+      1086.055,
+      1411.847,
+      0.0
+    ]
+  ],
+  "travel_s": [
+    [
+      0.0,
+      1882.371,
+      1325.314,
+      1584.912,
+      1099.655,
+      752.902,
+      953.907,
+      600.791,
+      463.616
+    ],
+    [
+      1882.371,
+      0.0,
+      841.87,
+      2536.698,
+      1235.775,
+      1129.469,
+      951.594,
+      2483.162,
+      1748.529
+    ],
+    [
+      1325.314,
+      841.87,
+      0.0,
+      2849.264,
+      1486.479,
+      721.011,
+      543.136,
+      1926.105,
+      1315.053
+    ],
+    [
+      1584.912,
+      2536.698,
+      2849.264,
+      0.0,
+      1477.873,
+      2315.73,
+      2306.128,
+      1850.54,
+      2028.181
+    ],
+    [
+      1099.655,
+      1235.775,
+      1486.479,
+      1477.873,
+      0.0,
+      987.137,
+      943.343,
+      1700.446,
+      986.651
+    ],
+    [
+      752.902,
+      1129.469,
+      721.011,
+      2315.73,
+      987.137,
+      0.0,
+      210.914,
+      1353.693,
+      619.06
+    ],
+    [
+      953.907,
+      951.594,
+      543.136,
+      2306.128,
+      943.343,
+      210.914,
+      0.0,
+      1554.698,
+      820.065
+    ],
+    [
+      600.791,
+      2483.162,
+      1926.105,
+      1850.54,
+      1700.446,
+      1353.693,
+      1554.698,
+      0.0,
+      1064.407
+    ],
+    [
+      463.616,
+      1748.529,
+      1315.053,
+      2028.181,
+      986.651,
+      619.06,
+      820.065,
+      1064.407,
+      0.0
+    ]
+  ],
+  "straight_m": [
+    [
+      0.0,
+      2118.294,
+      1407.964,
+      1379.557,
+      990.581,
+      842.098,
+      1119.329,
+      581.963,
+      225.511
+    ],
+    [
+      2118.294,
+      0.0,
+      750.135,
+      2437.058,
+      1358.266,
+      1279.816,
+      1010.476,
+      2566.015,
+      1989.466
+    ],
+    [
+      1407.964,
+      750.135,
+      0.0,
+      2031.763,
+      880.124,
+      610.884,
+      415.403,
+      1821.691,
+      1312.14
+    ],
+    [
+      1379.557,
+      2437.058,
+      2031.763,
+      0.0,
+      1152.223,
+      1505.555,
+      1617.133,
+      1858.043,
+      1196.638
+    ],
+    [
+      990.581,
+      1358.266,
+      880.124,
+      1152.223,
+      0.0,
+      439.373,
+      467.348,
+      1561.299,
+      786.645
+    ],
+    [
+      842.098,
+      1279.816,
+      610.884,
+      1505.555,
+      439.373,
+      0.0,
+      278.446,
+      1339.607,
+      712.93
+    ],
+    [
+      1119.329,
+      1010.476,
+      415.403,
+      1617.133,
+      467.348,
+      278.446,
+      0.0,
+      1614.428,
+      979.372
+    ],
+    [
+      581.963,
+      2566.015,
+      1821.691,
+      1858.043,
+      1561.299,
+      1339.607,
+      1614.428,
+      0.0,
+      805.843
+    ],
+    [
+      225.511,
+      1989.466,
+      1312.14,
+      1196.638,
+      786.645,
+      712.93,
+      979.372,
+      805.843,
+      0.0
+    ]
+  ],
+  "unreachable": [],
+  "pairs": [
+    {
+      "from_index": 0,
+      "to_index": 1,
+      "from_name": "断桥残雪",
+      "to_name": "Fukui garden",
+      "network_m": 2509.829,
+      "travel_s": 1882.371,
+      "straight_m": 2118.294,
+      "ratio": 1.1848
+    },
+    {
+      "from_index": 0,
+      "to_index": 2,
+      "from_name": "断桥残雪",
+      "to_name": "中山公园",
+      "network_m": 1748.324,
+      "travel_s": 1325.314,
+      "straight_m": 1407.964,
+      "ratio": 1.2417
+    },
+    {
+      "from_index": 0,
+      "to_index": 3,
+      "from_name": "断桥残雪",
+      "to_name": "八十八师阵亡将士碑",
+      "network_m": 2113.215,
+      "travel_s": 1584.912,
+      "straight_m": 1379.557,
+      "ratio": 1.5318
+    },
+    {
+      "from_index": 0,
+      "to_index": 4,
+      "from_name": "断桥残雪",
+      "to_name": "初阳台",
+      "network_m": 1396.122,
+      "travel_s": 1099.655,
+      "straight_m": 990.581,
+      "ratio": 1.4094
+    },
+    {
+      "from_index": 0,
+      "to_index": 5,
+      "from_name": "断桥残雪",
+      "to_name": "北山街",
+      "network_m": 1003.87,
+      "travel_s": 752.902,
+      "straight_m": 842.098,
+      "ratio": 1.1921
+    },
+    {
+      "from_index": 0,
+      "to_index": 6,
+      "from_name": "断桥残雪",
+      "to_name": "北街梦寻",
+      "network_m": 1271.875,
+      "travel_s": 953.907,
+      "straight_m": 1119.329,
+      "ratio": 1.1363
+    },
+    {
+      "from_index": 0,
+      "to_index": 7,
+      "from_name": "断桥残雪",
+      "to_name": "古钱塘门遗址",
+      "network_m": 801.055,
+      "travel_s": 600.791,
+      "straight_m": 581.963,
+      "ratio": 1.3765
+    },
+    {
+      "from_index": 0,
+      "to_index": 8,
+      "from_name": "断桥残雪",
+      "to_name": "大佛寺遗址",
+      "network_m": 610.792,
+      "travel_s": 463.616,
+      "straight_m": 225.511,
+      "ratio": 2.7085
+    },
+    {
+      "from_index": 1,
+      "to_index": 2,
+      "from_name": "Fukui garden",
+      "to_name": "中山公园",
+      "network_m": 1118.294,
+      "travel_s": 841.87,
+      "straight_m": 750.135,
+      "ratio": 1.4908
+    },
+    {
+      "from_index": 1,
+      "to_index": 3,
+      "from_name": "Fukui garden",
+      "to_name": "八十八师阵亡将士碑",
+      "network_m": 3261.946,
+      "travel_s": 2536.698,
+      "straight_m": 2437.058,
+      "ratio": 1.3385
+    },
+    {
+      "from_index": 1,
+      "to_index": 4,
+      "from_name": "Fukui garden",
+      "to_name": "初阳台",
+      "network_m": 1629.084,
+      "travel_s": 1235.775,
+      "straight_m": 1358.266,
+      "ratio": 1.1994
+    },
+    {
+      "from_index": 1,
+      "to_index": 5,
+      "from_name": "Fukui garden",
+      "to_name": "北山街",
+      "network_m": 1505.959,
+      "travel_s": 1129.469,
+      "straight_m": 1279.816,
+      "ratio": 1.1767
+    },
+    {
+      "from_index": 1,
+      "to_index": 6,
+      "from_name": "Fukui garden",
+      "to_name": "北街梦寻",
+      "network_m": 1268.792,
+      "travel_s": 951.594,
+      "straight_m": 1010.476,
+      "ratio": 1.2556
+    },
+    {
+      "from_index": 1,
+      "to_index": 7,
+      "from_name": "Fukui garden",
+      "to_name": "古钱塘门遗址",
+      "network_m": 3310.884,
+      "travel_s": 2483.162,
+      "straight_m": 2566.015,
+      "ratio": 1.2903
+    },
+    {
+      "from_index": 1,
+      "to_index": 8,
+      "from_name": "Fukui garden",
+      "to_name": "大佛寺遗址",
+      "network_m": 2324.009,
+      "travel_s": 1748.529,
+      "straight_m": 1989.466,
+      "ratio": 1.1682
+    },
+    {
+      "from_index": 2,
+      "to_index": 3,
+      "from_name": "中山公园",
+      "to_name": "八十八师阵亡将士碑",
+      "network_m": 3622.56,
+      "travel_s": 2849.264,
+      "straight_m": 2031.763,
+      "ratio": 1.783
+    },
+    {
+      "from_index": 2,
+      "to_index": 4,
+      "from_name": "中山公园",
+      "to_name": "初阳台",
+      "network_m": 1877.61,
+      "travel_s": 1486.479,
+      "straight_m": 880.124,
+      "ratio": 2.1333
+    },
+    {
+      "from_index": 2,
+      "to_index": 5,
+      "from_name": "中山公园",
+      "to_name": "北山街",
+      "network_m": 957.15,
+      "travel_s": 721.011,
+      "straight_m": 610.884,
+      "ratio": 1.5668
+    },
+    {
+      "from_index": 2,
+      "to_index": 6,
+      "from_name": "中山公园",
+      "to_name": "北街梦寻",
+      "network_m": 719.983,
+      "travel_s": 543.136,
+      "straight_m": 415.403,
+      "ratio": 1.7332
+    },
+    {
+      "from_index": 2,
+      "to_index": 7,
+      "from_name": "中山公园",
+      "to_name": "古钱塘门遗址",
+      "network_m": 2549.379,
+      "travel_s": 1926.105,
+      "straight_m": 1821.691,
+      "ratio": 1.3995
+    },
+    {
+      "from_index": 2,
+      "to_index": 8,
+      "from_name": "中山公园",
+      "to_name": "大佛寺遗址",
+      "network_m": 1743.117,
+      "travel_s": 1315.053,
+      "straight_m": 1312.14,
+      "ratio": 1.3285
+    },
+    {
+      "from_index": 3,
+      "to_index": 4,
+      "from_name": "八十八师阵亡将士碑",
+      "to_name": "初阳台",
+      "network_m": 1970.497,
+      "travel_s": 1477.873,
+      "straight_m": 1152.223,
+      "ratio": 1.7102
+    },
+    {
+      "from_index": 3,
+      "to_index": 5,
+      "from_name": "八十八师阵亡将士碑",
+      "to_name": "北山街",
+      "network_m": 3035.139,
+      "travel_s": 2315.73,
+      "straight_m": 1505.555,
+      "ratio": 2.016
+    },
+    {
+      "from_index": 3,
+      "to_index": 6,
+      "from_name": "八十八师阵亡将士碑",
+      "to_name": "北街梦寻",
+      "network_m": 3017.772,
+      "travel_s": 2306.128,
+      "straight_m": 1617.133,
+      "ratio": 1.8661
+    },
+    {
+      "from_index": 3,
+      "to_index": 7,
+      "from_name": "八十八师阵亡将士碑",
+      "to_name": "古钱塘门遗址",
+      "network_m": 2467.388,
+      "travel_s": 1850.54,
+      "straight_m": 1858.043,
+      "ratio": 1.3279
+    },
+    {
+      "from_index": 3,
+      "to_index": 8,
+      "from_name": "八十八师阵亡将士碑",
+      "to_name": "大佛寺遗址",
+      "network_m": 2696.879,
+      "travel_s": 2028.181,
+      "straight_m": 1196.638,
+      "ratio": 2.2537
+    },
+    {
+      "from_index": 4,
+      "to_index": 5,
+      "from_name": "初阳台",
+      "to_name": "北山街",
+      "network_m": 1220.141,
+      "travel_s": 987.137,
+      "straight_m": 439.373,
+      "ratio": 2.777
+    },
+    {
+      "from_index": 4,
+      "to_index": 6,
+      "from_name": "初阳台",
+      "to_name": "北街梦寻",
+      "network_m": 1157.627,
+      "travel_s": 943.343,
+      "straight_m": 467.348,
+      "ratio": 2.477
+    },
+    {
+      "from_index": 4,
+      "to_index": 7,
+      "from_name": "初阳台",
+      "to_name": "古钱塘门遗址",
+      "network_m": 2197.177,
+      "travel_s": 1700.446,
+      "straight_m": 1561.299,
+      "ratio": 1.4073
+    },
+    {
+      "from_index": 4,
+      "to_index": 8,
+      "from_name": "初阳台",
+      "to_name": "大佛寺遗址",
+      "network_m": 1158.158,
+      "travel_s": 986.651,
+      "straight_m": 786.645,
+      "ratio": 1.4723
+    },
+    {
+      "from_index": 5,
+      "to_index": 6,
+      "from_name": "北山街",
+      "to_name": "北街梦寻",
+      "network_m": 281.22,
+      "travel_s": 210.914,
+      "straight_m": 278.446,
+      "ratio": 1.01
+    },
+    {
+      "from_index": 5,
+      "to_index": 7,
+      "from_name": "北山街",
+      "to_name": "古钱塘门遗址",
+      "network_m": 1804.925,
+      "travel_s": 1353.693,
+      "straight_m": 1339.607,
+      "ratio": 1.3474
+    },
+    {
+      "from_index": 5,
+      "to_index": 8,
+      "from_name": "北山街",
+      "to_name": "大佛寺遗址",
+      "network_m": 818.05,
+      "travel_s": 619.06,
+      "straight_m": 712.93,
+      "ratio": 1.1474
+    },
+    {
+      "from_index": 6,
+      "to_index": 7,
+      "from_name": "北街梦寻",
+      "to_name": "古钱塘门遗址",
+      "network_m": 2072.93,
+      "travel_s": 1554.698,
+      "straight_m": 1614.428,
+      "ratio": 1.284
+    },
+    {
+      "from_index": 6,
+      "to_index": 8,
+      "from_name": "北街梦寻",
+      "to_name": "大佛寺遗址",
+      "network_m": 1086.055,
+      "travel_s": 820.065,
+      "straight_m": 979.372,
+      "ratio": 1.1089
+    },
+    {
+      "from_index": 7,
+      "to_index": 8,
+      "from_name": "古钱塘门遗址",
+      "to_name": "大佛寺遗址",
+      "network_m": 1411.847,
+      "travel_s": 1064.407,
+      "straight_m": 805.843,
+      "ratio": 1.752
+    }
+  ],
+  "snap": [
+    {
+      "index": 0,
+      "role": "start",
+      "name": "断桥残雪",
+      "latitude": 30.261531000000005,
+      "longitude": 120.147367,
+      "node_id": 27271890,
+      "snap_distance_m": 15.6
+    },
+    {
+      "index": 1,
+      "role": "attraction",
+      "name": "Fukui garden",
+      "latitude": 30.2518358,
+      "longitude": 120.1283822,
+      "node_id": 2380102030,
+      "snap_distance_m": 41.3
+    },
+    {
+      "index": 2,
+      "role": "attraction",
+      "name": "中山公园",
+      "latitude": 30.253632,
+      "longitude": 120.13591,
+      "node_id": 775020501,
+      "snap_distance_m": 33.7
+    },
+    {
+      "index": 3,
+      "role": "attraction",
+      "name": "八十八师阵亡将士碑",
+      "latitude": 30.2716919,
+      "longitude": 120.1391244,
+      "node_id": 5535005664,
+      "snap_distance_m": 249.0
+    },
+    {
+      "index": 4,
+      "role": "attraction",
+      "name": "初阳台",
+      "latitude": 30.2614853,
+      "longitude": 120.1370532,
+      "node_id": 5586466264,
+      "snap_distance_m": 18.1
+    },
+    {
+      "index": 5,
+      "role": "attraction",
+      "name": "北山街",
+      "latitude": 30.2581564,
+      "longitude": 120.1395178,
+      "node_id": 6643104320,
+      "snap_distance_m": 56.0
+    },
+    {
+      "index": 6,
+      "role": "attraction",
+      "name": "北街梦寻",
+      "latitude": 30.2572881,
+      "longitude": 120.1367986,
+      "node_id": 6643016511,
+      "snap_distance_m": 15.9
+    },
+    {
+      "index": 7,
+      "role": "attraction",
+      "name": "古钱塘门遗址",
+      "latitude": 30.2602726,
+      "longitude": 120.1532486,
+      "node_id": 1254131761,
+      "snap_distance_m": 19.5
+    },
+    {
+      "index": 8,
+      "role": "attraction",
+      "name": "大佛寺遗址",
+      "latitude": 30.2622917,
+      "longitude": 120.1451904,
+      "node_id": 7747519537,
+      "snap_distance_m": 27.5
+    }
+  ],
+  "straight_line": {
+    "pair_count": 72,
+    "mean_ratio": 1.5445,
+    "min_ratio": 1.01,
+    "max_ratio": 2.777
+  },
+  "matrix_build_ms": 1139.3491000053473,
+  "matrix_lookup_ms": 0.0,
+  "matrix_elapsed_ms": 1139.3491000053473,
+  "cache_hit": false,
+  "component": {
+    "method": "largest_strongly_connected",
+    "nodes_before": 15006,
+    "nodes_after": 15006,
+    "edges_before": 42224,
+    "edges_after": 42224,
+    "removed_nodes": 0,
+    "removed_edges": 0,
+    "strongly_connected": true
+  }
+}

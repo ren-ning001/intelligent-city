@@ -1,0 +1,7374 @@
+{
+  "region": "west-lake-demo",
+  "model": "open/closed-loop-tsp",
+  "weights": [
+    "length",
+    "time"
+  ],
+  "runs": [
+    {
+      "size": 5,
+      "repeat": 0,
+      "weight": "length",
+      "closed_loop": false,
+      "status": "ok",
+      "matrix_key": "ed98121ad08175189cf1",
+      "network_cache_key": "demo-west-lake-walk",
+      "matrix_elapsed_ms": 0.541,
+      "matrix_build_ms": 793.047,
+      "matrix_lookup_ms": 0.541,
+      "cache_hit": true,
+      "start": "断桥残雪",
+      "attractions": [
+        "Fukui garden",
+        "中山公园",
+        "八十八师阵亡将士碑",
+        "初阳台",
+        "北山街"
+      ],
+      "max_snap_distance_m": 249.0,
+      "straight_line": {
+        "pair_count": 30,
+        "mean_ratio": 1.5834,
+        "min_ratio": 1.1767,
+        "max_ratio": 2.777
+      },
+      "component": {
+        "method": "largest_strongly_connected",
+        "nodes_before": 15006,
+        "nodes_after": 15006,
+        "edges_before": 42224,
+        "edges_after": 42224,
+        "removed_nodes": 0,
+        "removed_edges": 0,
+        "strongly_connected": true
+      },
+      "pairs": [
+        {
+          "from_index": 0,
+          "to_index": 1,
+          "from_name": "断桥残雪",
+          "to_name": "Fukui garden",
+          "network_m": 2509.829,
+          "travel_s": 1882.371,
+          "straight_m": 2118.294,
+          "ratio": 1.1848
+        },
+        {
+          "from_index": 0,
+          "to_index": 2,
+          "from_name": "断桥残雪",
+          "to_name": "中山公园",
+          "network_m": 1748.324,
+          "travel_s": 1325.314,
+          "straight_m": 1407.964,
+          "ratio": 1.2417
+        },
+        {
+          "from_index": 0,
+          "to_index": 3,
+          "from_name": "断桥残雪",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 2113.215,
+          "travel_s": 1584.912,
+          "straight_m": 1379.557,
+          "ratio": 1.5318
+        },
+        {
+          "from_index": 0,
+          "to_index": 4,
+          "from_name": "断桥残雪",
+          "to_name": "初阳台",
+          "network_m": 1396.122,
+          "travel_s": 1099.655,
+          "straight_m": 990.581,
+          "ratio": 1.4094
+        },
+        {
+          "from_index": 0,
+          "to_index": 5,
+          "from_name": "断桥残雪",
+          "to_name": "北山街",
+          "network_m": 1003.87,
+          "travel_s": 752.902,
+          "straight_m": 842.098,
+          "ratio": 1.1921
+        },
+        {
+          "from_index": 1,
+          "to_index": 2,
+          "from_name": "Fukui garden",
+          "to_name": "中山公园",
+          "network_m": 1118.294,
+          "travel_s": 841.87,
+          "straight_m": 750.135,
+          "ratio": 1.4908
+        },
+        {
+          "from_index": 1,
+          "to_index": 3,
+          "from_name": "Fukui garden",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3261.946,
+          "travel_s": 2536.698,
+          "straight_m": 2437.058,
+          "ratio": 1.3385
+        },
+        {
+          "from_index": 1,
+          "to_index": 4,
+          "from_name": "Fukui garden",
+          "to_name": "初阳台",
+          "network_m": 1629.084,
+          "travel_s": 1235.775,
+          "straight_m": 1358.266,
+          "ratio": 1.1994
+        },
+        {
+          "from_index": 1,
+          "to_index": 5,
+          "from_name": "Fukui garden",
+          "to_name": "北山街",
+          "network_m": 1505.959,
+          "travel_s": 1129.469,
+          "straight_m": 1279.816,
+          "ratio": 1.1767
+        },
+        {
+          "from_index": 2,
+          "to_index": 3,
+          "from_name": "中山公园",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3622.56,
+          "travel_s": 2849.264,
+          "straight_m": 2031.763,
+          "ratio": 1.783
+        },
+        {
+          "from_index": 2,
+          "to_index": 4,
+          "from_name": "中山公园",
+          "to_name": "初阳台",
+          "network_m": 1877.61,
+          "travel_s": 1486.479,
+          "straight_m": 880.124,
+          "ratio": 2.1333
+        },
+        {
+          "from_index": 2,
+          "to_index": 5,
+          "from_name": "中山公园",
+          "to_name": "北山街",
+          "network_m": 957.15,
+          "travel_s": 721.011,
+          "straight_m": 610.884,
+          "ratio": 1.5668
+        },
+        {
+          "from_index": 3,
+          "to_index": 4,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "初阳台",
+          "network_m": 1970.497,
+          "travel_s": 1477.873,
+          "straight_m": 1152.223,
+          "ratio": 1.7102
+        },
+        {
+          "from_index": 3,
+          "to_index": 5,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北山街",
+          "network_m": 3035.139,
+          "travel_s": 2315.73,
+          "straight_m": 1505.555,
+          "ratio": 2.016
+        },
+        {
+          "from_index": 4,
+          "to_index": 5,
+          "from_name": "初阳台",
+          "to_name": "北山街",
+          "network_m": 1220.141,
+          "travel_s": 987.137,
+          "straight_m": 439.373,
+          "ratio": 2.777
+        }
+      ],
+      "unreachable": [],
+      "algorithms": [
+        {
+          "algorithm": "given_order",
+          "label": "当前列表顺序",
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "names": [
+            "Fukui garden",
+            "中山公园",
+            "八十八师阵亡将士碑",
+            "初阳台",
+            "北山街"
+          ],
+          "cost": 10441.321,
+          "cost_unit": "m",
+          "cost_m": 10441.3,
+          "cost_s": 8508.0,
+          "route_distance_m": 10441.3,
+          "duration_min": 141.8,
+          "elapsed_ms": 0.01,
+          "gap_percent": 56.33,
+          "improvement_percent": null,
+          "segments_m": [
+            2509.8,
+            1118.3,
+            3622.6,
+            1970.5,
+            1220.1
+          ],
+          "segments_min": [
+            31.37,
+            14.03,
+            55.32,
+            24.63,
+            16.45
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor",
+          "label": "最近邻",
+          "order": [
+            4,
+            1,
+            0,
+            3,
+            2
+          ],
+          "names": [
+            "北山街",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑"
+          ],
+          "cost": 6678.895,
+          "cost_unit": "m",
+          "cost_m": 6678.9,
+          "cost_s": 5028.0,
+          "route_distance_m": 6678.9,
+          "duration_min": 83.8,
+          "elapsed_ms": 0.028,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            1003.9,
+            957.1,
+            1118.3,
+            1629.1,
+            1970.5
+          ],
+          "segments_min": [
+            12.55,
+            12.02,
+            14.03,
+            20.6,
+            24.63
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor_2opt",
+          "label": "最近邻 + 2-opt",
+          "order": [
+            4,
+            1,
+            0,
+            3,
+            2
+          ],
+          "names": [
+            "北山街",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑"
+          ],
+          "cost": 6678.895,
+          "cost_unit": "m",
+          "cost_m": 6678.9,
+          "cost_s": 5028.0,
+          "route_distance_m": 6678.9,
+          "duration_min": 83.8,
+          "elapsed_ms": 0.026,
+          "gap_percent": 0.0,
+          "improvement_percent": 0.0,
+          "segments_m": [
+            1003.9,
+            957.1,
+            1118.3,
+            1629.1,
+            1970.5
+          ],
+          "segments_min": [
+            12.55,
+            12.02,
+            14.03,
+            20.6,
+            24.63
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "held_karp",
+          "label": "Held-Karp",
+          "order": [
+            4,
+            1,
+            0,
+            3,
+            2
+          ],
+          "names": [
+            "北山街",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑"
+          ],
+          "cost": 6678.895,
+          "cost_unit": "m",
+          "cost_m": 6678.9,
+          "cost_s": 5028.0,
+          "route_distance_m": 6678.9,
+          "duration_min": 83.8,
+          "elapsed_ms": 0.118,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            1003.9,
+            957.1,
+            1118.3,
+            1629.1,
+            1970.5
+          ],
+          "segments_min": [
+            12.55,
+            12.02,
+            14.03,
+            20.6,
+            24.63
+          ],
+          "covers_each_attraction_once": true
+        }
+      ]
+    },
+    {
+      "size": 5,
+      "repeat": 0,
+      "weight": "time",
+      "closed_loop": false,
+      "status": "ok",
+      "matrix_key": "ed98121ad08175189cf1",
+      "network_cache_key": "demo-west-lake-walk",
+      "matrix_elapsed_ms": 0.529,
+      "matrix_build_ms": 793.047,
+      "matrix_lookup_ms": 0.529,
+      "cache_hit": true,
+      "start": "断桥残雪",
+      "attractions": [
+        "Fukui garden",
+        "中山公园",
+        "八十八师阵亡将士碑",
+        "初阳台",
+        "北山街"
+      ],
+      "max_snap_distance_m": 249.0,
+      "straight_line": {
+        "pair_count": 30,
+        "mean_ratio": 1.5834,
+        "min_ratio": 1.1767,
+        "max_ratio": 2.777
+      },
+      "component": {
+        "method": "largest_strongly_connected",
+        "nodes_before": 15006,
+        "nodes_after": 15006,
+        "edges_before": 42224,
+        "edges_after": 42224,
+        "removed_nodes": 0,
+        "removed_edges": 0,
+        "strongly_connected": true
+      },
+      "pairs": [
+        {
+          "from_index": 0,
+          "to_index": 1,
+          "from_name": "断桥残雪",
+          "to_name": "Fukui garden",
+          "network_m": 2509.829,
+          "travel_s": 1882.371,
+          "straight_m": 2118.294,
+          "ratio": 1.1848
+        },
+        {
+          "from_index": 0,
+          "to_index": 2,
+          "from_name": "断桥残雪",
+          "to_name": "中山公园",
+          "network_m": 1748.324,
+          "travel_s": 1325.314,
+          "straight_m": 1407.964,
+          "ratio": 1.2417
+        },
+        {
+          "from_index": 0,
+          "to_index": 3,
+          "from_name": "断桥残雪",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 2113.215,
+          "travel_s": 1584.912,
+          "straight_m": 1379.557,
+          "ratio": 1.5318
+        },
+        {
+          "from_index": 0,
+          "to_index": 4,
+          "from_name": "断桥残雪",
+          "to_name": "初阳台",
+          "network_m": 1396.122,
+          "travel_s": 1099.655,
+          "straight_m": 990.581,
+          "ratio": 1.4094
+        },
+        {
+          "from_index": 0,
+          "to_index": 5,
+          "from_name": "断桥残雪",
+          "to_name": "北山街",
+          "network_m": 1003.87,
+          "travel_s": 752.902,
+          "straight_m": 842.098,
+          "ratio": 1.1921
+        },
+        {
+          "from_index": 1,
+          "to_index": 2,
+          "from_name": "Fukui garden",
+          "to_name": "中山公园",
+          "network_m": 1118.294,
+          "travel_s": 841.87,
+          "straight_m": 750.135,
+          "ratio": 1.4908
+        },
+        {
+          "from_index": 1,
+          "to_index": 3,
+          "from_name": "Fukui garden",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3261.946,
+          "travel_s": 2536.698,
+          "straight_m": 2437.058,
+          "ratio": 1.3385
+        },
+        {
+          "from_index": 1,
+          "to_index": 4,
+          "from_name": "Fukui garden",
+          "to_name": "初阳台",
+          "network_m": 1629.084,
+          "travel_s": 1235.775,
+          "straight_m": 1358.266,
+          "ratio": 1.1994
+        },
+        {
+          "from_index": 1,
+          "to_index": 5,
+          "from_name": "Fukui garden",
+          "to_name": "北山街",
+          "network_m": 1505.959,
+          "travel_s": 1129.469,
+          "straight_m": 1279.816,
+          "ratio": 1.1767
+        },
+        {
+          "from_index": 2,
+          "to_index": 3,
+          "from_name": "中山公园",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3622.56,
+          "travel_s": 2849.264,
+          "straight_m": 2031.763,
+          "ratio": 1.783
+        },
+        {
+          "from_index": 2,
+          "to_index": 4,
+          "from_name": "中山公园",
+          "to_name": "初阳台",
+          "network_m": 1877.61,
+          "travel_s": 1486.479,
+          "straight_m": 880.124,
+          "ratio": 2.1333
+        },
+        {
+          "from_index": 2,
+          "to_index": 5,
+          "from_name": "中山公园",
+          "to_name": "北山街",
+          "network_m": 957.15,
+          "travel_s": 721.011,
+          "straight_m": 610.884,
+          "ratio": 1.5668
+        },
+        {
+          "from_index": 3,
+          "to_index": 4,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "初阳台",
+          "network_m": 1970.497,
+          "travel_s": 1477.873,
+          "straight_m": 1152.223,
+          "ratio": 1.7102
+        },
+        {
+          "from_index": 3,
+          "to_index": 5,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北山街",
+          "network_m": 3035.139,
+          "travel_s": 2315.73,
+          "straight_m": 1505.555,
+          "ratio": 2.016
+        },
+        {
+          "from_index": 4,
+          "to_index": 5,
+          "from_name": "初阳台",
+          "to_name": "北山街",
+          "network_m": 1220.141,
+          "travel_s": 987.137,
+          "straight_m": 439.373,
+          "ratio": 2.777
+        }
+      ],
+      "unreachable": [],
+      "algorithms": [
+        {
+          "algorithm": "given_order",
+          "label": "当前列表顺序",
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "names": [
+            "Fukui garden",
+            "中山公园",
+            "八十八师阵亡将士碑",
+            "初阳台",
+            "北山街"
+          ],
+          "cost": 8038.515,
+          "cost_unit": "s",
+          "cost_m": 10556.5,
+          "cost_s": 8040.0,
+          "route_distance_m": 10556.5,
+          "duration_min": 134.0,
+          "elapsed_ms": 0.007,
+          "gap_percent": 59.83,
+          "improvement_percent": null,
+          "segments_m": [
+            2509.8,
+            1118.3,
+            3737.8,
+            1970.5,
+            1220.1
+          ],
+          "segments_min": [
+            31.37,
+            14.03,
+            47.49,
+            24.63,
+            16.45
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor",
+          "label": "最近邻",
+          "order": [
+            4,
+            1,
+            0,
+            3,
+            2
+          ],
+          "names": [
+            "北山街",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑"
+          ],
+          "cost": 5029.431,
+          "cost_unit": "s",
+          "cost_m": 6678.9,
+          "cost_s": 5028.0,
+          "route_distance_m": 6678.9,
+          "duration_min": 83.8,
+          "elapsed_ms": 0.021,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            1003.9,
+            957.1,
+            1118.3,
+            1629.1,
+            1970.5
+          ],
+          "segments_min": [
+            12.55,
+            12.02,
+            14.03,
+            20.6,
+            24.63
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor_2opt",
+          "label": "最近邻 + 2-opt",
+          "order": [
+            4,
+            1,
+            0,
+            3,
+            2
+          ],
+          "names": [
+            "北山街",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑"
+          ],
+          "cost": 5029.431,
+          "cost_unit": "s",
+          "cost_m": 6678.9,
+          "cost_s": 5028.0,
+          "route_distance_m": 6678.9,
+          "duration_min": 83.8,
+          "elapsed_ms": 0.021,
+          "gap_percent": 0.0,
+          "improvement_percent": 0.0,
+          "segments_m": [
+            1003.9,
+            957.1,
+            1118.3,
+            1629.1,
+            1970.5
+          ],
+          "segments_min": [
+            12.55,
+            12.02,
+            14.03,
+            20.6,
+            24.63
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "held_karp",
+          "label": "Held-Karp",
+          "order": [
+            4,
+            1,
+            0,
+            3,
+            2
+          ],
+          "names": [
+            "北山街",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑"
+          ],
+          "cost": 5029.431,
+          "cost_unit": "s",
+          "cost_m": 6678.9,
+          "cost_s": 5028.0,
+          "route_distance_m": 6678.9,
+          "duration_min": 83.8,
+          "elapsed_ms": 0.105,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            1003.9,
+            957.1,
+            1118.3,
+            1629.1,
+            1970.5
+          ],
+          "segments_min": [
+            12.55,
+            12.02,
+            14.03,
+            20.6,
+            24.63
+          ],
+          "covers_each_attraction_once": true
+        }
+      ]
+    },
+    {
+      "size": 5,
+      "repeat": 0,
+      "weight": "length",
+      "closed_loop": true,
+      "status": "ok",
+      "matrix_key": "ed98121ad08175189cf1",
+      "network_cache_key": "demo-west-lake-walk",
+      "matrix_elapsed_ms": 0.613,
+      "matrix_build_ms": 793.047,
+      "matrix_lookup_ms": 0.613,
+      "cache_hit": true,
+      "start": "断桥残雪",
+      "attractions": [
+        "Fukui garden",
+        "中山公园",
+        "八十八师阵亡将士碑",
+        "初阳台",
+        "北山街"
+      ],
+      "max_snap_distance_m": 249.0,
+      "straight_line": {
+        "pair_count": 30,
+        "mean_ratio": 1.5834,
+        "min_ratio": 1.1767,
+        "max_ratio": 2.777
+      },
+      "component": {
+        "method": "largest_strongly_connected",
+        "nodes_before": 15006,
+        "nodes_after": 15006,
+        "edges_before": 42224,
+        "edges_after": 42224,
+        "removed_nodes": 0,
+        "removed_edges": 0,
+        "strongly_connected": true
+      },
+      "pairs": [
+        {
+          "from_index": 0,
+          "to_index": 1,
+          "from_name": "断桥残雪",
+          "to_name": "Fukui garden",
+          "network_m": 2509.829,
+          "travel_s": 1882.371,
+          "straight_m": 2118.294,
+          "ratio": 1.1848
+        },
+        {
+          "from_index": 0,
+          "to_index": 2,
+          "from_name": "断桥残雪",
+          "to_name": "中山公园",
+          "network_m": 1748.324,
+          "travel_s": 1325.314,
+          "straight_m": 1407.964,
+          "ratio": 1.2417
+        },
+        {
+          "from_index": 0,
+          "to_index": 3,
+          "from_name": "断桥残雪",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 2113.215,
+          "travel_s": 1584.912,
+          "straight_m": 1379.557,
+          "ratio": 1.5318
+        },
+        {
+          "from_index": 0,
+          "to_index": 4,
+          "from_name": "断桥残雪",
+          "to_name": "初阳台",
+          "network_m": 1396.122,
+          "travel_s": 1099.655,
+          "straight_m": 990.581,
+          "ratio": 1.4094
+        },
+        {
+          "from_index": 0,
+          "to_index": 5,
+          "from_name": "断桥残雪",
+          "to_name": "北山街",
+          "network_m": 1003.87,
+          "travel_s": 752.902,
+          "straight_m": 842.098,
+          "ratio": 1.1921
+        },
+        {
+          "from_index": 1,
+          "to_index": 2,
+          "from_name": "Fukui garden",
+          "to_name": "中山公园",
+          "network_m": 1118.294,
+          "travel_s": 841.87,
+          "straight_m": 750.135,
+          "ratio": 1.4908
+        },
+        {
+          "from_index": 1,
+          "to_index": 3,
+          "from_name": "Fukui garden",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3261.946,
+          "travel_s": 2536.698,
+          "straight_m": 2437.058,
+          "ratio": 1.3385
+        },
+        {
+          "from_index": 1,
+          "to_index": 4,
+          "from_name": "Fukui garden",
+          "to_name": "初阳台",
+          "network_m": 1629.084,
+          "travel_s": 1235.775,
+          "straight_m": 1358.266,
+          "ratio": 1.1994
+        },
+        {
+          "from_index": 1,
+          "to_index": 5,
+          "from_name": "Fukui garden",
+          "to_name": "北山街",
+          "network_m": 1505.959,
+          "travel_s": 1129.469,
+          "straight_m": 1279.816,
+          "ratio": 1.1767
+        },
+        {
+          "from_index": 2,
+          "to_index": 3,
+          "from_name": "中山公园",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3622.56,
+          "travel_s": 2849.264,
+          "straight_m": 2031.763,
+          "ratio": 1.783
+        },
+        {
+          "from_index": 2,
+          "to_index": 4,
+          "from_name": "中山公园",
+          "to_name": "初阳台",
+          "network_m": 1877.61,
+          "travel_s": 1486.479,
+          "straight_m": 880.124,
+          "ratio": 2.1333
+        },
+        {
+          "from_index": 2,
+          "to_index": 5,
+          "from_name": "中山公园",
+          "to_name": "北山街",
+          "network_m": 957.15,
+          "travel_s": 721.011,
+          "straight_m": 610.884,
+          "ratio": 1.5668
+        },
+        {
+          "from_index": 3,
+          "to_index": 4,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "初阳台",
+          "network_m": 1970.497,
+          "travel_s": 1477.873,
+          "straight_m": 1152.223,
+          "ratio": 1.7102
+        },
+        {
+          "from_index": 3,
+          "to_index": 5,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北山街",
+          "network_m": 3035.139,
+          "travel_s": 2315.73,
+          "straight_m": 1505.555,
+          "ratio": 2.016
+        },
+        {
+          "from_index": 4,
+          "to_index": 5,
+          "from_name": "初阳台",
+          "to_name": "北山街",
+          "network_m": 1220.141,
+          "travel_s": 987.137,
+          "straight_m": 439.373,
+          "ratio": 2.777
+        }
+      ],
+      "unreachable": [],
+      "algorithms": [
+        {
+          "algorithm": "given_order",
+          "label": "当前列表顺序",
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "names": [
+            "Fukui garden",
+            "中山公园",
+            "八十八师阵亡将士碑",
+            "初阳台",
+            "北山街"
+          ],
+          "cost": 11445.191,
+          "cost_unit": "m",
+          "cost_m": 11445.2,
+          "cost_s": 9264.0,
+          "route_distance_m": 11445.2,
+          "duration_min": 154.4,
+          "elapsed_ms": 0.008,
+          "gap_percent": 30.18,
+          "improvement_percent": null,
+          "segments_m": [
+            2509.8,
+            1118.3,
+            3622.6,
+            1970.5,
+            1220.1,
+            1003.9
+          ],
+          "segments_min": [
+            31.37,
+            14.03,
+            55.32,
+            24.63,
+            16.45,
+            12.55
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor",
+          "label": "最近邻",
+          "order": [
+            4,
+            1,
+            0,
+            3,
+            2
+          ],
+          "names": [
+            "北山街",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑"
+          ],
+          "cost": 8792.11,
+          "cost_unit": "m",
+          "cost_m": 8792.1,
+          "cost_s": 6612.0,
+          "route_distance_m": 8792.1,
+          "duration_min": 110.2,
+          "elapsed_ms": 0.021,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            1003.9,
+            957.1,
+            1118.3,
+            1629.1,
+            1970.5,
+            2113.2
+          ],
+          "segments_min": [
+            12.55,
+            12.02,
+            14.03,
+            20.6,
+            24.63,
+            26.42
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor_2opt",
+          "label": "最近邻 + 2-opt",
+          "order": [
+            4,
+            1,
+            0,
+            3,
+            2
+          ],
+          "names": [
+            "北山街",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑"
+          ],
+          "cost": 8792.11,
+          "cost_unit": "m",
+          "cost_m": 8792.1,
+          "cost_s": 6612.0,
+          "route_distance_m": 8792.1,
+          "duration_min": 110.2,
+          "elapsed_ms": 0.023,
+          "gap_percent": 0.0,
+          "improvement_percent": 0.0,
+          "segments_m": [
+            1003.9,
+            957.1,
+            1118.3,
+            1629.1,
+            1970.5,
+            2113.2
+          ],
+          "segments_min": [
+            12.55,
+            12.02,
+            14.03,
+            20.6,
+            24.63,
+            26.42
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "held_karp",
+          "label": "Held-Karp",
+          "order": [
+            4,
+            1,
+            0,
+            3,
+            2
+          ],
+          "names": [
+            "北山街",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑"
+          ],
+          "cost": 8792.11,
+          "cost_unit": "m",
+          "cost_m": 8792.1,
+          "cost_s": 6612.0,
+          "route_distance_m": 8792.1,
+          "duration_min": 110.2,
+          "elapsed_ms": 0.106,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            1003.9,
+            957.1,
+            1118.3,
+            1629.1,
+            1970.5,
+            2113.2
+          ],
+          "segments_min": [
+            12.55,
+            12.02,
+            14.03,
+            20.6,
+            24.63,
+            26.42
+          ],
+          "covers_each_attraction_once": true
+        }
+      ]
+    },
+    {
+      "size": 5,
+      "repeat": 0,
+      "weight": "time",
+      "closed_loop": true,
+      "status": "ok",
+      "matrix_key": "ed98121ad08175189cf1",
+      "network_cache_key": "demo-west-lake-walk",
+      "matrix_elapsed_ms": 0.557,
+      "matrix_build_ms": 793.047,
+      "matrix_lookup_ms": 0.557,
+      "cache_hit": true,
+      "start": "断桥残雪",
+      "attractions": [
+        "Fukui garden",
+        "中山公园",
+        "八十八师阵亡将士碑",
+        "初阳台",
+        "北山街"
+      ],
+      "max_snap_distance_m": 249.0,
+      "straight_line": {
+        "pair_count": 30,
+        "mean_ratio": 1.5834,
+        "min_ratio": 1.1767,
+        "max_ratio": 2.777
+      },
+      "component": {
+        "method": "largest_strongly_connected",
+        "nodes_before": 15006,
+        "nodes_after": 15006,
+        "edges_before": 42224,
+        "edges_after": 42224,
+        "removed_nodes": 0,
+        "removed_edges": 0,
+        "strongly_connected": true
+      },
+      "pairs": [
+        {
+          "from_index": 0,
+          "to_index": 1,
+          "from_name": "断桥残雪",
+          "to_name": "Fukui garden",
+          "network_m": 2509.829,
+          "travel_s": 1882.371,
+          "straight_m": 2118.294,
+          "ratio": 1.1848
+        },
+        {
+          "from_index": 0,
+          "to_index": 2,
+          "from_name": "断桥残雪",
+          "to_name": "中山公园",
+          "network_m": 1748.324,
+          "travel_s": 1325.314,
+          "straight_m": 1407.964,
+          "ratio": 1.2417
+        },
+        {
+          "from_index": 0,
+          "to_index": 3,
+          "from_name": "断桥残雪",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 2113.215,
+          "travel_s": 1584.912,
+          "straight_m": 1379.557,
+          "ratio": 1.5318
+        },
+        {
+          "from_index": 0,
+          "to_index": 4,
+          "from_name": "断桥残雪",
+          "to_name": "初阳台",
+          "network_m": 1396.122,
+          "travel_s": 1099.655,
+          "straight_m": 990.581,
+          "ratio": 1.4094
+        },
+        {
+          "from_index": 0,
+          "to_index": 5,
+          "from_name": "断桥残雪",
+          "to_name": "北山街",
+          "network_m": 1003.87,
+          "travel_s": 752.902,
+          "straight_m": 842.098,
+          "ratio": 1.1921
+        },
+        {
+          "from_index": 1,
+          "to_index": 2,
+          "from_name": "Fukui garden",
+          "to_name": "中山公园",
+          "network_m": 1118.294,
+          "travel_s": 841.87,
+          "straight_m": 750.135,
+          "ratio": 1.4908
+        },
+        {
+          "from_index": 1,
+          "to_index": 3,
+          "from_name": "Fukui garden",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3261.946,
+          "travel_s": 2536.698,
+          "straight_m": 2437.058,
+          "ratio": 1.3385
+        },
+        {
+          "from_index": 1,
+          "to_index": 4,
+          "from_name": "Fukui garden",
+          "to_name": "初阳台",
+          "network_m": 1629.084,
+          "travel_s": 1235.775,
+          "straight_m": 1358.266,
+          "ratio": 1.1994
+        },
+        {
+          "from_index": 1,
+          "to_index": 5,
+          "from_name": "Fukui garden",
+          "to_name": "北山街",
+          "network_m": 1505.959,
+          "travel_s": 1129.469,
+          "straight_m": 1279.816,
+          "ratio": 1.1767
+        },
+        {
+          "from_index": 2,
+          "to_index": 3,
+          "from_name": "中山公园",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3622.56,
+          "travel_s": 2849.264,
+          "straight_m": 2031.763,
+          "ratio": 1.783
+        },
+        {
+          "from_index": 2,
+          "to_index": 4,
+          "from_name": "中山公园",
+          "to_name": "初阳台",
+          "network_m": 1877.61,
+          "travel_s": 1486.479,
+          "straight_m": 880.124,
+          "ratio": 2.1333
+        },
+        {
+          "from_index": 2,
+          "to_index": 5,
+          "from_name": "中山公园",
+          "to_name": "北山街",
+          "network_m": 957.15,
+          "travel_s": 721.011,
+          "straight_m": 610.884,
+          "ratio": 1.5668
+        },
+        {
+          "from_index": 3,
+          "to_index": 4,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "初阳台",
+          "network_m": 1970.497,
+          "travel_s": 1477.873,
+          "straight_m": 1152.223,
+          "ratio": 1.7102
+        },
+        {
+          "from_index": 3,
+          "to_index": 5,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北山街",
+          "network_m": 3035.139,
+          "travel_s": 2315.73,
+          "straight_m": 1505.555,
+          "ratio": 2.016
+        },
+        {
+          "from_index": 4,
+          "to_index": 5,
+          "from_name": "初阳台",
+          "to_name": "北山街",
+          "network_m": 1220.141,
+          "travel_s": 987.137,
+          "straight_m": 439.373,
+          "ratio": 2.777
+        }
+      ],
+      "unreachable": [],
+      "algorithms": [
+        {
+          "algorithm": "given_order",
+          "label": "当前列表顺序",
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "names": [
+            "Fukui garden",
+            "中山公园",
+            "八十八师阵亡将士碑",
+            "初阳台",
+            "北山街"
+          ],
+          "cost": 8791.417,
+          "cost_unit": "s",
+          "cost_m": 11560.4,
+          "cost_s": 8790.0,
+          "route_distance_m": 11560.4,
+          "duration_min": 146.5,
+          "elapsed_ms": 0.007,
+          "gap_percent": 32.91,
+          "improvement_percent": null,
+          "segments_m": [
+            2509.8,
+            1118.3,
+            3737.8,
+            1970.5,
+            1220.1,
+            1003.9
+          ],
+          "segments_min": [
+            31.37,
+            14.03,
+            47.49,
+            24.63,
+            16.45,
+            12.55
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor",
+          "label": "最近邻",
+          "order": [
+            4,
+            1,
+            0,
+            3,
+            2
+          ],
+          "names": [
+            "北山街",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑"
+          ],
+          "cost": 6614.343,
+          "cost_unit": "s",
+          "cost_m": 8792.1,
+          "cost_s": 6612.0,
+          "route_distance_m": 8792.1,
+          "duration_min": 110.2,
+          "elapsed_ms": 0.019,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            1003.9,
+            957.1,
+            1118.3,
+            1629.1,
+            1970.5,
+            2113.2
+          ],
+          "segments_min": [
+            12.55,
+            12.02,
+            14.03,
+            20.6,
+            24.63,
+            26.42
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor_2opt",
+          "label": "最近邻 + 2-opt",
+          "order": [
+            4,
+            1,
+            0,
+            3,
+            2
+          ],
+          "names": [
+            "北山街",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑"
+          ],
+          "cost": 6614.343,
+          "cost_unit": "s",
+          "cost_m": 8792.1,
+          "cost_s": 6612.0,
+          "route_distance_m": 8792.1,
+          "duration_min": 110.2,
+          "elapsed_ms": 0.024,
+          "gap_percent": 0.0,
+          "improvement_percent": 0.0,
+          "segments_m": [
+            1003.9,
+            957.1,
+            1118.3,
+            1629.1,
+            1970.5,
+            2113.2
+          ],
+          "segments_min": [
+            12.55,
+            12.02,
+            14.03,
+            20.6,
+            24.63,
+            26.42
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "held_karp",
+          "label": "Held-Karp",
+          "order": [
+            2,
+            3,
+            0,
+            1,
+            4
+          ],
+          "names": [
+            "八十八师阵亡将士碑",
+            "初阳台",
+            "Fukui garden",
+            "中山公园",
+            "北山街"
+          ],
+          "cost": 6614.343,
+          "cost_unit": "s",
+          "cost_m": 8792.1,
+          "cost_s": 6612.0,
+          "route_distance_m": 8792.1,
+          "duration_min": 110.2,
+          "elapsed_ms": 0.105,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            2113.2,
+            1970.5,
+            1629.1,
+            1118.3,
+            957.1,
+            1003.9
+          ],
+          "segments_min": [
+            26.42,
+            24.63,
+            20.6,
+            14.03,
+            12.02,
+            12.55
+          ],
+          "covers_each_attraction_once": true
+        }
+      ]
+    },
+    {
+      "size": 8,
+      "repeat": 0,
+      "weight": "length",
+      "closed_loop": false,
+      "status": "ok",
+      "matrix_key": "a19ea981ba7cd533410b",
+      "network_cache_key": "demo-west-lake-walk",
+      "matrix_elapsed_ms": 0.64,
+      "matrix_build_ms": 1139.349,
+      "matrix_lookup_ms": 0.64,
+      "cache_hit": true,
+      "start": "断桥残雪",
+      "attractions": [
+        "Fukui garden",
+        "中山公园",
+        "八十八师阵亡将士碑",
+        "初阳台",
+        "北山街",
+        "北街梦寻",
+        "古钱塘门遗址",
+        "大佛寺遗址"
+      ],
+      "max_snap_distance_m": 249.0,
+      "straight_line": {
+        "pair_count": 72,
+        "mean_ratio": 1.5445,
+        "min_ratio": 1.01,
+        "max_ratio": 2.777
+      },
+      "component": {
+        "method": "largest_strongly_connected",
+        "nodes_before": 15006,
+        "nodes_after": 15006,
+        "edges_before": 42224,
+        "edges_after": 42224,
+        "removed_nodes": 0,
+        "removed_edges": 0,
+        "strongly_connected": true
+      },
+      "pairs": [
+        {
+          "from_index": 0,
+          "to_index": 1,
+          "from_name": "断桥残雪",
+          "to_name": "Fukui garden",
+          "network_m": 2509.829,
+          "travel_s": 1882.371,
+          "straight_m": 2118.294,
+          "ratio": 1.1848
+        },
+        {
+          "from_index": 0,
+          "to_index": 2,
+          "from_name": "断桥残雪",
+          "to_name": "中山公园",
+          "network_m": 1748.324,
+          "travel_s": 1325.314,
+          "straight_m": 1407.964,
+          "ratio": 1.2417
+        },
+        {
+          "from_index": 0,
+          "to_index": 3,
+          "from_name": "断桥残雪",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 2113.215,
+          "travel_s": 1584.912,
+          "straight_m": 1379.557,
+          "ratio": 1.5318
+        },
+        {
+          "from_index": 0,
+          "to_index": 4,
+          "from_name": "断桥残雪",
+          "to_name": "初阳台",
+          "network_m": 1396.122,
+          "travel_s": 1099.655,
+          "straight_m": 990.581,
+          "ratio": 1.4094
+        },
+        {
+          "from_index": 0,
+          "to_index": 5,
+          "from_name": "断桥残雪",
+          "to_name": "北山街",
+          "network_m": 1003.87,
+          "travel_s": 752.902,
+          "straight_m": 842.098,
+          "ratio": 1.1921
+        },
+        {
+          "from_index": 0,
+          "to_index": 6,
+          "from_name": "断桥残雪",
+          "to_name": "北街梦寻",
+          "network_m": 1271.875,
+          "travel_s": 953.907,
+          "straight_m": 1119.329,
+          "ratio": 1.1363
+        },
+        {
+          "from_index": 0,
+          "to_index": 7,
+          "from_name": "断桥残雪",
+          "to_name": "古钱塘门遗址",
+          "network_m": 801.055,
+          "travel_s": 600.791,
+          "straight_m": 581.963,
+          "ratio": 1.3765
+        },
+        {
+          "from_index": 0,
+          "to_index": 8,
+          "from_name": "断桥残雪",
+          "to_name": "大佛寺遗址",
+          "network_m": 610.792,
+          "travel_s": 463.616,
+          "straight_m": 225.511,
+          "ratio": 2.7085
+        },
+        {
+          "from_index": 1,
+          "to_index": 2,
+          "from_name": "Fukui garden",
+          "to_name": "中山公园",
+          "network_m": 1118.294,
+          "travel_s": 841.87,
+          "straight_m": 750.135,
+          "ratio": 1.4908
+        },
+        {
+          "from_index": 1,
+          "to_index": 3,
+          "from_name": "Fukui garden",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3261.946,
+          "travel_s": 2536.698,
+          "straight_m": 2437.058,
+          "ratio": 1.3385
+        },
+        {
+          "from_index": 1,
+          "to_index": 4,
+          "from_name": "Fukui garden",
+          "to_name": "初阳台",
+          "network_m": 1629.084,
+          "travel_s": 1235.775,
+          "straight_m": 1358.266,
+          "ratio": 1.1994
+        },
+        {
+          "from_index": 1,
+          "to_index": 5,
+          "from_name": "Fukui garden",
+          "to_name": "北山街",
+          "network_m": 1505.959,
+          "travel_s": 1129.469,
+          "straight_m": 1279.816,
+          "ratio": 1.1767
+        },
+        {
+          "from_index": 1,
+          "to_index": 6,
+          "from_name": "Fukui garden",
+          "to_name": "北街梦寻",
+          "network_m": 1268.792,
+          "travel_s": 951.594,
+          "straight_m": 1010.476,
+          "ratio": 1.2556
+        },
+        {
+          "from_index": 1,
+          "to_index": 7,
+          "from_name": "Fukui garden",
+          "to_name": "古钱塘门遗址",
+          "network_m": 3310.884,
+          "travel_s": 2483.162,
+          "straight_m": 2566.015,
+          "ratio": 1.2903
+        },
+        {
+          "from_index": 1,
+          "to_index": 8,
+          "from_name": "Fukui garden",
+          "to_name": "大佛寺遗址",
+          "network_m": 2324.009,
+          "travel_s": 1748.529,
+          "straight_m": 1989.466,
+          "ratio": 1.1682
+        },
+        {
+          "from_index": 2,
+          "to_index": 3,
+          "from_name": "中山公园",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3622.56,
+          "travel_s": 2849.264,
+          "straight_m": 2031.763,
+          "ratio": 1.783
+        },
+        {
+          "from_index": 2,
+          "to_index": 4,
+          "from_name": "中山公园",
+          "to_name": "初阳台",
+          "network_m": 1877.61,
+          "travel_s": 1486.479,
+          "straight_m": 880.124,
+          "ratio": 2.1333
+        },
+        {
+          "from_index": 2,
+          "to_index": 5,
+          "from_name": "中山公园",
+          "to_name": "北山街",
+          "network_m": 957.15,
+          "travel_s": 721.011,
+          "straight_m": 610.884,
+          "ratio": 1.5668
+        },
+        {
+          "from_index": 2,
+          "to_index": 6,
+          "from_name": "中山公园",
+          "to_name": "北街梦寻",
+          "network_m": 719.983,
+          "travel_s": 543.136,
+          "straight_m": 415.403,
+          "ratio": 1.7332
+        },
+        {
+          "from_index": 2,
+          "to_index": 7,
+          "from_name": "中山公园",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2549.379,
+          "travel_s": 1926.105,
+          "straight_m": 1821.691,
+          "ratio": 1.3995
+        },
+        {
+          "from_index": 2,
+          "to_index": 8,
+          "from_name": "中山公园",
+          "to_name": "大佛寺遗址",
+          "network_m": 1743.117,
+          "travel_s": 1315.053,
+          "straight_m": 1312.14,
+          "ratio": 1.3285
+        },
+        {
+          "from_index": 3,
+          "to_index": 4,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "初阳台",
+          "network_m": 1970.497,
+          "travel_s": 1477.873,
+          "straight_m": 1152.223,
+          "ratio": 1.7102
+        },
+        {
+          "from_index": 3,
+          "to_index": 5,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北山街",
+          "network_m": 3035.139,
+          "travel_s": 2315.73,
+          "straight_m": 1505.555,
+          "ratio": 2.016
+        },
+        {
+          "from_index": 3,
+          "to_index": 6,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北街梦寻",
+          "network_m": 3017.772,
+          "travel_s": 2306.128,
+          "straight_m": 1617.133,
+          "ratio": 1.8661
+        },
+        {
+          "from_index": 3,
+          "to_index": 7,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2467.388,
+          "travel_s": 1850.54,
+          "straight_m": 1858.043,
+          "ratio": 1.3279
+        },
+        {
+          "from_index": 3,
+          "to_index": 8,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "大佛寺遗址",
+          "network_m": 2696.879,
+          "travel_s": 2028.181,
+          "straight_m": 1196.638,
+          "ratio": 2.2537
+        },
+        {
+          "from_index": 4,
+          "to_index": 5,
+          "from_name": "初阳台",
+          "to_name": "北山街",
+          "network_m": 1220.141,
+          "travel_s": 987.137,
+          "straight_m": 439.373,
+          "ratio": 2.777
+        },
+        {
+          "from_index": 4,
+          "to_index": 6,
+          "from_name": "初阳台",
+          "to_name": "北街梦寻",
+          "network_m": 1157.627,
+          "travel_s": 943.343,
+          "straight_m": 467.348,
+          "ratio": 2.477
+        },
+        {
+          "from_index": 4,
+          "to_index": 7,
+          "from_name": "初阳台",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2197.177,
+          "travel_s": 1700.446,
+          "straight_m": 1561.299,
+          "ratio": 1.4073
+        },
+        {
+          "from_index": 4,
+          "to_index": 8,
+          "from_name": "初阳台",
+          "to_name": "大佛寺遗址",
+          "network_m": 1158.158,
+          "travel_s": 986.651,
+          "straight_m": 786.645,
+          "ratio": 1.4723
+        },
+        {
+          "from_index": 5,
+          "to_index": 6,
+          "from_name": "北山街",
+          "to_name": "北街梦寻",
+          "network_m": 281.22,
+          "travel_s": 210.914,
+          "straight_m": 278.446,
+          "ratio": 1.01
+        },
+        {
+          "from_index": 5,
+          "to_index": 7,
+          "from_name": "北山街",
+          "to_name": "古钱塘门遗址",
+          "network_m": 1804.925,
+          "travel_s": 1353.693,
+          "straight_m": 1339.607,
+          "ratio": 1.3474
+        },
+        {
+          "from_index": 5,
+          "to_index": 8,
+          "from_name": "北山街",
+          "to_name": "大佛寺遗址",
+          "network_m": 818.05,
+          "travel_s": 619.06,
+          "straight_m": 712.93,
+          "ratio": 1.1474
+        },
+        {
+          "from_index": 6,
+          "to_index": 7,
+          "from_name": "北街梦寻",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2072.93,
+          "travel_s": 1554.698,
+          "straight_m": 1614.428,
+          "ratio": 1.284
+        },
+        {
+          "from_index": 6,
+          "to_index": 8,
+          "from_name": "北街梦寻",
+          "to_name": "大佛寺遗址",
+          "network_m": 1086.055,
+          "travel_s": 820.065,
+          "straight_m": 979.372,
+          "ratio": 1.1089
+        },
+        {
+          "from_index": 7,
+          "to_index": 8,
+          "from_name": "古钱塘门遗址",
+          "to_name": "大佛寺遗址",
+          "network_m": 1411.847,
+          "travel_s": 1064.407,
+          "straight_m": 805.843,
+          "ratio": 1.752
+        }
+      ],
+      "unreachable": [],
+      "algorithms": [
+        {
+          "algorithm": "given_order",
+          "label": "当前列表顺序",
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "names": [
+            "Fukui garden",
+            "中山公园",
+            "八十八师阵亡将士碑",
+            "初阳台",
+            "北山街",
+            "北街梦寻",
+            "古钱塘门遗址",
+            "大佛寺遗址"
+          ],
+          "cost": 14207.318,
+          "cost_unit": "m",
+          "cost_m": 14207.3,
+          "cost_s": 11340.0,
+          "route_distance_m": 14207.3,
+          "duration_min": 189.0,
+          "elapsed_ms": 0.006,
+          "gap_percent": 62.37,
+          "improvement_percent": null,
+          "segments_m": [
+            2509.8,
+            1118.3,
+            3622.6,
+            1970.5,
+            1220.1,
+            281.2,
+            2072.9,
+            1411.8
+          ],
+          "segments_min": [
+            31.37,
+            14.03,
+            55.32,
+            24.63,
+            16.45,
+            3.52,
+            25.91,
+            17.74
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor",
+          "label": "最近邻",
+          "order": [
+            7,
+            4,
+            5,
+            1,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 9615.308,
+          "cost_unit": "m",
+          "cost_m": 9615.3,
+          "cost_s": 7242.0,
+          "route_distance_m": 9615.3,
+          "duration_min": 120.7,
+          "elapsed_ms": 0.025,
+          "gap_percent": 9.89,
+          "improvement_percent": null,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            720.0,
+            1118.3,
+            1629.1,
+            1970.5,
+            2467.4
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            9.05,
+            14.03,
+            20.6,
+            24.63,
+            30.84
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor_2opt",
+          "label": "最近邻 + 2-opt",
+          "order": [
+            7,
+            4,
+            5,
+            1,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 9615.308,
+          "cost_unit": "m",
+          "cost_m": 9615.3,
+          "cost_s": 7242.0,
+          "route_distance_m": 9615.3,
+          "duration_min": 120.7,
+          "elapsed_ms": 0.047,
+          "gap_percent": 9.89,
+          "improvement_percent": 0.0,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            720.0,
+            1118.3,
+            1629.1,
+            1970.5,
+            2467.4
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            9.05,
+            14.03,
+            20.6,
+            24.63,
+            30.84
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "held_karp",
+          "label": "Held-Karp",
+          "order": [
+            6,
+            7,
+            4,
+            5,
+            1,
+            0,
+            3,
+            2
+          ],
+          "names": [
+            "古钱塘门遗址",
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑"
+          ],
+          "cost": 8750.03,
+          "cost_unit": "m",
+          "cost_m": 8750.0,
+          "cost_s": 6594.0,
+          "route_distance_m": 8750.0,
+          "duration_min": 109.9,
+          "elapsed_ms": 1.397,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            801.1,
+            1411.8,
+            818.0,
+            281.2,
+            720.0,
+            1118.3,
+            1629.1,
+            1970.5
+          ],
+          "segments_min": [
+            10.01,
+            17.74,
+            10.32,
+            3.52,
+            9.05,
+            14.03,
+            20.6,
+            24.63
+          ],
+          "covers_each_attraction_once": true
+        }
+      ]
+    },
+    {
+      "size": 8,
+      "repeat": 0,
+      "weight": "time",
+      "closed_loop": false,
+      "status": "ok",
+      "matrix_key": "a19ea981ba7cd533410b",
+      "network_cache_key": "demo-west-lake-walk",
+      "matrix_elapsed_ms": 0.609,
+      "matrix_build_ms": 1139.349,
+      "matrix_lookup_ms": 0.609,
+      "cache_hit": true,
+      "start": "断桥残雪",
+      "attractions": [
+        "Fukui garden",
+        "中山公园",
+        "八十八师阵亡将士碑",
+        "初阳台",
+        "北山街",
+        "北街梦寻",
+        "古钱塘门遗址",
+        "大佛寺遗址"
+      ],
+      "max_snap_distance_m": 249.0,
+      "straight_line": {
+        "pair_count": 72,
+        "mean_ratio": 1.5445,
+        "min_ratio": 1.01,
+        "max_ratio": 2.777
+      },
+      "component": {
+        "method": "largest_strongly_connected",
+        "nodes_before": 15006,
+        "nodes_after": 15006,
+        "edges_before": 42224,
+        "edges_after": 42224,
+        "removed_nodes": 0,
+        "removed_edges": 0,
+        "strongly_connected": true
+      },
+      "pairs": [
+        {
+          "from_index": 0,
+          "to_index": 1,
+          "from_name": "断桥残雪",
+          "to_name": "Fukui garden",
+          "network_m": 2509.829,
+          "travel_s": 1882.371,
+          "straight_m": 2118.294,
+          "ratio": 1.1848
+        },
+        {
+          "from_index": 0,
+          "to_index": 2,
+          "from_name": "断桥残雪",
+          "to_name": "中山公园",
+          "network_m": 1748.324,
+          "travel_s": 1325.314,
+          "straight_m": 1407.964,
+          "ratio": 1.2417
+        },
+        {
+          "from_index": 0,
+          "to_index": 3,
+          "from_name": "断桥残雪",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 2113.215,
+          "travel_s": 1584.912,
+          "straight_m": 1379.557,
+          "ratio": 1.5318
+        },
+        {
+          "from_index": 0,
+          "to_index": 4,
+          "from_name": "断桥残雪",
+          "to_name": "初阳台",
+          "network_m": 1396.122,
+          "travel_s": 1099.655,
+          "straight_m": 990.581,
+          "ratio": 1.4094
+        },
+        {
+          "from_index": 0,
+          "to_index": 5,
+          "from_name": "断桥残雪",
+          "to_name": "北山街",
+          "network_m": 1003.87,
+          "travel_s": 752.902,
+          "straight_m": 842.098,
+          "ratio": 1.1921
+        },
+        {
+          "from_index": 0,
+          "to_index": 6,
+          "from_name": "断桥残雪",
+          "to_name": "北街梦寻",
+          "network_m": 1271.875,
+          "travel_s": 953.907,
+          "straight_m": 1119.329,
+          "ratio": 1.1363
+        },
+        {
+          "from_index": 0,
+          "to_index": 7,
+          "from_name": "断桥残雪",
+          "to_name": "古钱塘门遗址",
+          "network_m": 801.055,
+          "travel_s": 600.791,
+          "straight_m": 581.963,
+          "ratio": 1.3765
+        },
+        {
+          "from_index": 0,
+          "to_index": 8,
+          "from_name": "断桥残雪",
+          "to_name": "大佛寺遗址",
+          "network_m": 610.792,
+          "travel_s": 463.616,
+          "straight_m": 225.511,
+          "ratio": 2.7085
+        },
+        {
+          "from_index": 1,
+          "to_index": 2,
+          "from_name": "Fukui garden",
+          "to_name": "中山公园",
+          "network_m": 1118.294,
+          "travel_s": 841.87,
+          "straight_m": 750.135,
+          "ratio": 1.4908
+        },
+        {
+          "from_index": 1,
+          "to_index": 3,
+          "from_name": "Fukui garden",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3261.946,
+          "travel_s": 2536.698,
+          "straight_m": 2437.058,
+          "ratio": 1.3385
+        },
+        {
+          "from_index": 1,
+          "to_index": 4,
+          "from_name": "Fukui garden",
+          "to_name": "初阳台",
+          "network_m": 1629.084,
+          "travel_s": 1235.775,
+          "straight_m": 1358.266,
+          "ratio": 1.1994
+        },
+        {
+          "from_index": 1,
+          "to_index": 5,
+          "from_name": "Fukui garden",
+          "to_name": "北山街",
+          "network_m": 1505.959,
+          "travel_s": 1129.469,
+          "straight_m": 1279.816,
+          "ratio": 1.1767
+        },
+        {
+          "from_index": 1,
+          "to_index": 6,
+          "from_name": "Fukui garden",
+          "to_name": "北街梦寻",
+          "network_m": 1268.792,
+          "travel_s": 951.594,
+          "straight_m": 1010.476,
+          "ratio": 1.2556
+        },
+        {
+          "from_index": 1,
+          "to_index": 7,
+          "from_name": "Fukui garden",
+          "to_name": "古钱塘门遗址",
+          "network_m": 3310.884,
+          "travel_s": 2483.162,
+          "straight_m": 2566.015,
+          "ratio": 1.2903
+        },
+        {
+          "from_index": 1,
+          "to_index": 8,
+          "from_name": "Fukui garden",
+          "to_name": "大佛寺遗址",
+          "network_m": 2324.009,
+          "travel_s": 1748.529,
+          "straight_m": 1989.466,
+          "ratio": 1.1682
+        },
+        {
+          "from_index": 2,
+          "to_index": 3,
+          "from_name": "中山公园",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3622.56,
+          "travel_s": 2849.264,
+          "straight_m": 2031.763,
+          "ratio": 1.783
+        },
+        {
+          "from_index": 2,
+          "to_index": 4,
+          "from_name": "中山公园",
+          "to_name": "初阳台",
+          "network_m": 1877.61,
+          "travel_s": 1486.479,
+          "straight_m": 880.124,
+          "ratio": 2.1333
+        },
+        {
+          "from_index": 2,
+          "to_index": 5,
+          "from_name": "中山公园",
+          "to_name": "北山街",
+          "network_m": 957.15,
+          "travel_s": 721.011,
+          "straight_m": 610.884,
+          "ratio": 1.5668
+        },
+        {
+          "from_index": 2,
+          "to_index": 6,
+          "from_name": "中山公园",
+          "to_name": "北街梦寻",
+          "network_m": 719.983,
+          "travel_s": 543.136,
+          "straight_m": 415.403,
+          "ratio": 1.7332
+        },
+        {
+          "from_index": 2,
+          "to_index": 7,
+          "from_name": "中山公园",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2549.379,
+          "travel_s": 1926.105,
+          "straight_m": 1821.691,
+          "ratio": 1.3995
+        },
+        {
+          "from_index": 2,
+          "to_index": 8,
+          "from_name": "中山公园",
+          "to_name": "大佛寺遗址",
+          "network_m": 1743.117,
+          "travel_s": 1315.053,
+          "straight_m": 1312.14,
+          "ratio": 1.3285
+        },
+        {
+          "from_index": 3,
+          "to_index": 4,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "初阳台",
+          "network_m": 1970.497,
+          "travel_s": 1477.873,
+          "straight_m": 1152.223,
+          "ratio": 1.7102
+        },
+        {
+          "from_index": 3,
+          "to_index": 5,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北山街",
+          "network_m": 3035.139,
+          "travel_s": 2315.73,
+          "straight_m": 1505.555,
+          "ratio": 2.016
+        },
+        {
+          "from_index": 3,
+          "to_index": 6,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北街梦寻",
+          "network_m": 3017.772,
+          "travel_s": 2306.128,
+          "straight_m": 1617.133,
+          "ratio": 1.8661
+        },
+        {
+          "from_index": 3,
+          "to_index": 7,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2467.388,
+          "travel_s": 1850.54,
+          "straight_m": 1858.043,
+          "ratio": 1.3279
+        },
+        {
+          "from_index": 3,
+          "to_index": 8,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "大佛寺遗址",
+          "network_m": 2696.879,
+          "travel_s": 2028.181,
+          "straight_m": 1196.638,
+          "ratio": 2.2537
+        },
+        {
+          "from_index": 4,
+          "to_index": 5,
+          "from_name": "初阳台",
+          "to_name": "北山街",
+          "network_m": 1220.141,
+          "travel_s": 987.137,
+          "straight_m": 439.373,
+          "ratio": 2.777
+        },
+        {
+          "from_index": 4,
+          "to_index": 6,
+          "from_name": "初阳台",
+          "to_name": "北街梦寻",
+          "network_m": 1157.627,
+          "travel_s": 943.343,
+          "straight_m": 467.348,
+          "ratio": 2.477
+        },
+        {
+          "from_index": 4,
+          "to_index": 7,
+          "from_name": "初阳台",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2197.177,
+          "travel_s": 1700.446,
+          "straight_m": 1561.299,
+          "ratio": 1.4073
+        },
+        {
+          "from_index": 4,
+          "to_index": 8,
+          "from_name": "初阳台",
+          "to_name": "大佛寺遗址",
+          "network_m": 1158.158,
+          "travel_s": 986.651,
+          "straight_m": 786.645,
+          "ratio": 1.4723
+        },
+        {
+          "from_index": 5,
+          "to_index": 6,
+          "from_name": "北山街",
+          "to_name": "北街梦寻",
+          "network_m": 281.22,
+          "travel_s": 210.914,
+          "straight_m": 278.446,
+          "ratio": 1.01
+        },
+        {
+          "from_index": 5,
+          "to_index": 7,
+          "from_name": "北山街",
+          "to_name": "古钱塘门遗址",
+          "network_m": 1804.925,
+          "travel_s": 1353.693,
+          "straight_m": 1339.607,
+          "ratio": 1.3474
+        },
+        {
+          "from_index": 5,
+          "to_index": 8,
+          "from_name": "北山街",
+          "to_name": "大佛寺遗址",
+          "network_m": 818.05,
+          "travel_s": 619.06,
+          "straight_m": 712.93,
+          "ratio": 1.1474
+        },
+        {
+          "from_index": 6,
+          "to_index": 7,
+          "from_name": "北街梦寻",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2072.93,
+          "travel_s": 1554.698,
+          "straight_m": 1614.428,
+          "ratio": 1.284
+        },
+        {
+          "from_index": 6,
+          "to_index": 8,
+          "from_name": "北街梦寻",
+          "to_name": "大佛寺遗址",
+          "network_m": 1086.055,
+          "travel_s": 820.065,
+          "straight_m": 979.372,
+          "ratio": 1.1089
+        },
+        {
+          "from_index": 7,
+          "to_index": 8,
+          "from_name": "古钱塘门遗址",
+          "to_name": "大佛寺遗址",
+          "network_m": 1411.847,
+          "travel_s": 1064.407,
+          "straight_m": 805.843,
+          "ratio": 1.752
+        }
+      ],
+      "unreachable": [],
+      "algorithms": [
+        {
+          "algorithm": "given_order",
+          "label": "当前列表顺序",
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "names": [
+            "Fukui garden",
+            "中山公园",
+            "八十八师阵亡将士碑",
+            "初阳台",
+            "北山街",
+            "北街梦寻",
+            "古钱塘门遗址",
+            "大佛寺遗址"
+          ],
+          "cost": 10868.534,
+          "cost_unit": "s",
+          "cost_m": 14322.5,
+          "cost_s": 10866.0,
+          "route_distance_m": 14322.5,
+          "duration_min": 181.1,
+          "elapsed_ms": 0.006,
+          "gap_percent": 64.83,
+          "improvement_percent": null,
+          "segments_m": [
+            2509.8,
+            1118.3,
+            3737.8,
+            1970.5,
+            1220.1,
+            281.2,
+            2072.9,
+            1411.8
+          ],
+          "segments_min": [
+            31.37,
+            14.03,
+            47.49,
+            24.63,
+            16.45,
+            3.52,
+            25.91,
+            17.74
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor",
+          "label": "最近邻",
+          "order": [
+            7,
+            4,
+            5,
+            1,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 7242.784,
+          "cost_unit": "s",
+          "cost_m": 9615.3,
+          "cost_s": 7242.0,
+          "route_distance_m": 9615.3,
+          "duration_min": 120.7,
+          "elapsed_ms": 0.025,
+          "gap_percent": 9.84,
+          "improvement_percent": null,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            720.0,
+            1118.3,
+            1629.1,
+            1970.5,
+            2467.4
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            9.05,
+            14.03,
+            20.6,
+            24.63,
+            30.84
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor_2opt",
+          "label": "最近邻 + 2-opt",
+          "order": [
+            7,
+            4,
+            5,
+            1,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 7242.784,
+          "cost_unit": "s",
+          "cost_m": 9615.3,
+          "cost_s": 7242.0,
+          "route_distance_m": 9615.3,
+          "duration_min": 120.7,
+          "elapsed_ms": 0.047,
+          "gap_percent": 9.84,
+          "improvement_percent": 0.0,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            720.0,
+            1118.3,
+            1629.1,
+            1970.5,
+            2467.4
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            9.05,
+            14.03,
+            20.6,
+            24.63,
+            30.84
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "held_karp",
+          "label": "Held-Karp",
+          "order": [
+            6,
+            7,
+            4,
+            5,
+            1,
+            0,
+            3,
+            2
+          ],
+          "names": [
+            "古钱塘门遗址",
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑"
+          ],
+          "cost": 6593.826,
+          "cost_unit": "s",
+          "cost_m": 8750.0,
+          "cost_s": 6594.0,
+          "route_distance_m": 8750.0,
+          "duration_min": 109.9,
+          "elapsed_ms": 1.327,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            801.1,
+            1411.8,
+            818.0,
+            281.2,
+            720.0,
+            1118.3,
+            1629.1,
+            1970.5
+          ],
+          "segments_min": [
+            10.01,
+            17.74,
+            10.32,
+            3.52,
+            9.05,
+            14.03,
+            20.6,
+            24.63
+          ],
+          "covers_each_attraction_once": true
+        }
+      ]
+    },
+    {
+      "size": 8,
+      "repeat": 0,
+      "weight": "length",
+      "closed_loop": true,
+      "status": "ok",
+      "matrix_key": "a19ea981ba7cd533410b",
+      "network_cache_key": "demo-west-lake-walk",
+      "matrix_elapsed_ms": 0.564,
+      "matrix_build_ms": 1139.349,
+      "matrix_lookup_ms": 0.564,
+      "cache_hit": true,
+      "start": "断桥残雪",
+      "attractions": [
+        "Fukui garden",
+        "中山公园",
+        "八十八师阵亡将士碑",
+        "初阳台",
+        "北山街",
+        "北街梦寻",
+        "古钱塘门遗址",
+        "大佛寺遗址"
+      ],
+      "max_snap_distance_m": 249.0,
+      "straight_line": {
+        "pair_count": 72,
+        "mean_ratio": 1.5445,
+        "min_ratio": 1.01,
+        "max_ratio": 2.777
+      },
+      "component": {
+        "method": "largest_strongly_connected",
+        "nodes_before": 15006,
+        "nodes_after": 15006,
+        "edges_before": 42224,
+        "edges_after": 42224,
+        "removed_nodes": 0,
+        "removed_edges": 0,
+        "strongly_connected": true
+      },
+      "pairs": [
+        {
+          "from_index": 0,
+          "to_index": 1,
+          "from_name": "断桥残雪",
+          "to_name": "Fukui garden",
+          "network_m": 2509.829,
+          "travel_s": 1882.371,
+          "straight_m": 2118.294,
+          "ratio": 1.1848
+        },
+        {
+          "from_index": 0,
+          "to_index": 2,
+          "from_name": "断桥残雪",
+          "to_name": "中山公园",
+          "network_m": 1748.324,
+          "travel_s": 1325.314,
+          "straight_m": 1407.964,
+          "ratio": 1.2417
+        },
+        {
+          "from_index": 0,
+          "to_index": 3,
+          "from_name": "断桥残雪",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 2113.215,
+          "travel_s": 1584.912,
+          "straight_m": 1379.557,
+          "ratio": 1.5318
+        },
+        {
+          "from_index": 0,
+          "to_index": 4,
+          "from_name": "断桥残雪",
+          "to_name": "初阳台",
+          "network_m": 1396.122,
+          "travel_s": 1099.655,
+          "straight_m": 990.581,
+          "ratio": 1.4094
+        },
+        {
+          "from_index": 0,
+          "to_index": 5,
+          "from_name": "断桥残雪",
+          "to_name": "北山街",
+          "network_m": 1003.87,
+          "travel_s": 752.902,
+          "straight_m": 842.098,
+          "ratio": 1.1921
+        },
+        {
+          "from_index": 0,
+          "to_index": 6,
+          "from_name": "断桥残雪",
+          "to_name": "北街梦寻",
+          "network_m": 1271.875,
+          "travel_s": 953.907,
+          "straight_m": 1119.329,
+          "ratio": 1.1363
+        },
+        {
+          "from_index": 0,
+          "to_index": 7,
+          "from_name": "断桥残雪",
+          "to_name": "古钱塘门遗址",
+          "network_m": 801.055,
+          "travel_s": 600.791,
+          "straight_m": 581.963,
+          "ratio": 1.3765
+        },
+        {
+          "from_index": 0,
+          "to_index": 8,
+          "from_name": "断桥残雪",
+          "to_name": "大佛寺遗址",
+          "network_m": 610.792,
+          "travel_s": 463.616,
+          "straight_m": 225.511,
+          "ratio": 2.7085
+        },
+        {
+          "from_index": 1,
+          "to_index": 2,
+          "from_name": "Fukui garden",
+          "to_name": "中山公园",
+          "network_m": 1118.294,
+          "travel_s": 841.87,
+          "straight_m": 750.135,
+          "ratio": 1.4908
+        },
+        {
+          "from_index": 1,
+          "to_index": 3,
+          "from_name": "Fukui garden",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3261.946,
+          "travel_s": 2536.698,
+          "straight_m": 2437.058,
+          "ratio": 1.3385
+        },
+        {
+          "from_index": 1,
+          "to_index": 4,
+          "from_name": "Fukui garden",
+          "to_name": "初阳台",
+          "network_m": 1629.084,
+          "travel_s": 1235.775,
+          "straight_m": 1358.266,
+          "ratio": 1.1994
+        },
+        {
+          "from_index": 1,
+          "to_index": 5,
+          "from_name": "Fukui garden",
+          "to_name": "北山街",
+          "network_m": 1505.959,
+          "travel_s": 1129.469,
+          "straight_m": 1279.816,
+          "ratio": 1.1767
+        },
+        {
+          "from_index": 1,
+          "to_index": 6,
+          "from_name": "Fukui garden",
+          "to_name": "北街梦寻",
+          "network_m": 1268.792,
+          "travel_s": 951.594,
+          "straight_m": 1010.476,
+          "ratio": 1.2556
+        },
+        {
+          "from_index": 1,
+          "to_index": 7,
+          "from_name": "Fukui garden",
+          "to_name": "古钱塘门遗址",
+          "network_m": 3310.884,
+          "travel_s": 2483.162,
+          "straight_m": 2566.015,
+          "ratio": 1.2903
+        },
+        {
+          "from_index": 1,
+          "to_index": 8,
+          "from_name": "Fukui garden",
+          "to_name": "大佛寺遗址",
+          "network_m": 2324.009,
+          "travel_s": 1748.529,
+          "straight_m": 1989.466,
+          "ratio": 1.1682
+        },
+        {
+          "from_index": 2,
+          "to_index": 3,
+          "from_name": "中山公园",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3622.56,
+          "travel_s": 2849.264,
+          "straight_m": 2031.763,
+          "ratio": 1.783
+        },
+        {
+          "from_index": 2,
+          "to_index": 4,
+          "from_name": "中山公园",
+          "to_name": "初阳台",
+          "network_m": 1877.61,
+          "travel_s": 1486.479,
+          "straight_m": 880.124,
+          "ratio": 2.1333
+        },
+        {
+          "from_index": 2,
+          "to_index": 5,
+          "from_name": "中山公园",
+          "to_name": "北山街",
+          "network_m": 957.15,
+          "travel_s": 721.011,
+          "straight_m": 610.884,
+          "ratio": 1.5668
+        },
+        {
+          "from_index": 2,
+          "to_index": 6,
+          "from_name": "中山公园",
+          "to_name": "北街梦寻",
+          "network_m": 719.983,
+          "travel_s": 543.136,
+          "straight_m": 415.403,
+          "ratio": 1.7332
+        },
+        {
+          "from_index": 2,
+          "to_index": 7,
+          "from_name": "中山公园",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2549.379,
+          "travel_s": 1926.105,
+          "straight_m": 1821.691,
+          "ratio": 1.3995
+        },
+        {
+          "from_index": 2,
+          "to_index": 8,
+          "from_name": "中山公园",
+          "to_name": "大佛寺遗址",
+          "network_m": 1743.117,
+          "travel_s": 1315.053,
+          "straight_m": 1312.14,
+          "ratio": 1.3285
+        },
+        {
+          "from_index": 3,
+          "to_index": 4,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "初阳台",
+          "network_m": 1970.497,
+          "travel_s": 1477.873,
+          "straight_m": 1152.223,
+          "ratio": 1.7102
+        },
+        {
+          "from_index": 3,
+          "to_index": 5,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北山街",
+          "network_m": 3035.139,
+          "travel_s": 2315.73,
+          "straight_m": 1505.555,
+          "ratio": 2.016
+        },
+        {
+          "from_index": 3,
+          "to_index": 6,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北街梦寻",
+          "network_m": 3017.772,
+          "travel_s": 2306.128,
+          "straight_m": 1617.133,
+          "ratio": 1.8661
+        },
+        {
+          "from_index": 3,
+          "to_index": 7,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2467.388,
+          "travel_s": 1850.54,
+          "straight_m": 1858.043,
+          "ratio": 1.3279
+        },
+        {
+          "from_index": 3,
+          "to_index": 8,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "大佛寺遗址",
+          "network_m": 2696.879,
+          "travel_s": 2028.181,
+          "straight_m": 1196.638,
+          "ratio": 2.2537
+        },
+        {
+          "from_index": 4,
+          "to_index": 5,
+          "from_name": "初阳台",
+          "to_name": "北山街",
+          "network_m": 1220.141,
+          "travel_s": 987.137,
+          "straight_m": 439.373,
+          "ratio": 2.777
+        },
+        {
+          "from_index": 4,
+          "to_index": 6,
+          "from_name": "初阳台",
+          "to_name": "北街梦寻",
+          "network_m": 1157.627,
+          "travel_s": 943.343,
+          "straight_m": 467.348,
+          "ratio": 2.477
+        },
+        {
+          "from_index": 4,
+          "to_index": 7,
+          "from_name": "初阳台",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2197.177,
+          "travel_s": 1700.446,
+          "straight_m": 1561.299,
+          "ratio": 1.4073
+        },
+        {
+          "from_index": 4,
+          "to_index": 8,
+          "from_name": "初阳台",
+          "to_name": "大佛寺遗址",
+          "network_m": 1158.158,
+          "travel_s": 986.651,
+          "straight_m": 786.645,
+          "ratio": 1.4723
+        },
+        {
+          "from_index": 5,
+          "to_index": 6,
+          "from_name": "北山街",
+          "to_name": "北街梦寻",
+          "network_m": 281.22,
+          "travel_s": 210.914,
+          "straight_m": 278.446,
+          "ratio": 1.01
+        },
+        {
+          "from_index": 5,
+          "to_index": 7,
+          "from_name": "北山街",
+          "to_name": "古钱塘门遗址",
+          "network_m": 1804.925,
+          "travel_s": 1353.693,
+          "straight_m": 1339.607,
+          "ratio": 1.3474
+        },
+        {
+          "from_index": 5,
+          "to_index": 8,
+          "from_name": "北山街",
+          "to_name": "大佛寺遗址",
+          "network_m": 818.05,
+          "travel_s": 619.06,
+          "straight_m": 712.93,
+          "ratio": 1.1474
+        },
+        {
+          "from_index": 6,
+          "to_index": 7,
+          "from_name": "北街梦寻",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2072.93,
+          "travel_s": 1554.698,
+          "straight_m": 1614.428,
+          "ratio": 1.284
+        },
+        {
+          "from_index": 6,
+          "to_index": 8,
+          "from_name": "北街梦寻",
+          "to_name": "大佛寺遗址",
+          "network_m": 1086.055,
+          "travel_s": 820.065,
+          "straight_m": 979.372,
+          "ratio": 1.1089
+        },
+        {
+          "from_index": 7,
+          "to_index": 8,
+          "from_name": "古钱塘门遗址",
+          "to_name": "大佛寺遗址",
+          "network_m": 1411.847,
+          "travel_s": 1064.407,
+          "straight_m": 805.843,
+          "ratio": 1.752
+        }
+      ],
+      "unreachable": [],
+      "algorithms": [
+        {
+          "algorithm": "given_order",
+          "label": "当前列表顺序",
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "names": [
+            "Fukui garden",
+            "中山公园",
+            "八十八师阵亡将士碑",
+            "初阳台",
+            "北山街",
+            "北街梦寻",
+            "古钱塘门遗址",
+            "大佛寺遗址"
+          ],
+          "cost": 14818.11,
+          "cost_unit": "m",
+          "cost_m": 14818.1,
+          "cost_s": 11802.0,
+          "route_distance_m": 14818.1,
+          "duration_min": 196.7,
+          "elapsed_ms": 0.007,
+          "gap_percent": 42.26,
+          "improvement_percent": null,
+          "segments_m": [
+            2509.8,
+            1118.3,
+            3622.6,
+            1970.5,
+            1220.1,
+            281.2,
+            2072.9,
+            1411.8,
+            610.8
+          ],
+          "segments_min": [
+            31.37,
+            14.03,
+            55.32,
+            24.63,
+            16.45,
+            3.52,
+            25.91,
+            17.74,
+            7.73
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor",
+          "label": "最近邻",
+          "order": [
+            7,
+            4,
+            5,
+            1,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 10416.363,
+          "cost_unit": "m",
+          "cost_m": 10416.4,
+          "cost_s": 7842.0,
+          "route_distance_m": 10416.4,
+          "duration_min": 130.7,
+          "elapsed_ms": 0.025,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            720.0,
+            1118.3,
+            1629.1,
+            1970.5,
+            2467.4,
+            801.1
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            9.05,
+            14.03,
+            20.6,
+            24.63,
+            30.84,
+            10.01
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor_2opt",
+          "label": "最近邻 + 2-opt",
+          "order": [
+            7,
+            4,
+            5,
+            1,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 10416.363,
+          "cost_unit": "m",
+          "cost_m": 10416.4,
+          "cost_s": 7842.0,
+          "route_distance_m": 10416.4,
+          "duration_min": 130.7,
+          "elapsed_ms": 0.05,
+          "gap_percent": 0.0,
+          "improvement_percent": 0.0,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            720.0,
+            1118.3,
+            1629.1,
+            1970.5,
+            2467.4,
+            801.1
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            9.05,
+            14.03,
+            20.6,
+            24.63,
+            30.84,
+            10.01
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "held_karp",
+          "label": "Held-Karp",
+          "order": [
+            6,
+            2,
+            3,
+            0,
+            1,
+            5,
+            4,
+            7
+          ],
+          "names": [
+            "古钱塘门遗址",
+            "八十八师阵亡将士碑",
+            "初阳台",
+            "Fukui garden",
+            "中山公园",
+            "北街梦寻",
+            "北山街",
+            "大佛寺遗址"
+          ],
+          "cost": 10416.363,
+          "cost_unit": "m",
+          "cost_m": 10416.4,
+          "cost_s": 7842.0,
+          "route_distance_m": 10416.4,
+          "duration_min": 130.7,
+          "elapsed_ms": 1.325,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            801.1,
+            2467.4,
+            1970.5,
+            1629.1,
+            1118.3,
+            720.0,
+            281.2,
+            818.0,
+            610.8
+          ],
+          "segments_min": [
+            10.01,
+            30.84,
+            24.63,
+            20.6,
+            14.03,
+            9.05,
+            3.52,
+            10.32,
+            7.73
+          ],
+          "covers_each_attraction_once": true
+        }
+      ]
+    },
+    {
+      "size": 8,
+      "repeat": 0,
+      "weight": "time",
+      "closed_loop": true,
+      "status": "ok",
+      "matrix_key": "a19ea981ba7cd533410b",
+      "network_cache_key": "demo-west-lake-walk",
+      "matrix_elapsed_ms": 0.686,
+      "matrix_build_ms": 1139.349,
+      "matrix_lookup_ms": 0.686,
+      "cache_hit": true,
+      "start": "断桥残雪",
+      "attractions": [
+        "Fukui garden",
+        "中山公园",
+        "八十八师阵亡将士碑",
+        "初阳台",
+        "北山街",
+        "北街梦寻",
+        "古钱塘门遗址",
+        "大佛寺遗址"
+      ],
+      "max_snap_distance_m": 249.0,
+      "straight_line": {
+        "pair_count": 72,
+        "mean_ratio": 1.5445,
+        "min_ratio": 1.01,
+        "max_ratio": 2.777
+      },
+      "component": {
+        "method": "largest_strongly_connected",
+        "nodes_before": 15006,
+        "nodes_after": 15006,
+        "edges_before": 42224,
+        "edges_after": 42224,
+        "removed_nodes": 0,
+        "removed_edges": 0,
+        "strongly_connected": true
+      },
+      "pairs": [
+        {
+          "from_index": 0,
+          "to_index": 1,
+          "from_name": "断桥残雪",
+          "to_name": "Fukui garden",
+          "network_m": 2509.829,
+          "travel_s": 1882.371,
+          "straight_m": 2118.294,
+          "ratio": 1.1848
+        },
+        {
+          "from_index": 0,
+          "to_index": 2,
+          "from_name": "断桥残雪",
+          "to_name": "中山公园",
+          "network_m": 1748.324,
+          "travel_s": 1325.314,
+          "straight_m": 1407.964,
+          "ratio": 1.2417
+        },
+        {
+          "from_index": 0,
+          "to_index": 3,
+          "from_name": "断桥残雪",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 2113.215,
+          "travel_s": 1584.912,
+          "straight_m": 1379.557,
+          "ratio": 1.5318
+        },
+        {
+          "from_index": 0,
+          "to_index": 4,
+          "from_name": "断桥残雪",
+          "to_name": "初阳台",
+          "network_m": 1396.122,
+          "travel_s": 1099.655,
+          "straight_m": 990.581,
+          "ratio": 1.4094
+        },
+        {
+          "from_index": 0,
+          "to_index": 5,
+          "from_name": "断桥残雪",
+          "to_name": "北山街",
+          "network_m": 1003.87,
+          "travel_s": 752.902,
+          "straight_m": 842.098,
+          "ratio": 1.1921
+        },
+        {
+          "from_index": 0,
+          "to_index": 6,
+          "from_name": "断桥残雪",
+          "to_name": "北街梦寻",
+          "network_m": 1271.875,
+          "travel_s": 953.907,
+          "straight_m": 1119.329,
+          "ratio": 1.1363
+        },
+        {
+          "from_index": 0,
+          "to_index": 7,
+          "from_name": "断桥残雪",
+          "to_name": "古钱塘门遗址",
+          "network_m": 801.055,
+          "travel_s": 600.791,
+          "straight_m": 581.963,
+          "ratio": 1.3765
+        },
+        {
+          "from_index": 0,
+          "to_index": 8,
+          "from_name": "断桥残雪",
+          "to_name": "大佛寺遗址",
+          "network_m": 610.792,
+          "travel_s": 463.616,
+          "straight_m": 225.511,
+          "ratio": 2.7085
+        },
+        {
+          "from_index": 1,
+          "to_index": 2,
+          "from_name": "Fukui garden",
+          "to_name": "中山公园",
+          "network_m": 1118.294,
+          "travel_s": 841.87,
+          "straight_m": 750.135,
+          "ratio": 1.4908
+        },
+        {
+          "from_index": 1,
+          "to_index": 3,
+          "from_name": "Fukui garden",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3261.946,
+          "travel_s": 2536.698,
+          "straight_m": 2437.058,
+          "ratio": 1.3385
+        },
+        {
+          "from_index": 1,
+          "to_index": 4,
+          "from_name": "Fukui garden",
+          "to_name": "初阳台",
+          "network_m": 1629.084,
+          "travel_s": 1235.775,
+          "straight_m": 1358.266,
+          "ratio": 1.1994
+        },
+        {
+          "from_index": 1,
+          "to_index": 5,
+          "from_name": "Fukui garden",
+          "to_name": "北山街",
+          "network_m": 1505.959,
+          "travel_s": 1129.469,
+          "straight_m": 1279.816,
+          "ratio": 1.1767
+        },
+        {
+          "from_index": 1,
+          "to_index": 6,
+          "from_name": "Fukui garden",
+          "to_name": "北街梦寻",
+          "network_m": 1268.792,
+          "travel_s": 951.594,
+          "straight_m": 1010.476,
+          "ratio": 1.2556
+        },
+        {
+          "from_index": 1,
+          "to_index": 7,
+          "from_name": "Fukui garden",
+          "to_name": "古钱塘门遗址",
+          "network_m": 3310.884,
+          "travel_s": 2483.162,
+          "straight_m": 2566.015,
+          "ratio": 1.2903
+        },
+        {
+          "from_index": 1,
+          "to_index": 8,
+          "from_name": "Fukui garden",
+          "to_name": "大佛寺遗址",
+          "network_m": 2324.009,
+          "travel_s": 1748.529,
+          "straight_m": 1989.466,
+          "ratio": 1.1682
+        },
+        {
+          "from_index": 2,
+          "to_index": 3,
+          "from_name": "中山公园",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3622.56,
+          "travel_s": 2849.264,
+          "straight_m": 2031.763,
+          "ratio": 1.783
+        },
+        {
+          "from_index": 2,
+          "to_index": 4,
+          "from_name": "中山公园",
+          "to_name": "初阳台",
+          "network_m": 1877.61,
+          "travel_s": 1486.479,
+          "straight_m": 880.124,
+          "ratio": 2.1333
+        },
+        {
+          "from_index": 2,
+          "to_index": 5,
+          "from_name": "中山公园",
+          "to_name": "北山街",
+          "network_m": 957.15,
+          "travel_s": 721.011,
+          "straight_m": 610.884,
+          "ratio": 1.5668
+        },
+        {
+          "from_index": 2,
+          "to_index": 6,
+          "from_name": "中山公园",
+          "to_name": "北街梦寻",
+          "network_m": 719.983,
+          "travel_s": 543.136,
+          "straight_m": 415.403,
+          "ratio": 1.7332
+        },
+        {
+          "from_index": 2,
+          "to_index": 7,
+          "from_name": "中山公园",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2549.379,
+          "travel_s": 1926.105,
+          "straight_m": 1821.691,
+          "ratio": 1.3995
+        },
+        {
+          "from_index": 2,
+          "to_index": 8,
+          "from_name": "中山公园",
+          "to_name": "大佛寺遗址",
+          "network_m": 1743.117,
+          "travel_s": 1315.053,
+          "straight_m": 1312.14,
+          "ratio": 1.3285
+        },
+        {
+          "from_index": 3,
+          "to_index": 4,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "初阳台",
+          "network_m": 1970.497,
+          "travel_s": 1477.873,
+          "straight_m": 1152.223,
+          "ratio": 1.7102
+        },
+        {
+          "from_index": 3,
+          "to_index": 5,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北山街",
+          "network_m": 3035.139,
+          "travel_s": 2315.73,
+          "straight_m": 1505.555,
+          "ratio": 2.016
+        },
+        {
+          "from_index": 3,
+          "to_index": 6,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北街梦寻",
+          "network_m": 3017.772,
+          "travel_s": 2306.128,
+          "straight_m": 1617.133,
+          "ratio": 1.8661
+        },
+        {
+          "from_index": 3,
+          "to_index": 7,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2467.388,
+          "travel_s": 1850.54,
+          "straight_m": 1858.043,
+          "ratio": 1.3279
+        },
+        {
+          "from_index": 3,
+          "to_index": 8,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "大佛寺遗址",
+          "network_m": 2696.879,
+          "travel_s": 2028.181,
+          "straight_m": 1196.638,
+          "ratio": 2.2537
+        },
+        {
+          "from_index": 4,
+          "to_index": 5,
+          "from_name": "初阳台",
+          "to_name": "北山街",
+          "network_m": 1220.141,
+          "travel_s": 987.137,
+          "straight_m": 439.373,
+          "ratio": 2.777
+        },
+        {
+          "from_index": 4,
+          "to_index": 6,
+          "from_name": "初阳台",
+          "to_name": "北街梦寻",
+          "network_m": 1157.627,
+          "travel_s": 943.343,
+          "straight_m": 467.348,
+          "ratio": 2.477
+        },
+        {
+          "from_index": 4,
+          "to_index": 7,
+          "from_name": "初阳台",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2197.177,
+          "travel_s": 1700.446,
+          "straight_m": 1561.299,
+          "ratio": 1.4073
+        },
+        {
+          "from_index": 4,
+          "to_index": 8,
+          "from_name": "初阳台",
+          "to_name": "大佛寺遗址",
+          "network_m": 1158.158,
+          "travel_s": 986.651,
+          "straight_m": 786.645,
+          "ratio": 1.4723
+        },
+        {
+          "from_index": 5,
+          "to_index": 6,
+          "from_name": "北山街",
+          "to_name": "北街梦寻",
+          "network_m": 281.22,
+          "travel_s": 210.914,
+          "straight_m": 278.446,
+          "ratio": 1.01
+        },
+        {
+          "from_index": 5,
+          "to_index": 7,
+          "from_name": "北山街",
+          "to_name": "古钱塘门遗址",
+          "network_m": 1804.925,
+          "travel_s": 1353.693,
+          "straight_m": 1339.607,
+          "ratio": 1.3474
+        },
+        {
+          "from_index": 5,
+          "to_index": 8,
+          "from_name": "北山街",
+          "to_name": "大佛寺遗址",
+          "network_m": 818.05,
+          "travel_s": 619.06,
+          "straight_m": 712.93,
+          "ratio": 1.1474
+        },
+        {
+          "from_index": 6,
+          "to_index": 7,
+          "from_name": "北街梦寻",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2072.93,
+          "travel_s": 1554.698,
+          "straight_m": 1614.428,
+          "ratio": 1.284
+        },
+        {
+          "from_index": 6,
+          "to_index": 8,
+          "from_name": "北街梦寻",
+          "to_name": "大佛寺遗址",
+          "network_m": 1086.055,
+          "travel_s": 820.065,
+          "straight_m": 979.372,
+          "ratio": 1.1089
+        },
+        {
+          "from_index": 7,
+          "to_index": 8,
+          "from_name": "古钱塘门遗址",
+          "to_name": "大佛寺遗址",
+          "network_m": 1411.847,
+          "travel_s": 1064.407,
+          "straight_m": 805.843,
+          "ratio": 1.752
+        }
+      ],
+      "unreachable": [],
+      "algorithms": [
+        {
+          "algorithm": "given_order",
+          "label": "当前列表顺序",
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "names": [
+            "Fukui garden",
+            "中山公园",
+            "八十八师阵亡将士碑",
+            "初阳台",
+            "北山街",
+            "北街梦寻",
+            "古钱塘门遗址",
+            "大佛寺遗址"
+          ],
+          "cost": 11332.15,
+          "cost_unit": "s",
+          "cost_m": 14933.3,
+          "cost_s": 11334.0,
+          "route_distance_m": 14933.3,
+          "duration_min": 188.9,
+          "elapsed_ms": 0.009,
+          "gap_percent": 44.48,
+          "improvement_percent": null,
+          "segments_m": [
+            2509.8,
+            1118.3,
+            3737.8,
+            1970.5,
+            1220.1,
+            281.2,
+            2072.9,
+            1411.8,
+            610.8
+          ],
+          "segments_min": [
+            31.37,
+            14.03,
+            47.49,
+            24.63,
+            16.45,
+            3.52,
+            25.91,
+            17.74,
+            7.73
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor",
+          "label": "最近邻",
+          "order": [
+            7,
+            4,
+            5,
+            1,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 7843.575,
+          "cost_unit": "s",
+          "cost_m": 10416.4,
+          "cost_s": 7842.0,
+          "route_distance_m": 10416.4,
+          "duration_min": 130.7,
+          "elapsed_ms": 0.028,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            720.0,
+            1118.3,
+            1629.1,
+            1970.5,
+            2467.4,
+            801.1
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            9.05,
+            14.03,
+            20.6,
+            24.63,
+            30.84,
+            10.01
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor_2opt",
+          "label": "最近邻 + 2-opt",
+          "order": [
+            7,
+            4,
+            5,
+            1,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 7843.575,
+          "cost_unit": "s",
+          "cost_m": 10416.4,
+          "cost_s": 7842.0,
+          "route_distance_m": 10416.4,
+          "duration_min": 130.7,
+          "elapsed_ms": 0.05,
+          "gap_percent": 0.0,
+          "improvement_percent": 0.0,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            720.0,
+            1118.3,
+            1629.1,
+            1970.5,
+            2467.4,
+            801.1
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            9.05,
+            14.03,
+            20.6,
+            24.63,
+            30.84,
+            10.01
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "held_karp",
+          "label": "Held-Karp",
+          "order": [
+            7,
+            4,
+            5,
+            1,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "中山公园",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 7843.575,
+          "cost_unit": "s",
+          "cost_m": 10416.4,
+          "cost_s": 7842.0,
+          "route_distance_m": 10416.4,
+          "duration_min": 130.7,
+          "elapsed_ms": 1.346,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            720.0,
+            1118.3,
+            1629.1,
+            1970.5,
+            2467.4,
+            801.1
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            9.05,
+            14.03,
+            20.6,
+            24.63,
+            30.84,
+            10.01
+          ],
+          "covers_each_attraction_once": true
+        }
+      ]
+    },
+    {
+      "size": 10,
+      "repeat": 0,
+      "weight": "length",
+      "closed_loop": false,
+      "status": "ok",
+      "matrix_key": "be20afed1e6d1b8041ca",
+      "network_cache_key": "demo-west-lake-walk",
+      "matrix_elapsed_ms": 0.757,
+      "matrix_build_ms": 1353.47,
+      "matrix_lookup_ms": 0.757,
+      "cache_hit": true,
+      "start": "断桥残雪",
+      "attractions": [
+        "Fukui garden",
+        "中山公园",
+        "八十八师阵亡将士碑",
+        "初阳台",
+        "北山街",
+        "北街梦寻",
+        "古钱塘门遗址",
+        "大佛寺遗址",
+        "孤山公园-鲁迅铜像",
+        "宋义士武松之墓"
+      ],
+      "max_snap_distance_m": 249.0,
+      "straight_line": {
+        "pair_count": 110,
+        "mean_ratio": 1.6805,
+        "min_ratio": 1.001,
+        "max_ratio": 5.3697
+      },
+      "component": {
+        "method": "largest_strongly_connected",
+        "nodes_before": 15006,
+        "nodes_after": 15006,
+        "edges_before": 42224,
+        "edges_after": 42224,
+        "removed_nodes": 0,
+        "removed_edges": 0,
+        "strongly_connected": true
+      },
+      "pairs": [
+        {
+          "from_index": 0,
+          "to_index": 1,
+          "from_name": "断桥残雪",
+          "to_name": "Fukui garden",
+          "network_m": 2509.829,
+          "travel_s": 1882.371,
+          "straight_m": 2118.294,
+          "ratio": 1.1848
+        },
+        {
+          "from_index": 0,
+          "to_index": 2,
+          "from_name": "断桥残雪",
+          "to_name": "中山公园",
+          "network_m": 1748.324,
+          "travel_s": 1325.314,
+          "straight_m": 1407.964,
+          "ratio": 1.2417
+        },
+        {
+          "from_index": 0,
+          "to_index": 3,
+          "from_name": "断桥残雪",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 2113.215,
+          "travel_s": 1584.912,
+          "straight_m": 1379.557,
+          "ratio": 1.5318
+        },
+        {
+          "from_index": 0,
+          "to_index": 4,
+          "from_name": "断桥残雪",
+          "to_name": "初阳台",
+          "network_m": 1396.122,
+          "travel_s": 1099.655,
+          "straight_m": 990.581,
+          "ratio": 1.4094
+        },
+        {
+          "from_index": 0,
+          "to_index": 5,
+          "from_name": "断桥残雪",
+          "to_name": "北山街",
+          "network_m": 1003.87,
+          "travel_s": 752.902,
+          "straight_m": 842.098,
+          "ratio": 1.1921
+        },
+        {
+          "from_index": 0,
+          "to_index": 6,
+          "from_name": "断桥残雪",
+          "to_name": "北街梦寻",
+          "network_m": 1271.875,
+          "travel_s": 953.907,
+          "straight_m": 1119.329,
+          "ratio": 1.1363
+        },
+        {
+          "from_index": 0,
+          "to_index": 7,
+          "from_name": "断桥残雪",
+          "to_name": "古钱塘门遗址",
+          "network_m": 801.055,
+          "travel_s": 600.791,
+          "straight_m": 581.963,
+          "ratio": 1.3765
+        },
+        {
+          "from_index": 0,
+          "to_index": 8,
+          "from_name": "断桥残雪",
+          "to_name": "大佛寺遗址",
+          "network_m": 610.792,
+          "travel_s": 463.616,
+          "straight_m": 225.511,
+          "ratio": 2.7085
+        },
+        {
+          "from_index": 0,
+          "to_index": 9,
+          "from_name": "断桥残雪",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1150.79,
+          "travel_s": 868.985,
+          "straight_m": 1042.442,
+          "ratio": 1.1039
+        },
+        {
+          "from_index": 0,
+          "to_index": 10,
+          "from_name": "断桥残雪",
+          "to_name": "宋义士武松之墓",
+          "network_m": 1735.238,
+          "travel_s": 1301.428,
+          "straight_m": 1610.547,
+          "ratio": 1.0774
+        },
+        {
+          "from_index": 1,
+          "to_index": 2,
+          "from_name": "Fukui garden",
+          "to_name": "中山公园",
+          "network_m": 1118.294,
+          "travel_s": 841.87,
+          "straight_m": 750.135,
+          "ratio": 1.4908
+        },
+        {
+          "from_index": 1,
+          "to_index": 3,
+          "from_name": "Fukui garden",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3261.946,
+          "travel_s": 2536.698,
+          "straight_m": 2437.058,
+          "ratio": 1.3385
+        },
+        {
+          "from_index": 1,
+          "to_index": 4,
+          "from_name": "Fukui garden",
+          "to_name": "初阳台",
+          "network_m": 1629.084,
+          "travel_s": 1235.775,
+          "straight_m": 1358.266,
+          "ratio": 1.1994
+        },
+        {
+          "from_index": 1,
+          "to_index": 5,
+          "from_name": "Fukui garden",
+          "to_name": "北山街",
+          "network_m": 1505.959,
+          "travel_s": 1129.469,
+          "straight_m": 1279.816,
+          "ratio": 1.1767
+        },
+        {
+          "from_index": 1,
+          "to_index": 6,
+          "from_name": "Fukui garden",
+          "to_name": "北街梦寻",
+          "network_m": 1268.792,
+          "travel_s": 951.594,
+          "straight_m": 1010.476,
+          "ratio": 1.2556
+        },
+        {
+          "from_index": 1,
+          "to_index": 7,
+          "from_name": "Fukui garden",
+          "to_name": "古钱塘门遗址",
+          "network_m": 3310.884,
+          "travel_s": 2483.162,
+          "straight_m": 2566.015,
+          "ratio": 1.2903
+        },
+        {
+          "from_index": 1,
+          "to_index": 8,
+          "from_name": "Fukui garden",
+          "to_name": "大佛寺遗址",
+          "network_m": 2324.009,
+          "travel_s": 1748.529,
+          "straight_m": 1989.466,
+          "ratio": 1.1682
+        },
+        {
+          "from_index": 1,
+          "to_index": 9,
+          "from_name": "Fukui garden",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1897.865,
+          "travel_s": 1451.719,
+          "straight_m": 1115.934,
+          "ratio": 1.7007
+        },
+        {
+          "from_index": 1,
+          "to_index": 10,
+          "from_name": "Fukui garden",
+          "to_name": "宋义士武松之墓",
+          "network_m": 851.112,
+          "travel_s": 638.333,
+          "straight_m": 507.759,
+          "ratio": 1.6762
+        },
+        {
+          "from_index": 2,
+          "to_index": 3,
+          "from_name": "中山公园",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3622.56,
+          "travel_s": 2849.264,
+          "straight_m": 2031.763,
+          "ratio": 1.783
+        },
+        {
+          "from_index": 2,
+          "to_index": 4,
+          "from_name": "中山公园",
+          "to_name": "初阳台",
+          "network_m": 1877.61,
+          "travel_s": 1486.479,
+          "straight_m": 880.124,
+          "ratio": 2.1333
+        },
+        {
+          "from_index": 2,
+          "to_index": 5,
+          "from_name": "中山公园",
+          "to_name": "北山街",
+          "network_m": 957.15,
+          "travel_s": 721.011,
+          "straight_m": 610.884,
+          "ratio": 1.5668
+        },
+        {
+          "from_index": 2,
+          "to_index": 6,
+          "from_name": "中山公园",
+          "to_name": "北街梦寻",
+          "network_m": 719.983,
+          "travel_s": 543.136,
+          "straight_m": 415.403,
+          "ratio": 1.7332
+        },
+        {
+          "from_index": 2,
+          "to_index": 7,
+          "from_name": "中山公园",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2549.379,
+          "travel_s": 1926.105,
+          "straight_m": 1821.691,
+          "ratio": 1.3995
+        },
+        {
+          "from_index": 2,
+          "to_index": 8,
+          "from_name": "中山公园",
+          "to_name": "大佛寺遗址",
+          "network_m": 1743.117,
+          "travel_s": 1315.053,
+          "straight_m": 1312.14,
+          "ratio": 1.3285
+        },
+        {
+          "from_index": 2,
+          "to_index": 9,
+          "from_name": "中山公园",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 824.264,
+          "travel_s": 633.769,
+          "straight_m": 372.693,
+          "ratio": 2.2116
+        },
+        {
+          "from_index": 2,
+          "to_index": 10,
+          "from_name": "中山公园",
+          "to_name": "宋义士武松之墓",
+          "network_m": 314.213,
+          "travel_s": 237.209,
+          "straight_m": 289.921,
+          "ratio": 1.0838
+        },
+        {
+          "from_index": 3,
+          "to_index": 4,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "初阳台",
+          "network_m": 1970.497,
+          "travel_s": 1477.873,
+          "straight_m": 1152.223,
+          "ratio": 1.7102
+        },
+        {
+          "from_index": 3,
+          "to_index": 5,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北山街",
+          "network_m": 3035.139,
+          "travel_s": 2315.73,
+          "straight_m": 1505.555,
+          "ratio": 2.016
+        },
+        {
+          "from_index": 3,
+          "to_index": 6,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北街梦寻",
+          "network_m": 3017.772,
+          "travel_s": 2306.128,
+          "straight_m": 1617.133,
+          "ratio": 1.8661
+        },
+        {
+          "from_index": 3,
+          "to_index": 7,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2467.388,
+          "travel_s": 1850.54,
+          "straight_m": 1858.043,
+          "ratio": 1.3279
+        },
+        {
+          "from_index": 3,
+          "to_index": 8,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "大佛寺遗址",
+          "network_m": 2696.879,
+          "travel_s": 2028.181,
+          "straight_m": 1196.638,
+          "ratio": 2.2537
+        },
+        {
+          "from_index": 3,
+          "to_index": 9,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 3264.005,
+          "travel_s": 2453.897,
+          "straight_m": 1827.952,
+          "ratio": 1.7856
+        },
+        {
+          "from_index": 3,
+          "to_index": 10,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "宋义士武松之墓",
+          "network_m": 3355.377,
+          "travel_s": 2709.739,
+          "straight_m": 2040.207,
+          "ratio": 1.6446
+        },
+        {
+          "from_index": 4,
+          "to_index": 5,
+          "from_name": "初阳台",
+          "to_name": "北山街",
+          "network_m": 1220.141,
+          "travel_s": 987.137,
+          "straight_m": 439.373,
+          "ratio": 2.777
+        },
+        {
+          "from_index": 4,
+          "to_index": 6,
+          "from_name": "初阳台",
+          "to_name": "北街梦寻",
+          "network_m": 1157.627,
+          "travel_s": 943.343,
+          "straight_m": 467.348,
+          "ratio": 2.477
+        },
+        {
+          "from_index": 4,
+          "to_index": 7,
+          "from_name": "初阳台",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2197.177,
+          "travel_s": 1700.446,
+          "straight_m": 1561.299,
+          "ratio": 1.4073
+        },
+        {
+          "from_index": 4,
+          "to_index": 8,
+          "from_name": "初阳台",
+          "to_name": "大佛寺遗址",
+          "network_m": 1158.158,
+          "travel_s": 986.651,
+          "straight_m": 786.645,
+          "ratio": 1.4723
+        },
+        {
+          "from_index": 4,
+          "to_index": 9,
+          "from_name": "初阳台",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 2546.912,
+          "travel_s": 1968.64,
+          "straight_m": 725.938,
+          "ratio": 3.5084
+        },
+        {
+          "from_index": 4,
+          "to_index": 10,
+          "from_name": "初阳台",
+          "to_name": "宋义士武松之墓",
+          "network_m": 1694.501,
+          "travel_s": 1305.849,
+          "straight_m": 907.289,
+          "ratio": 1.8677
+        },
+        {
+          "from_index": 5,
+          "to_index": 6,
+          "from_name": "北山街",
+          "to_name": "北街梦寻",
+          "network_m": 281.22,
+          "travel_s": 210.914,
+          "straight_m": 278.446,
+          "ratio": 1.01
+        },
+        {
+          "from_index": 5,
+          "to_index": 7,
+          "from_name": "北山街",
+          "to_name": "古钱塘门遗址",
+          "network_m": 1804.925,
+          "travel_s": 1353.693,
+          "straight_m": 1339.607,
+          "ratio": 1.3474
+        },
+        {
+          "from_index": 5,
+          "to_index": 8,
+          "from_name": "北山街",
+          "to_name": "大佛寺遗址",
+          "network_m": 818.05,
+          "travel_s": 619.06,
+          "straight_m": 712.93,
+          "ratio": 1.1474
+        },
+        {
+          "from_index": 5,
+          "to_index": 9,
+          "from_name": "北山街",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1736.721,
+          "travel_s": 1330.86,
+          "straight_m": 323.429,
+          "ratio": 5.3697
+        },
+        {
+          "from_index": 5,
+          "to_index": 10,
+          "from_name": "北山街",
+          "to_name": "宋义士武松之墓",
+          "network_m": 774.04,
+          "travel_s": 581.486,
+          "straight_m": 773.255,
+          "ratio": 1.001
+        },
+        {
+          "from_index": 6,
+          "to_index": 7,
+          "from_name": "北街梦寻",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2072.93,
+          "travel_s": 1554.698,
+          "straight_m": 1614.428,
+          "ratio": 1.284
+        },
+        {
+          "from_index": 6,
+          "to_index": 8,
+          "from_name": "北街梦寻",
+          "to_name": "大佛寺遗址",
+          "network_m": 1086.055,
+          "travel_s": 820.065,
+          "straight_m": 979.372,
+          "ratio": 1.1089
+        },
+        {
+          "from_index": 6,
+          "to_index": 9,
+          "from_name": "北街梦寻",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1499.554,
+          "travel_s": 1152.985,
+          "straight_m": 330.422,
+          "ratio": 4.5383
+        },
+        {
+          "from_index": 6,
+          "to_index": 10,
+          "from_name": "北街梦寻",
+          "to_name": "宋义士武松之墓",
+          "network_m": 536.873,
+          "travel_s": 403.611,
+          "straight_m": 509.471,
+          "ratio": 1.0538
+        },
+        {
+          "from_index": 7,
+          "to_index": 8,
+          "from_name": "古钱塘门遗址",
+          "to_name": "大佛寺遗址",
+          "network_m": 1411.847,
+          "travel_s": 1064.407,
+          "straight_m": 805.843,
+          "ratio": 1.752
+        },
+        {
+          "from_index": 7,
+          "to_index": 9,
+          "from_name": "古钱塘门遗址",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1951.845,
+          "travel_s": 1469.776,
+          "straight_m": 1450.792,
+          "ratio": 1.3454
+        },
+        {
+          "from_index": 7,
+          "to_index": 10,
+          "from_name": "古钱塘门遗址",
+          "to_name": "宋义士武松之墓",
+          "network_m": 2536.293,
+          "travel_s": 1902.219,
+          "straight_m": 2065.699,
+          "ratio": 1.2278
+        },
+        {
+          "from_index": 8,
+          "to_index": 9,
+          "from_name": "大佛寺遗址",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1761.582,
+          "travel_s": 1332.601,
+          "straight_m": 965.356,
+          "ratio": 1.8248
+        },
+        {
+          "from_index": 8,
+          "to_index": 10,
+          "from_name": "大佛寺遗址",
+          "to_name": "宋义士武松之墓",
+          "network_m": 1560.007,
+          "travel_s": 1175.528,
+          "straight_m": 1484.855,
+          "ratio": 1.0506
+        },
+        {
+          "from_index": 9,
+          "to_index": 10,
+          "from_name": "孤山公园-鲁迅铜像",
+          "to_name": "宋义士武松之墓",
+          "network_m": 1093.785,
+          "travel_s": 847.058,
+          "straight_m": 623.123,
+          "ratio": 1.7553
+        }
+      ],
+      "unreachable": [],
+      "algorithms": [
+        {
+          "algorithm": "given_order",
+          "label": "当前列表顺序",
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "names": [
+            "Fukui garden",
+            "中山公园",
+            "八十八师阵亡将士碑",
+            "初阳台",
+            "北山街",
+            "北街梦寻",
+            "古钱塘门遗址",
+            "大佛寺遗址",
+            "孤山公园-鲁迅铜像",
+            "宋义士武松之墓"
+          ],
+          "cost": 17062.685,
+          "cost_unit": "m",
+          "cost_m": 17062.7,
+          "cost_s": 13518.0,
+          "route_distance_m": 17062.7,
+          "duration_min": 225.3,
+          "elapsed_ms": 0.008,
+          "gap_percent": 66.64,
+          "improvement_percent": null,
+          "segments_m": [
+            2509.8,
+            1118.3,
+            3622.6,
+            1970.5,
+            1220.1,
+            281.2,
+            2072.9,
+            1411.8,
+            1761.6,
+            1093.8
+          ],
+          "segments_min": [
+            31.37,
+            14.03,
+            55.32,
+            24.63,
+            16.45,
+            3.52,
+            25.91,
+            17.74,
+            22.21,
+            14.12
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor",
+          "label": "最近邻",
+          "order": [
+            7,
+            4,
+            5,
+            9,
+            1,
+            8,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "宋义士武松之墓",
+            "中山公园",
+            "孤山公园-鲁迅铜像",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 11350.246,
+          "cost_unit": "m",
+          "cost_m": 11350.2,
+          "cost_s": 8586.0,
+          "route_distance_m": 11350.2,
+          "duration_min": 143.1,
+          "elapsed_ms": 0.033,
+          "gap_percent": 10.85,
+          "improvement_percent": null,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            536.9,
+            314.2,
+            824.3,
+            1897.9,
+            1629.1,
+            1970.5,
+            2467.4
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            6.73,
+            3.95,
+            10.56,
+            24.2,
+            20.6,
+            24.63,
+            30.84
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor_2opt",
+          "label": "最近邻 + 2-opt",
+          "order": [
+            7,
+            4,
+            5,
+            8,
+            1,
+            9,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "孤山公园-鲁迅铜像",
+            "中山公园",
+            "宋义士武松之墓",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 11266.174,
+          "cost_unit": "m",
+          "cost_m": 11266.2,
+          "cost_s": 8520.0,
+          "route_distance_m": 11266.2,
+          "duration_min": 142.0,
+          "elapsed_ms": 0.114,
+          "gap_percent": 10.03,
+          "improvement_percent": 0.74,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            1499.6,
+            824.3,
+            314.2,
+            851.1,
+            1629.1,
+            1970.5,
+            2467.4
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            19.22,
+            10.56,
+            3.95,
+            10.64,
+            20.6,
+            24.63,
+            30.84
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "held_karp",
+          "label": "Held-Karp",
+          "order": [
+            6,
+            8,
+            1,
+            9,
+            0,
+            5,
+            4,
+            7,
+            3,
+            2
+          ],
+          "names": [
+            "古钱塘门遗址",
+            "孤山公园-鲁迅铜像",
+            "中山公园",
+            "宋义士武松之墓",
+            "Fukui garden",
+            "北街梦寻",
+            "北山街",
+            "大佛寺遗址",
+            "初阳台",
+            "八十八师阵亡将士碑"
+          ],
+          "cost": 10239.206,
+          "cost_unit": "m",
+          "cost_m": 10239.2,
+          "cost_s": 7842.0,
+          "route_distance_m": 10239.2,
+          "duration_min": 130.7,
+          "elapsed_ms": 9.315,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            801.1,
+            1951.8,
+            824.3,
+            314.2,
+            851.1,
+            1268.8,
+            281.2,
+            818.0,
+            1158.2,
+            1970.5
+          ],
+          "segments_min": [
+            10.01,
+            24.5,
+            10.56,
+            3.95,
+            10.64,
+            15.86,
+            3.52,
+            10.32,
+            16.67,
+            24.63
+          ],
+          "covers_each_attraction_once": true
+        }
+      ]
+    },
+    {
+      "size": 10,
+      "repeat": 0,
+      "weight": "time",
+      "closed_loop": false,
+      "status": "ok",
+      "matrix_key": "be20afed1e6d1b8041ca",
+      "network_cache_key": "demo-west-lake-walk",
+      "matrix_elapsed_ms": 0.844,
+      "matrix_build_ms": 1353.47,
+      "matrix_lookup_ms": 0.844,
+      "cache_hit": true,
+      "start": "断桥残雪",
+      "attractions": [
+        "Fukui garden",
+        "中山公园",
+        "八十八师阵亡将士碑",
+        "初阳台",
+        "北山街",
+        "北街梦寻",
+        "古钱塘门遗址",
+        "大佛寺遗址",
+        "孤山公园-鲁迅铜像",
+        "宋义士武松之墓"
+      ],
+      "max_snap_distance_m": 249.0,
+      "straight_line": {
+        "pair_count": 110,
+        "mean_ratio": 1.6805,
+        "min_ratio": 1.001,
+        "max_ratio": 5.3697
+      },
+      "component": {
+        "method": "largest_strongly_connected",
+        "nodes_before": 15006,
+        "nodes_after": 15006,
+        "edges_before": 42224,
+        "edges_after": 42224,
+        "removed_nodes": 0,
+        "removed_edges": 0,
+        "strongly_connected": true
+      },
+      "pairs": [
+        {
+          "from_index": 0,
+          "to_index": 1,
+          "from_name": "断桥残雪",
+          "to_name": "Fukui garden",
+          "network_m": 2509.829,
+          "travel_s": 1882.371,
+          "straight_m": 2118.294,
+          "ratio": 1.1848
+        },
+        {
+          "from_index": 0,
+          "to_index": 2,
+          "from_name": "断桥残雪",
+          "to_name": "中山公园",
+          "network_m": 1748.324,
+          "travel_s": 1325.314,
+          "straight_m": 1407.964,
+          "ratio": 1.2417
+        },
+        {
+          "from_index": 0,
+          "to_index": 3,
+          "from_name": "断桥残雪",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 2113.215,
+          "travel_s": 1584.912,
+          "straight_m": 1379.557,
+          "ratio": 1.5318
+        },
+        {
+          "from_index": 0,
+          "to_index": 4,
+          "from_name": "断桥残雪",
+          "to_name": "初阳台",
+          "network_m": 1396.122,
+          "travel_s": 1099.655,
+          "straight_m": 990.581,
+          "ratio": 1.4094
+        },
+        {
+          "from_index": 0,
+          "to_index": 5,
+          "from_name": "断桥残雪",
+          "to_name": "北山街",
+          "network_m": 1003.87,
+          "travel_s": 752.902,
+          "straight_m": 842.098,
+          "ratio": 1.1921
+        },
+        {
+          "from_index": 0,
+          "to_index": 6,
+          "from_name": "断桥残雪",
+          "to_name": "北街梦寻",
+          "network_m": 1271.875,
+          "travel_s": 953.907,
+          "straight_m": 1119.329,
+          "ratio": 1.1363
+        },
+        {
+          "from_index": 0,
+          "to_index": 7,
+          "from_name": "断桥残雪",
+          "to_name": "古钱塘门遗址",
+          "network_m": 801.055,
+          "travel_s": 600.791,
+          "straight_m": 581.963,
+          "ratio": 1.3765
+        },
+        {
+          "from_index": 0,
+          "to_index": 8,
+          "from_name": "断桥残雪",
+          "to_name": "大佛寺遗址",
+          "network_m": 610.792,
+          "travel_s": 463.616,
+          "straight_m": 225.511,
+          "ratio": 2.7085
+        },
+        {
+          "from_index": 0,
+          "to_index": 9,
+          "from_name": "断桥残雪",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1150.79,
+          "travel_s": 868.985,
+          "straight_m": 1042.442,
+          "ratio": 1.1039
+        },
+        {
+          "from_index": 0,
+          "to_index": 10,
+          "from_name": "断桥残雪",
+          "to_name": "宋义士武松之墓",
+          "network_m": 1735.238,
+          "travel_s": 1301.428,
+          "straight_m": 1610.547,
+          "ratio": 1.0774
+        },
+        {
+          "from_index": 1,
+          "to_index": 2,
+          "from_name": "Fukui garden",
+          "to_name": "中山公园",
+          "network_m": 1118.294,
+          "travel_s": 841.87,
+          "straight_m": 750.135,
+          "ratio": 1.4908
+        },
+        {
+          "from_index": 1,
+          "to_index": 3,
+          "from_name": "Fukui garden",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3261.946,
+          "travel_s": 2536.698,
+          "straight_m": 2437.058,
+          "ratio": 1.3385
+        },
+        {
+          "from_index": 1,
+          "to_index": 4,
+          "from_name": "Fukui garden",
+          "to_name": "初阳台",
+          "network_m": 1629.084,
+          "travel_s": 1235.775,
+          "straight_m": 1358.266,
+          "ratio": 1.1994
+        },
+        {
+          "from_index": 1,
+          "to_index": 5,
+          "from_name": "Fukui garden",
+          "to_name": "北山街",
+          "network_m": 1505.959,
+          "travel_s": 1129.469,
+          "straight_m": 1279.816,
+          "ratio": 1.1767
+        },
+        {
+          "from_index": 1,
+          "to_index": 6,
+          "from_name": "Fukui garden",
+          "to_name": "北街梦寻",
+          "network_m": 1268.792,
+          "travel_s": 951.594,
+          "straight_m": 1010.476,
+          "ratio": 1.2556
+        },
+        {
+          "from_index": 1,
+          "to_index": 7,
+          "from_name": "Fukui garden",
+          "to_name": "古钱塘门遗址",
+          "network_m": 3310.884,
+          "travel_s": 2483.162,
+          "straight_m": 2566.015,
+          "ratio": 1.2903
+        },
+        {
+          "from_index": 1,
+          "to_index": 8,
+          "from_name": "Fukui garden",
+          "to_name": "大佛寺遗址",
+          "network_m": 2324.009,
+          "travel_s": 1748.529,
+          "straight_m": 1989.466,
+          "ratio": 1.1682
+        },
+        {
+          "from_index": 1,
+          "to_index": 9,
+          "from_name": "Fukui garden",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1897.865,
+          "travel_s": 1451.719,
+          "straight_m": 1115.934,
+          "ratio": 1.7007
+        },
+        {
+          "from_index": 1,
+          "to_index": 10,
+          "from_name": "Fukui garden",
+          "to_name": "宋义士武松之墓",
+          "network_m": 851.112,
+          "travel_s": 638.333,
+          "straight_m": 507.759,
+          "ratio": 1.6762
+        },
+        {
+          "from_index": 2,
+          "to_index": 3,
+          "from_name": "中山公园",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3622.56,
+          "travel_s": 2849.264,
+          "straight_m": 2031.763,
+          "ratio": 1.783
+        },
+        {
+          "from_index": 2,
+          "to_index": 4,
+          "from_name": "中山公园",
+          "to_name": "初阳台",
+          "network_m": 1877.61,
+          "travel_s": 1486.479,
+          "straight_m": 880.124,
+          "ratio": 2.1333
+        },
+        {
+          "from_index": 2,
+          "to_index": 5,
+          "from_name": "中山公园",
+          "to_name": "北山街",
+          "network_m": 957.15,
+          "travel_s": 721.011,
+          "straight_m": 610.884,
+          "ratio": 1.5668
+        },
+        {
+          "from_index": 2,
+          "to_index": 6,
+          "from_name": "中山公园",
+          "to_name": "北街梦寻",
+          "network_m": 719.983,
+          "travel_s": 543.136,
+          "straight_m": 415.403,
+          "ratio": 1.7332
+        },
+        {
+          "from_index": 2,
+          "to_index": 7,
+          "from_name": "中山公园",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2549.379,
+          "travel_s": 1926.105,
+          "straight_m": 1821.691,
+          "ratio": 1.3995
+        },
+        {
+          "from_index": 2,
+          "to_index": 8,
+          "from_name": "中山公园",
+          "to_name": "大佛寺遗址",
+          "network_m": 1743.117,
+          "travel_s": 1315.053,
+          "straight_m": 1312.14,
+          "ratio": 1.3285
+        },
+        {
+          "from_index": 2,
+          "to_index": 9,
+          "from_name": "中山公园",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 824.264,
+          "travel_s": 633.769,
+          "straight_m": 372.693,
+          "ratio": 2.2116
+        },
+        {
+          "from_index": 2,
+          "to_index": 10,
+          "from_name": "中山公园",
+          "to_name": "宋义士武松之墓",
+          "network_m": 314.213,
+          "travel_s": 237.209,
+          "straight_m": 289.921,
+          "ratio": 1.0838
+        },
+        {
+          "from_index": 3,
+          "to_index": 4,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "初阳台",
+          "network_m": 1970.497,
+          "travel_s": 1477.873,
+          "straight_m": 1152.223,
+          "ratio": 1.7102
+        },
+        {
+          "from_index": 3,
+          "to_index": 5,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北山街",
+          "network_m": 3035.139,
+          "travel_s": 2315.73,
+          "straight_m": 1505.555,
+          "ratio": 2.016
+        },
+        {
+          "from_index": 3,
+          "to_index": 6,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北街梦寻",
+          "network_m": 3017.772,
+          "travel_s": 2306.128,
+          "straight_m": 1617.133,
+          "ratio": 1.8661
+        },
+        {
+          "from_index": 3,
+          "to_index": 7,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2467.388,
+          "travel_s": 1850.54,
+          "straight_m": 1858.043,
+          "ratio": 1.3279
+        },
+        {
+          "from_index": 3,
+          "to_index": 8,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "大佛寺遗址",
+          "network_m": 2696.879,
+          "travel_s": 2028.181,
+          "straight_m": 1196.638,
+          "ratio": 2.2537
+        },
+        {
+          "from_index": 3,
+          "to_index": 9,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 3264.005,
+          "travel_s": 2453.897,
+          "straight_m": 1827.952,
+          "ratio": 1.7856
+        },
+        {
+          "from_index": 3,
+          "to_index": 10,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "宋义士武松之墓",
+          "network_m": 3355.377,
+          "travel_s": 2709.739,
+          "straight_m": 2040.207,
+          "ratio": 1.6446
+        },
+        {
+          "from_index": 4,
+          "to_index": 5,
+          "from_name": "初阳台",
+          "to_name": "北山街",
+          "network_m": 1220.141,
+          "travel_s": 987.137,
+          "straight_m": 439.373,
+          "ratio": 2.777
+        },
+        {
+          "from_index": 4,
+          "to_index": 6,
+          "from_name": "初阳台",
+          "to_name": "北街梦寻",
+          "network_m": 1157.627,
+          "travel_s": 943.343,
+          "straight_m": 467.348,
+          "ratio": 2.477
+        },
+        {
+          "from_index": 4,
+          "to_index": 7,
+          "from_name": "初阳台",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2197.177,
+          "travel_s": 1700.446,
+          "straight_m": 1561.299,
+          "ratio": 1.4073
+        },
+        {
+          "from_index": 4,
+          "to_index": 8,
+          "from_name": "初阳台",
+          "to_name": "大佛寺遗址",
+          "network_m": 1158.158,
+          "travel_s": 986.651,
+          "straight_m": 786.645,
+          "ratio": 1.4723
+        },
+        {
+          "from_index": 4,
+          "to_index": 9,
+          "from_name": "初阳台",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 2546.912,
+          "travel_s": 1968.64,
+          "straight_m": 725.938,
+          "ratio": 3.5084
+        },
+        {
+          "from_index": 4,
+          "to_index": 10,
+          "from_name": "初阳台",
+          "to_name": "宋义士武松之墓",
+          "network_m": 1694.501,
+          "travel_s": 1305.849,
+          "straight_m": 907.289,
+          "ratio": 1.8677
+        },
+        {
+          "from_index": 5,
+          "to_index": 6,
+          "from_name": "北山街",
+          "to_name": "北街梦寻",
+          "network_m": 281.22,
+          "travel_s": 210.914,
+          "straight_m": 278.446,
+          "ratio": 1.01
+        },
+        {
+          "from_index": 5,
+          "to_index": 7,
+          "from_name": "北山街",
+          "to_name": "古钱塘门遗址",
+          "network_m": 1804.925,
+          "travel_s": 1353.693,
+          "straight_m": 1339.607,
+          "ratio": 1.3474
+        },
+        {
+          "from_index": 5,
+          "to_index": 8,
+          "from_name": "北山街",
+          "to_name": "大佛寺遗址",
+          "network_m": 818.05,
+          "travel_s": 619.06,
+          "straight_m": 712.93,
+          "ratio": 1.1474
+        },
+        {
+          "from_index": 5,
+          "to_index": 9,
+          "from_name": "北山街",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1736.721,
+          "travel_s": 1330.86,
+          "straight_m": 323.429,
+          "ratio": 5.3697
+        },
+        {
+          "from_index": 5,
+          "to_index": 10,
+          "from_name": "北山街",
+          "to_name": "宋义士武松之墓",
+          "network_m": 774.04,
+          "travel_s": 581.486,
+          "straight_m": 773.255,
+          "ratio": 1.001
+        },
+        {
+          "from_index": 6,
+          "to_index": 7,
+          "from_name": "北街梦寻",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2072.93,
+          "travel_s": 1554.698,
+          "straight_m": 1614.428,
+          "ratio": 1.284
+        },
+        {
+          "from_index": 6,
+          "to_index": 8,
+          "from_name": "北街梦寻",
+          "to_name": "大佛寺遗址",
+          "network_m": 1086.055,
+          "travel_s": 820.065,
+          "straight_m": 979.372,
+          "ratio": 1.1089
+        },
+        {
+          "from_index": 6,
+          "to_index": 9,
+          "from_name": "北街梦寻",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1499.554,
+          "travel_s": 1152.985,
+          "straight_m": 330.422,
+          "ratio": 4.5383
+        },
+        {
+          "from_index": 6,
+          "to_index": 10,
+          "from_name": "北街梦寻",
+          "to_name": "宋义士武松之墓",
+          "network_m": 536.873,
+          "travel_s": 403.611,
+          "straight_m": 509.471,
+          "ratio": 1.0538
+        },
+        {
+          "from_index": 7,
+          "to_index": 8,
+          "from_name": "古钱塘门遗址",
+          "to_name": "大佛寺遗址",
+          "network_m": 1411.847,
+          "travel_s": 1064.407,
+          "straight_m": 805.843,
+          "ratio": 1.752
+        },
+        {
+          "from_index": 7,
+          "to_index": 9,
+          "from_name": "古钱塘门遗址",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1951.845,
+          "travel_s": 1469.776,
+          "straight_m": 1450.792,
+          "ratio": 1.3454
+        },
+        {
+          "from_index": 7,
+          "to_index": 10,
+          "from_name": "古钱塘门遗址",
+          "to_name": "宋义士武松之墓",
+          "network_m": 2536.293,
+          "travel_s": 1902.219,
+          "straight_m": 2065.699,
+          "ratio": 1.2278
+        },
+        {
+          "from_index": 8,
+          "to_index": 9,
+          "from_name": "大佛寺遗址",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1761.582,
+          "travel_s": 1332.601,
+          "straight_m": 965.356,
+          "ratio": 1.8248
+        },
+        {
+          "from_index": 8,
+          "to_index": 10,
+          "from_name": "大佛寺遗址",
+          "to_name": "宋义士武松之墓",
+          "network_m": 1560.007,
+          "travel_s": 1175.528,
+          "straight_m": 1484.855,
+          "ratio": 1.0506
+        },
+        {
+          "from_index": 9,
+          "to_index": 10,
+          "from_name": "孤山公园-鲁迅铜像",
+          "to_name": "宋义士武松之墓",
+          "network_m": 1093.785,
+          "travel_s": 847.058,
+          "straight_m": 623.123,
+          "ratio": 1.7553
+        }
+      ],
+      "unreachable": [],
+      "algorithms": [
+        {
+          "algorithm": "given_order",
+          "label": "当前列表顺序",
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "names": [
+            "Fukui garden",
+            "中山公园",
+            "八十八师阵亡将士碑",
+            "初阳台",
+            "北山街",
+            "北街梦寻",
+            "古钱塘门遗址",
+            "大佛寺遗址",
+            "孤山公园-鲁迅铜像",
+            "宋义士武松之墓"
+          ],
+          "cost": 13048.193,
+          "cost_unit": "s",
+          "cost_m": 17177.9,
+          "cost_s": 13050.0,
+          "route_distance_m": 17177.9,
+          "duration_min": 217.5,
+          "elapsed_ms": 0.007,
+          "gap_percent": 66.73,
+          "improvement_percent": null,
+          "segments_m": [
+            2509.8,
+            1118.3,
+            3737.8,
+            1970.5,
+            1220.1,
+            281.2,
+            2072.9,
+            1411.8,
+            1761.6,
+            1093.8
+          ],
+          "segments_min": [
+            31.37,
+            14.03,
+            47.49,
+            24.63,
+            16.45,
+            3.52,
+            25.91,
+            17.74,
+            22.21,
+            14.12
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor",
+          "label": "最近邻",
+          "order": [
+            7,
+            4,
+            5,
+            9,
+            1,
+            8,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "宋义士武松之墓",
+            "中山公园",
+            "孤山公园-鲁迅铜像",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 8584.086,
+          "cost_unit": "s",
+          "cost_m": 11350.2,
+          "cost_s": 8586.0,
+          "route_distance_m": 11350.2,
+          "duration_min": 143.1,
+          "elapsed_ms": 0.031,
+          "gap_percent": 9.69,
+          "improvement_percent": null,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            536.9,
+            314.2,
+            824.3,
+            1897.9,
+            1629.1,
+            1970.5,
+            2467.4
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            6.73,
+            3.95,
+            10.56,
+            24.2,
+            20.6,
+            24.63,
+            30.84
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor_2opt",
+          "label": "最近邻 + 2-opt",
+          "order": [
+            7,
+            4,
+            5,
+            8,
+            1,
+            9,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "孤山公园-鲁迅铜像",
+            "中山公园",
+            "宋义士武松之墓",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 8520.074,
+          "cost_unit": "s",
+          "cost_m": 11266.2,
+          "cost_s": 8520.0,
+          "route_distance_m": 11266.2,
+          "duration_min": 142.0,
+          "elapsed_ms": 0.115,
+          "gap_percent": 8.87,
+          "improvement_percent": 0.75,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            1499.6,
+            824.3,
+            314.2,
+            851.1,
+            1629.1,
+            1970.5,
+            2467.4
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            19.22,
+            10.56,
+            3.95,
+            10.64,
+            20.6,
+            24.63,
+            30.84
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "held_karp",
+          "label": "Held-Karp",
+          "order": [
+            6,
+            8,
+            1,
+            9,
+            0,
+            5,
+            4,
+            7,
+            3,
+            2
+          ],
+          "names": [
+            "古钱塘门遗址",
+            "孤山公园-鲁迅铜像",
+            "中山公园",
+            "宋义士武松之墓",
+            "Fukui garden",
+            "北街梦寻",
+            "北山街",
+            "大佛寺遗址",
+            "初阳台",
+            "八十八师阵亡将士碑"
+          ],
+          "cost": 7825.97,
+          "cost_unit": "s",
+          "cost_m": 10293.2,
+          "cost_s": 7824.0,
+          "route_distance_m": 10293.2,
+          "duration_min": 130.4,
+          "elapsed_ms": 7.857,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            801.1,
+            1951.8,
+            824.3,
+            314.2,
+            851.1,
+            1268.8,
+            281.2,
+            818.0,
+            1212.1,
+            1970.5
+          ],
+          "segments_min": [
+            10.01,
+            24.5,
+            10.56,
+            3.95,
+            10.64,
+            15.86,
+            3.52,
+            10.32,
+            16.44,
+            24.63
+          ],
+          "covers_each_attraction_once": true
+        }
+      ]
+    },
+    {
+      "size": 10,
+      "repeat": 0,
+      "weight": "length",
+      "closed_loop": true,
+      "status": "ok",
+      "matrix_key": "be20afed1e6d1b8041ca",
+      "network_cache_key": "demo-west-lake-walk",
+      "matrix_elapsed_ms": 0.408,
+      "matrix_build_ms": 1353.47,
+      "matrix_lookup_ms": 0.408,
+      "cache_hit": true,
+      "start": "断桥残雪",
+      "attractions": [
+        "Fukui garden",
+        "中山公园",
+        "八十八师阵亡将士碑",
+        "初阳台",
+        "北山街",
+        "北街梦寻",
+        "古钱塘门遗址",
+        "大佛寺遗址",
+        "孤山公园-鲁迅铜像",
+        "宋义士武松之墓"
+      ],
+      "max_snap_distance_m": 249.0,
+      "straight_line": {
+        "pair_count": 110,
+        "mean_ratio": 1.6805,
+        "min_ratio": 1.001,
+        "max_ratio": 5.3697
+      },
+      "component": {
+        "method": "largest_strongly_connected",
+        "nodes_before": 15006,
+        "nodes_after": 15006,
+        "edges_before": 42224,
+        "edges_after": 42224,
+        "removed_nodes": 0,
+        "removed_edges": 0,
+        "strongly_connected": true
+      },
+      "pairs": [
+        {
+          "from_index": 0,
+          "to_index": 1,
+          "from_name": "断桥残雪",
+          "to_name": "Fukui garden",
+          "network_m": 2509.829,
+          "travel_s": 1882.371,
+          "straight_m": 2118.294,
+          "ratio": 1.1848
+        },
+        {
+          "from_index": 0,
+          "to_index": 2,
+          "from_name": "断桥残雪",
+          "to_name": "中山公园",
+          "network_m": 1748.324,
+          "travel_s": 1325.314,
+          "straight_m": 1407.964,
+          "ratio": 1.2417
+        },
+        {
+          "from_index": 0,
+          "to_index": 3,
+          "from_name": "断桥残雪",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 2113.215,
+          "travel_s": 1584.912,
+          "straight_m": 1379.557,
+          "ratio": 1.5318
+        },
+        {
+          "from_index": 0,
+          "to_index": 4,
+          "from_name": "断桥残雪",
+          "to_name": "初阳台",
+          "network_m": 1396.122,
+          "travel_s": 1099.655,
+          "straight_m": 990.581,
+          "ratio": 1.4094
+        },
+        {
+          "from_index": 0,
+          "to_index": 5,
+          "from_name": "断桥残雪",
+          "to_name": "北山街",
+          "network_m": 1003.87,
+          "travel_s": 752.902,
+          "straight_m": 842.098,
+          "ratio": 1.1921
+        },
+        {
+          "from_index": 0,
+          "to_index": 6,
+          "from_name": "断桥残雪",
+          "to_name": "北街梦寻",
+          "network_m": 1271.875,
+          "travel_s": 953.907,
+          "straight_m": 1119.329,
+          "ratio": 1.1363
+        },
+        {
+          "from_index": 0,
+          "to_index": 7,
+          "from_name": "断桥残雪",
+          "to_name": "古钱塘门遗址",
+          "network_m": 801.055,
+          "travel_s": 600.791,
+          "straight_m": 581.963,
+          "ratio": 1.3765
+        },
+        {
+          "from_index": 0,
+          "to_index": 8,
+          "from_name": "断桥残雪",
+          "to_name": "大佛寺遗址",
+          "network_m": 610.792,
+          "travel_s": 463.616,
+          "straight_m": 225.511,
+          "ratio": 2.7085
+        },
+        {
+          "from_index": 0,
+          "to_index": 9,
+          "from_name": "断桥残雪",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1150.79,
+          "travel_s": 868.985,
+          "straight_m": 1042.442,
+          "ratio": 1.1039
+        },
+        {
+          "from_index": 0,
+          "to_index": 10,
+          "from_name": "断桥残雪",
+          "to_name": "宋义士武松之墓",
+          "network_m": 1735.238,
+          "travel_s": 1301.428,
+          "straight_m": 1610.547,
+          "ratio": 1.0774
+        },
+        {
+          "from_index": 1,
+          "to_index": 2,
+          "from_name": "Fukui garden",
+          "to_name": "中山公园",
+          "network_m": 1118.294,
+          "travel_s": 841.87,
+          "straight_m": 750.135,
+          "ratio": 1.4908
+        },
+        {
+          "from_index": 1,
+          "to_index": 3,
+          "from_name": "Fukui garden",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3261.946,
+          "travel_s": 2536.698,
+          "straight_m": 2437.058,
+          "ratio": 1.3385
+        },
+        {
+          "from_index": 1,
+          "to_index": 4,
+          "from_name": "Fukui garden",
+          "to_name": "初阳台",
+          "network_m": 1629.084,
+          "travel_s": 1235.775,
+          "straight_m": 1358.266,
+          "ratio": 1.1994
+        },
+        {
+          "from_index": 1,
+          "to_index": 5,
+          "from_name": "Fukui garden",
+          "to_name": "北山街",
+          "network_m": 1505.959,
+          "travel_s": 1129.469,
+          "straight_m": 1279.816,
+          "ratio": 1.1767
+        },
+        {
+          "from_index": 1,
+          "to_index": 6,
+          "from_name": "Fukui garden",
+          "to_name": "北街梦寻",
+          "network_m": 1268.792,
+          "travel_s": 951.594,
+          "straight_m": 1010.476,
+          "ratio": 1.2556
+        },
+        {
+          "from_index": 1,
+          "to_index": 7,
+          "from_name": "Fukui garden",
+          "to_name": "古钱塘门遗址",
+          "network_m": 3310.884,
+          "travel_s": 2483.162,
+          "straight_m": 2566.015,
+          "ratio": 1.2903
+        },
+        {
+          "from_index": 1,
+          "to_index": 8,
+          "from_name": "Fukui garden",
+          "to_name": "大佛寺遗址",
+          "network_m": 2324.009,
+          "travel_s": 1748.529,
+          "straight_m": 1989.466,
+          "ratio": 1.1682
+        },
+        {
+          "from_index": 1,
+          "to_index": 9,
+          "from_name": "Fukui garden",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1897.865,
+          "travel_s": 1451.719,
+          "straight_m": 1115.934,
+          "ratio": 1.7007
+        },
+        {
+          "from_index": 1,
+          "to_index": 10,
+          "from_name": "Fukui garden",
+          "to_name": "宋义士武松之墓",
+          "network_m": 851.112,
+          "travel_s": 638.333,
+          "straight_m": 507.759,
+          "ratio": 1.6762
+        },
+        {
+          "from_index": 2,
+          "to_index": 3,
+          "from_name": "中山公园",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3622.56,
+          "travel_s": 2849.264,
+          "straight_m": 2031.763,
+          "ratio": 1.783
+        },
+        {
+          "from_index": 2,
+          "to_index": 4,
+          "from_name": "中山公园",
+          "to_name": "初阳台",
+          "network_m": 1877.61,
+          "travel_s": 1486.479,
+          "straight_m": 880.124,
+          "ratio": 2.1333
+        },
+        {
+          "from_index": 2,
+          "to_index": 5,
+          "from_name": "中山公园",
+          "to_name": "北山街",
+          "network_m": 957.15,
+          "travel_s": 721.011,
+          "straight_m": 610.884,
+          "ratio": 1.5668
+        },
+        {
+          "from_index": 2,
+          "to_index": 6,
+          "from_name": "中山公园",
+          "to_name": "北街梦寻",
+          "network_m": 719.983,
+          "travel_s": 543.136,
+          "straight_m": 415.403,
+          "ratio": 1.7332
+        },
+        {
+          "from_index": 2,
+          "to_index": 7,
+          "from_name": "中山公园",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2549.379,
+          "travel_s": 1926.105,
+          "straight_m": 1821.691,
+          "ratio": 1.3995
+        },
+        {
+          "from_index": 2,
+          "to_index": 8,
+          "from_name": "中山公园",
+          "to_name": "大佛寺遗址",
+          "network_m": 1743.117,
+          "travel_s": 1315.053,
+          "straight_m": 1312.14,
+          "ratio": 1.3285
+        },
+        {
+          "from_index": 2,
+          "to_index": 9,
+          "from_name": "中山公园",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 824.264,
+          "travel_s": 633.769,
+          "straight_m": 372.693,
+          "ratio": 2.2116
+        },
+        {
+          "from_index": 2,
+          "to_index": 10,
+          "from_name": "中山公园",
+          "to_name": "宋义士武松之墓",
+          "network_m": 314.213,
+          "travel_s": 237.209,
+          "straight_m": 289.921,
+          "ratio": 1.0838
+        },
+        {
+          "from_index": 3,
+          "to_index": 4,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "初阳台",
+          "network_m": 1970.497,
+          "travel_s": 1477.873,
+          "straight_m": 1152.223,
+          "ratio": 1.7102
+        },
+        {
+          "from_index": 3,
+          "to_index": 5,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北山街",
+          "network_m": 3035.139,
+          "travel_s": 2315.73,
+          "straight_m": 1505.555,
+          "ratio": 2.016
+        },
+        {
+          "from_index": 3,
+          "to_index": 6,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北街梦寻",
+          "network_m": 3017.772,
+          "travel_s": 2306.128,
+          "straight_m": 1617.133,
+          "ratio": 1.8661
+        },
+        {
+          "from_index": 3,
+          "to_index": 7,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2467.388,
+          "travel_s": 1850.54,
+          "straight_m": 1858.043,
+          "ratio": 1.3279
+        },
+        {
+          "from_index": 3,
+          "to_index": 8,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "大佛寺遗址",
+          "network_m": 2696.879,
+          "travel_s": 2028.181,
+          "straight_m": 1196.638,
+          "ratio": 2.2537
+        },
+        {
+          "from_index": 3,
+          "to_index": 9,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 3264.005,
+          "travel_s": 2453.897,
+          "straight_m": 1827.952,
+          "ratio": 1.7856
+        },
+        {
+          "from_index": 3,
+          "to_index": 10,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "宋义士武松之墓",
+          "network_m": 3355.377,
+          "travel_s": 2709.739,
+          "straight_m": 2040.207,
+          "ratio": 1.6446
+        },
+        {
+          "from_index": 4,
+          "to_index": 5,
+          "from_name": "初阳台",
+          "to_name": "北山街",
+          "network_m": 1220.141,
+          "travel_s": 987.137,
+          "straight_m": 439.373,
+          "ratio": 2.777
+        },
+        {
+          "from_index": 4,
+          "to_index": 6,
+          "from_name": "初阳台",
+          "to_name": "北街梦寻",
+          "network_m": 1157.627,
+          "travel_s": 943.343,
+          "straight_m": 467.348,
+          "ratio": 2.477
+        },
+        {
+          "from_index": 4,
+          "to_index": 7,
+          "from_name": "初阳台",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2197.177,
+          "travel_s": 1700.446,
+          "straight_m": 1561.299,
+          "ratio": 1.4073
+        },
+        {
+          "from_index": 4,
+          "to_index": 8,
+          "from_name": "初阳台",
+          "to_name": "大佛寺遗址",
+          "network_m": 1158.158,
+          "travel_s": 986.651,
+          "straight_m": 786.645,
+          "ratio": 1.4723
+        },
+        {
+          "from_index": 4,
+          "to_index": 9,
+          "from_name": "初阳台",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 2546.912,
+          "travel_s": 1968.64,
+          "straight_m": 725.938,
+          "ratio": 3.5084
+        },
+        {
+          "from_index": 4,
+          "to_index": 10,
+          "from_name": "初阳台",
+          "to_name": "宋义士武松之墓",
+          "network_m": 1694.501,
+          "travel_s": 1305.849,
+          "straight_m": 907.289,
+          "ratio": 1.8677
+        },
+        {
+          "from_index": 5,
+          "to_index": 6,
+          "from_name": "北山街",
+          "to_name": "北街梦寻",
+          "network_m": 281.22,
+          "travel_s": 210.914,
+          "straight_m": 278.446,
+          "ratio": 1.01
+        },
+        {
+          "from_index": 5,
+          "to_index": 7,
+          "from_name": "北山街",
+          "to_name": "古钱塘门遗址",
+          "network_m": 1804.925,
+          "travel_s": 1353.693,
+          "straight_m": 1339.607,
+          "ratio": 1.3474
+        },
+        {
+          "from_index": 5,
+          "to_index": 8,
+          "from_name": "北山街",
+          "to_name": "大佛寺遗址",
+          "network_m": 818.05,
+          "travel_s": 619.06,
+          "straight_m": 712.93,
+          "ratio": 1.1474
+        },
+        {
+          "from_index": 5,
+          "to_index": 9,
+          "from_name": "北山街",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1736.721,
+          "travel_s": 1330.86,
+          "straight_m": 323.429,
+          "ratio": 5.3697
+        },
+        {
+          "from_index": 5,
+          "to_index": 10,
+          "from_name": "北山街",
+          "to_name": "宋义士武松之墓",
+          "network_m": 774.04,
+          "travel_s": 581.486,
+          "straight_m": 773.255,
+          "ratio": 1.001
+        },
+        {
+          "from_index": 6,
+          "to_index": 7,
+          "from_name": "北街梦寻",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2072.93,
+          "travel_s": 1554.698,
+          "straight_m": 1614.428,
+          "ratio": 1.284
+        },
+        {
+          "from_index": 6,
+          "to_index": 8,
+          "from_name": "北街梦寻",
+          "to_name": "大佛寺遗址",
+          "network_m": 1086.055,
+          "travel_s": 820.065,
+          "straight_m": 979.372,
+          "ratio": 1.1089
+        },
+        {
+          "from_index": 6,
+          "to_index": 9,
+          "from_name": "北街梦寻",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1499.554,
+          "travel_s": 1152.985,
+          "straight_m": 330.422,
+          "ratio": 4.5383
+        },
+        {
+          "from_index": 6,
+          "to_index": 10,
+          "from_name": "北街梦寻",
+          "to_name": "宋义士武松之墓",
+          "network_m": 536.873,
+          "travel_s": 403.611,
+          "straight_m": 509.471,
+          "ratio": 1.0538
+        },
+        {
+          "from_index": 7,
+          "to_index": 8,
+          "from_name": "古钱塘门遗址",
+          "to_name": "大佛寺遗址",
+          "network_m": 1411.847,
+          "travel_s": 1064.407,
+          "straight_m": 805.843,
+          "ratio": 1.752
+        },
+        {
+          "from_index": 7,
+          "to_index": 9,
+          "from_name": "古钱塘门遗址",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1951.845,
+          "travel_s": 1469.776,
+          "straight_m": 1450.792,
+          "ratio": 1.3454
+        },
+        {
+          "from_index": 7,
+          "to_index": 10,
+          "from_name": "古钱塘门遗址",
+          "to_name": "宋义士武松之墓",
+          "network_m": 2536.293,
+          "travel_s": 1902.219,
+          "straight_m": 2065.699,
+          "ratio": 1.2278
+        },
+        {
+          "from_index": 8,
+          "to_index": 9,
+          "from_name": "大佛寺遗址",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1761.582,
+          "travel_s": 1332.601,
+          "straight_m": 965.356,
+          "ratio": 1.8248
+        },
+        {
+          "from_index": 8,
+          "to_index": 10,
+          "from_name": "大佛寺遗址",
+          "to_name": "宋义士武松之墓",
+          "network_m": 1560.007,
+          "travel_s": 1175.528,
+          "straight_m": 1484.855,
+          "ratio": 1.0506
+        },
+        {
+          "from_index": 9,
+          "to_index": 10,
+          "from_name": "孤山公园-鲁迅铜像",
+          "to_name": "宋义士武松之墓",
+          "network_m": 1093.785,
+          "travel_s": 847.058,
+          "straight_m": 623.123,
+          "ratio": 1.7553
+        }
+      ],
+      "unreachable": [],
+      "algorithms": [
+        {
+          "algorithm": "given_order",
+          "label": "当前列表顺序",
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "names": [
+            "Fukui garden",
+            "中山公园",
+            "八十八师阵亡将士碑",
+            "初阳台",
+            "北山街",
+            "北街梦寻",
+            "古钱塘门遗址",
+            "大佛寺遗址",
+            "孤山公园-鲁迅铜像",
+            "宋义士武松之墓"
+          ],
+          "cost": 18797.923,
+          "cost_unit": "m",
+          "cost_m": 18797.9,
+          "cost_s": 14820.0,
+          "route_distance_m": 18797.9,
+          "duration_min": 247.0,
+          "elapsed_ms": 0.004,
+          "gap_percent": 57.89,
+          "improvement_percent": null,
+          "segments_m": [
+            2509.8,
+            1118.3,
+            3622.6,
+            1970.5,
+            1220.1,
+            281.2,
+            2072.9,
+            1411.8,
+            1761.6,
+            1093.8,
+            1735.2
+          ],
+          "segments_min": [
+            31.37,
+            14.03,
+            55.32,
+            24.63,
+            16.45,
+            3.52,
+            25.91,
+            17.74,
+            22.21,
+            14.12,
+            21.69
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor",
+          "label": "最近邻",
+          "order": [
+            7,
+            4,
+            5,
+            9,
+            1,
+            8,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "宋义士武松之墓",
+            "中山公园",
+            "孤山公园-鲁迅铜像",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 12151.301,
+          "cost_unit": "m",
+          "cost_m": 12151.3,
+          "cost_s": 9186.0,
+          "route_distance_m": 12151.3,
+          "duration_min": 153.1,
+          "elapsed_ms": 0.018,
+          "gap_percent": 2.06,
+          "improvement_percent": null,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            536.9,
+            314.2,
+            824.3,
+            1897.9,
+            1629.1,
+            1970.5,
+            2467.4,
+            801.1
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            6.73,
+            3.95,
+            10.56,
+            24.2,
+            20.6,
+            24.63,
+            30.84,
+            10.01
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor_2opt",
+          "label": "最近邻 + 2-opt",
+          "order": [
+            7,
+            4,
+            5,
+            8,
+            1,
+            9,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "孤山公园-鲁迅铜像",
+            "中山公园",
+            "宋义士武松之墓",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 12067.229,
+          "cost_unit": "m",
+          "cost_m": 12067.2,
+          "cost_s": 9120.0,
+          "route_distance_m": 12067.2,
+          "duration_min": 152.0,
+          "elapsed_ms": 0.093,
+          "gap_percent": 1.36,
+          "improvement_percent": 0.69,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            1499.6,
+            824.3,
+            314.2,
+            851.1,
+            1629.1,
+            1970.5,
+            2467.4,
+            801.1
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            19.22,
+            10.56,
+            3.95,
+            10.64,
+            20.6,
+            24.63,
+            30.84,
+            10.01
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "held_karp",
+          "label": "Held-Karp",
+          "order": [
+            6,
+            2,
+            3,
+            7,
+            4,
+            5,
+            0,
+            9,
+            1,
+            8
+          ],
+          "names": [
+            "古钱塘门遗址",
+            "八十八师阵亡将士碑",
+            "初阳台",
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "Fukui garden",
+            "宋义士武松之墓",
+            "中山公园",
+            "孤山公园-鲁迅铜像"
+          ],
+          "cost": 11905.539,
+          "cost_unit": "m",
+          "cost_m": 11905.5,
+          "cost_s": 9090.0,
+          "route_distance_m": 11905.5,
+          "duration_min": 151.5,
+          "elapsed_ms": 7.497,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            801.1,
+            2467.4,
+            1970.5,
+            1158.2,
+            818.0,
+            281.2,
+            1268.8,
+            851.1,
+            314.2,
+            824.3,
+            1150.8
+          ],
+          "segments_min": [
+            10.01,
+            30.84,
+            24.63,
+            16.67,
+            10.32,
+            3.52,
+            15.86,
+            10.64,
+            3.95,
+            10.56,
+            14.48
+          ],
+          "covers_each_attraction_once": true
+        }
+      ]
+    },
+    {
+      "size": 10,
+      "repeat": 0,
+      "weight": "time",
+      "closed_loop": true,
+      "status": "ok",
+      "matrix_key": "be20afed1e6d1b8041ca",
+      "network_cache_key": "demo-west-lake-walk",
+      "matrix_elapsed_ms": 0.639,
+      "matrix_build_ms": 1353.47,
+      "matrix_lookup_ms": 0.639,
+      "cache_hit": true,
+      "start": "断桥残雪",
+      "attractions": [
+        "Fukui garden",
+        "中山公园",
+        "八十八师阵亡将士碑",
+        "初阳台",
+        "北山街",
+        "北街梦寻",
+        "古钱塘门遗址",
+        "大佛寺遗址",
+        "孤山公园-鲁迅铜像",
+        "宋义士武松之墓"
+      ],
+      "max_snap_distance_m": 249.0,
+      "straight_line": {
+        "pair_count": 110,
+        "mean_ratio": 1.6805,
+        "min_ratio": 1.001,
+        "max_ratio": 5.3697
+      },
+      "component": {
+        "method": "largest_strongly_connected",
+        "nodes_before": 15006,
+        "nodes_after": 15006,
+        "edges_before": 42224,
+        "edges_after": 42224,
+        "removed_nodes": 0,
+        "removed_edges": 0,
+        "strongly_connected": true
+      },
+      "pairs": [
+        {
+          "from_index": 0,
+          "to_index": 1,
+          "from_name": "断桥残雪",
+          "to_name": "Fukui garden",
+          "network_m": 2509.829,
+          "travel_s": 1882.371,
+          "straight_m": 2118.294,
+          "ratio": 1.1848
+        },
+        {
+          "from_index": 0,
+          "to_index": 2,
+          "from_name": "断桥残雪",
+          "to_name": "中山公园",
+          "network_m": 1748.324,
+          "travel_s": 1325.314,
+          "straight_m": 1407.964,
+          "ratio": 1.2417
+        },
+        {
+          "from_index": 0,
+          "to_index": 3,
+          "from_name": "断桥残雪",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 2113.215,
+          "travel_s": 1584.912,
+          "straight_m": 1379.557,
+          "ratio": 1.5318
+        },
+        {
+          "from_index": 0,
+          "to_index": 4,
+          "from_name": "断桥残雪",
+          "to_name": "初阳台",
+          "network_m": 1396.122,
+          "travel_s": 1099.655,
+          "straight_m": 990.581,
+          "ratio": 1.4094
+        },
+        {
+          "from_index": 0,
+          "to_index": 5,
+          "from_name": "断桥残雪",
+          "to_name": "北山街",
+          "network_m": 1003.87,
+          "travel_s": 752.902,
+          "straight_m": 842.098,
+          "ratio": 1.1921
+        },
+        {
+          "from_index": 0,
+          "to_index": 6,
+          "from_name": "断桥残雪",
+          "to_name": "北街梦寻",
+          "network_m": 1271.875,
+          "travel_s": 953.907,
+          "straight_m": 1119.329,
+          "ratio": 1.1363
+        },
+        {
+          "from_index": 0,
+          "to_index": 7,
+          "from_name": "断桥残雪",
+          "to_name": "古钱塘门遗址",
+          "network_m": 801.055,
+          "travel_s": 600.791,
+          "straight_m": 581.963,
+          "ratio": 1.3765
+        },
+        {
+          "from_index": 0,
+          "to_index": 8,
+          "from_name": "断桥残雪",
+          "to_name": "大佛寺遗址",
+          "network_m": 610.792,
+          "travel_s": 463.616,
+          "straight_m": 225.511,
+          "ratio": 2.7085
+        },
+        {
+          "from_index": 0,
+          "to_index": 9,
+          "from_name": "断桥残雪",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1150.79,
+          "travel_s": 868.985,
+          "straight_m": 1042.442,
+          "ratio": 1.1039
+        },
+        {
+          "from_index": 0,
+          "to_index": 10,
+          "from_name": "断桥残雪",
+          "to_name": "宋义士武松之墓",
+          "network_m": 1735.238,
+          "travel_s": 1301.428,
+          "straight_m": 1610.547,
+          "ratio": 1.0774
+        },
+        {
+          "from_index": 1,
+          "to_index": 2,
+          "from_name": "Fukui garden",
+          "to_name": "中山公园",
+          "network_m": 1118.294,
+          "travel_s": 841.87,
+          "straight_m": 750.135,
+          "ratio": 1.4908
+        },
+        {
+          "from_index": 1,
+          "to_index": 3,
+          "from_name": "Fukui garden",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3261.946,
+          "travel_s": 2536.698,
+          "straight_m": 2437.058,
+          "ratio": 1.3385
+        },
+        {
+          "from_index": 1,
+          "to_index": 4,
+          "from_name": "Fukui garden",
+          "to_name": "初阳台",
+          "network_m": 1629.084,
+          "travel_s": 1235.775,
+          "straight_m": 1358.266,
+          "ratio": 1.1994
+        },
+        {
+          "from_index": 1,
+          "to_index": 5,
+          "from_name": "Fukui garden",
+          "to_name": "北山街",
+          "network_m": 1505.959,
+          "travel_s": 1129.469,
+          "straight_m": 1279.816,
+          "ratio": 1.1767
+        },
+        {
+          "from_index": 1,
+          "to_index": 6,
+          "from_name": "Fukui garden",
+          "to_name": "北街梦寻",
+          "network_m": 1268.792,
+          "travel_s": 951.594,
+          "straight_m": 1010.476,
+          "ratio": 1.2556
+        },
+        {
+          "from_index": 1,
+          "to_index": 7,
+          "from_name": "Fukui garden",
+          "to_name": "古钱塘门遗址",
+          "network_m": 3310.884,
+          "travel_s": 2483.162,
+          "straight_m": 2566.015,
+          "ratio": 1.2903
+        },
+        {
+          "from_index": 1,
+          "to_index": 8,
+          "from_name": "Fukui garden",
+          "to_name": "大佛寺遗址",
+          "network_m": 2324.009,
+          "travel_s": 1748.529,
+          "straight_m": 1989.466,
+          "ratio": 1.1682
+        },
+        {
+          "from_index": 1,
+          "to_index": 9,
+          "from_name": "Fukui garden",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1897.865,
+          "travel_s": 1451.719,
+          "straight_m": 1115.934,
+          "ratio": 1.7007
+        },
+        {
+          "from_index": 1,
+          "to_index": 10,
+          "from_name": "Fukui garden",
+          "to_name": "宋义士武松之墓",
+          "network_m": 851.112,
+          "travel_s": 638.333,
+          "straight_m": 507.759,
+          "ratio": 1.6762
+        },
+        {
+          "from_index": 2,
+          "to_index": 3,
+          "from_name": "中山公园",
+          "to_name": "八十八师阵亡将士碑",
+          "network_m": 3622.56,
+          "travel_s": 2849.264,
+          "straight_m": 2031.763,
+          "ratio": 1.783
+        },
+        {
+          "from_index": 2,
+          "to_index": 4,
+          "from_name": "中山公园",
+          "to_name": "初阳台",
+          "network_m": 1877.61,
+          "travel_s": 1486.479,
+          "straight_m": 880.124,
+          "ratio": 2.1333
+        },
+        {
+          "from_index": 2,
+          "to_index": 5,
+          "from_name": "中山公园",
+          "to_name": "北山街",
+          "network_m": 957.15,
+          "travel_s": 721.011,
+          "straight_m": 610.884,
+          "ratio": 1.5668
+        },
+        {
+          "from_index": 2,
+          "to_index": 6,
+          "from_name": "中山公园",
+          "to_name": "北街梦寻",
+          "network_m": 719.983,
+          "travel_s": 543.136,
+          "straight_m": 415.403,
+          "ratio": 1.7332
+        },
+        {
+          "from_index": 2,
+          "to_index": 7,
+          "from_name": "中山公园",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2549.379,
+          "travel_s": 1926.105,
+          "straight_m": 1821.691,
+          "ratio": 1.3995
+        },
+        {
+          "from_index": 2,
+          "to_index": 8,
+          "from_name": "中山公园",
+          "to_name": "大佛寺遗址",
+          "network_m": 1743.117,
+          "travel_s": 1315.053,
+          "straight_m": 1312.14,
+          "ratio": 1.3285
+        },
+        {
+          "from_index": 2,
+          "to_index": 9,
+          "from_name": "中山公园",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 824.264,
+          "travel_s": 633.769,
+          "straight_m": 372.693,
+          "ratio": 2.2116
+        },
+        {
+          "from_index": 2,
+          "to_index": 10,
+          "from_name": "中山公园",
+          "to_name": "宋义士武松之墓",
+          "network_m": 314.213,
+          "travel_s": 237.209,
+          "straight_m": 289.921,
+          "ratio": 1.0838
+        },
+        {
+          "from_index": 3,
+          "to_index": 4,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "初阳台",
+          "network_m": 1970.497,
+          "travel_s": 1477.873,
+          "straight_m": 1152.223,
+          "ratio": 1.7102
+        },
+        {
+          "from_index": 3,
+          "to_index": 5,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北山街",
+          "network_m": 3035.139,
+          "travel_s": 2315.73,
+          "straight_m": 1505.555,
+          "ratio": 2.016
+        },
+        {
+          "from_index": 3,
+          "to_index": 6,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "北街梦寻",
+          "network_m": 3017.772,
+          "travel_s": 2306.128,
+          "straight_m": 1617.133,
+          "ratio": 1.8661
+        },
+        {
+          "from_index": 3,
+          "to_index": 7,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2467.388,
+          "travel_s": 1850.54,
+          "straight_m": 1858.043,
+          "ratio": 1.3279
+        },
+        {
+          "from_index": 3,
+          "to_index": 8,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "大佛寺遗址",
+          "network_m": 2696.879,
+          "travel_s": 2028.181,
+          "straight_m": 1196.638,
+          "ratio": 2.2537
+        },
+        {
+          "from_index": 3,
+          "to_index": 9,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 3264.005,
+          "travel_s": 2453.897,
+          "straight_m": 1827.952,
+          "ratio": 1.7856
+        },
+        {
+          "from_index": 3,
+          "to_index": 10,
+          "from_name": "八十八师阵亡将士碑",
+          "to_name": "宋义士武松之墓",
+          "network_m": 3355.377,
+          "travel_s": 2709.739,
+          "straight_m": 2040.207,
+          "ratio": 1.6446
+        },
+        {
+          "from_index": 4,
+          "to_index": 5,
+          "from_name": "初阳台",
+          "to_name": "北山街",
+          "network_m": 1220.141,
+          "travel_s": 987.137,
+          "straight_m": 439.373,
+          "ratio": 2.777
+        },
+        {
+          "from_index": 4,
+          "to_index": 6,
+          "from_name": "初阳台",
+          "to_name": "北街梦寻",
+          "network_m": 1157.627,
+          "travel_s": 943.343,
+          "straight_m": 467.348,
+          "ratio": 2.477
+        },
+        {
+          "from_index": 4,
+          "to_index": 7,
+          "from_name": "初阳台",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2197.177,
+          "travel_s": 1700.446,
+          "straight_m": 1561.299,
+          "ratio": 1.4073
+        },
+        {
+          "from_index": 4,
+          "to_index": 8,
+          "from_name": "初阳台",
+          "to_name": "大佛寺遗址",
+          "network_m": 1158.158,
+          "travel_s": 986.651,
+          "straight_m": 786.645,
+          "ratio": 1.4723
+        },
+        {
+          "from_index": 4,
+          "to_index": 9,
+          "from_name": "初阳台",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 2546.912,
+          "travel_s": 1968.64,
+          "straight_m": 725.938,
+          "ratio": 3.5084
+        },
+        {
+          "from_index": 4,
+          "to_index": 10,
+          "from_name": "初阳台",
+          "to_name": "宋义士武松之墓",
+          "network_m": 1694.501,
+          "travel_s": 1305.849,
+          "straight_m": 907.289,
+          "ratio": 1.8677
+        },
+        {
+          "from_index": 5,
+          "to_index": 6,
+          "from_name": "北山街",
+          "to_name": "北街梦寻",
+          "network_m": 281.22,
+          "travel_s": 210.914,
+          "straight_m": 278.446,
+          "ratio": 1.01
+        },
+        {
+          "from_index": 5,
+          "to_index": 7,
+          "from_name": "北山街",
+          "to_name": "古钱塘门遗址",
+          "network_m": 1804.925,
+          "travel_s": 1353.693,
+          "straight_m": 1339.607,
+          "ratio": 1.3474
+        },
+        {
+          "from_index": 5,
+          "to_index": 8,
+          "from_name": "北山街",
+          "to_name": "大佛寺遗址",
+          "network_m": 818.05,
+          "travel_s": 619.06,
+          "straight_m": 712.93,
+          "ratio": 1.1474
+        },
+        {
+          "from_index": 5,
+          "to_index": 9,
+          "from_name": "北山街",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1736.721,
+          "travel_s": 1330.86,
+          "straight_m": 323.429,
+          "ratio": 5.3697
+        },
+        {
+          "from_index": 5,
+          "to_index": 10,
+          "from_name": "北山街",
+          "to_name": "宋义士武松之墓",
+          "network_m": 774.04,
+          "travel_s": 581.486,
+          "straight_m": 773.255,
+          "ratio": 1.001
+        },
+        {
+          "from_index": 6,
+          "to_index": 7,
+          "from_name": "北街梦寻",
+          "to_name": "古钱塘门遗址",
+          "network_m": 2072.93,
+          "travel_s": 1554.698,
+          "straight_m": 1614.428,
+          "ratio": 1.284
+        },
+        {
+          "from_index": 6,
+          "to_index": 8,
+          "from_name": "北街梦寻",
+          "to_name": "大佛寺遗址",
+          "network_m": 1086.055,
+          "travel_s": 820.065,
+          "straight_m": 979.372,
+          "ratio": 1.1089
+        },
+        {
+          "from_index": 6,
+          "to_index": 9,
+          "from_name": "北街梦寻",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1499.554,
+          "travel_s": 1152.985,
+          "straight_m": 330.422,
+          "ratio": 4.5383
+        },
+        {
+          "from_index": 6,
+          "to_index": 10,
+          "from_name": "北街梦寻",
+          "to_name": "宋义士武松之墓",
+          "network_m": 536.873,
+          "travel_s": 403.611,
+          "straight_m": 509.471,
+          "ratio": 1.0538
+        },
+        {
+          "from_index": 7,
+          "to_index": 8,
+          "from_name": "古钱塘门遗址",
+          "to_name": "大佛寺遗址",
+          "network_m": 1411.847,
+          "travel_s": 1064.407,
+          "straight_m": 805.843,
+          "ratio": 1.752
+        },
+        {
+          "from_index": 7,
+          "to_index": 9,
+          "from_name": "古钱塘门遗址",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1951.845,
+          "travel_s": 1469.776,
+          "straight_m": 1450.792,
+          "ratio": 1.3454
+        },
+        {
+          "from_index": 7,
+          "to_index": 10,
+          "from_name": "古钱塘门遗址",
+          "to_name": "宋义士武松之墓",
+          "network_m": 2536.293,
+          "travel_s": 1902.219,
+          "straight_m": 2065.699,
+          "ratio": 1.2278
+        },
+        {
+          "from_index": 8,
+          "to_index": 9,
+          "from_name": "大佛寺遗址",
+          "to_name": "孤山公园-鲁迅铜像",
+          "network_m": 1761.582,
+          "travel_s": 1332.601,
+          "straight_m": 965.356,
+          "ratio": 1.8248
+        },
+        {
+          "from_index": 8,
+          "to_index": 10,
+          "from_name": "大佛寺遗址",
+          "to_name": "宋义士武松之墓",
+          "network_m": 1560.007,
+          "travel_s": 1175.528,
+          "straight_m": 1484.855,
+          "ratio": 1.0506
+        },
+        {
+          "from_index": 9,
+          "to_index": 10,
+          "from_name": "孤山公园-鲁迅铜像",
+          "to_name": "宋义士武松之墓",
+          "network_m": 1093.785,
+          "travel_s": 847.058,
+          "straight_m": 623.123,
+          "ratio": 1.7553
+        }
+      ],
+      "unreachable": [],
+      "algorithms": [
+        {
+          "algorithm": "given_order",
+          "label": "当前列表顺序",
+          "order": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "names": [
+            "Fukui garden",
+            "中山公园",
+            "八十八师阵亡将士碑",
+            "初阳台",
+            "北山街",
+            "北街梦寻",
+            "古钱塘门遗址",
+            "大佛寺遗址",
+            "孤山公园-鲁迅铜像",
+            "宋义士武松之墓"
+          ],
+          "cost": 14349.621,
+          "cost_unit": "s",
+          "cost_m": 18913.1,
+          "cost_s": 14352.0,
+          "route_distance_m": 18913.1,
+          "duration_min": 239.2,
+          "elapsed_ms": 0.007,
+          "gap_percent": 58.11,
+          "improvement_percent": null,
+          "segments_m": [
+            2509.8,
+            1118.3,
+            3737.8,
+            1970.5,
+            1220.1,
+            281.2,
+            2072.9,
+            1411.8,
+            1761.6,
+            1093.8,
+            1735.2
+          ],
+          "segments_min": [
+            31.37,
+            14.03,
+            47.49,
+            24.63,
+            16.45,
+            3.52,
+            25.91,
+            17.74,
+            22.21,
+            14.12,
+            21.69
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor",
+          "label": "最近邻",
+          "order": [
+            7,
+            4,
+            5,
+            9,
+            1,
+            8,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "宋义士武松之墓",
+            "中山公园",
+            "孤山公园-鲁迅铜像",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 9184.877,
+          "cost_unit": "s",
+          "cost_m": 12151.3,
+          "cost_s": 9186.0,
+          "route_distance_m": 12151.3,
+          "duration_min": 153.1,
+          "elapsed_ms": 0.029,
+          "gap_percent": 1.2,
+          "improvement_percent": null,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            536.9,
+            314.2,
+            824.3,
+            1897.9,
+            1629.1,
+            1970.5,
+            2467.4,
+            801.1
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            6.73,
+            3.95,
+            10.56,
+            24.2,
+            20.6,
+            24.63,
+            30.84,
+            10.01
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "nearest_neighbor_2opt",
+          "label": "最近邻 + 2-opt",
+          "order": [
+            7,
+            4,
+            5,
+            8,
+            1,
+            9,
+            0,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "大佛寺遗址",
+            "北山街",
+            "北街梦寻",
+            "孤山公园-鲁迅铜像",
+            "中山公园",
+            "宋义士武松之墓",
+            "Fukui garden",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 9120.865,
+          "cost_unit": "s",
+          "cost_m": 12067.2,
+          "cost_s": 9120.0,
+          "route_distance_m": 12067.2,
+          "duration_min": 152.0,
+          "elapsed_ms": 0.124,
+          "gap_percent": 0.5,
+          "improvement_percent": 0.7,
+          "segments_m": [
+            610.8,
+            818.0,
+            281.2,
+            1499.6,
+            824.3,
+            314.2,
+            851.1,
+            1629.1,
+            1970.5,
+            2467.4,
+            801.1
+          ],
+          "segments_min": [
+            7.73,
+            10.32,
+            3.52,
+            19.22,
+            10.56,
+            3.95,
+            10.64,
+            20.6,
+            24.63,
+            30.84,
+            10.01
+          ],
+          "covers_each_attraction_once": true
+        },
+        {
+          "algorithm": "held_karp",
+          "label": "Held-Karp",
+          "order": [
+            8,
+            1,
+            9,
+            0,
+            5,
+            4,
+            7,
+            3,
+            2,
+            6
+          ],
+          "names": [
+            "孤山公园-鲁迅铜像",
+            "中山公园",
+            "宋义士武松之墓",
+            "Fukui garden",
+            "北街梦寻",
+            "北山街",
+            "大佛寺遗址",
+            "初阳台",
+            "八十八师阵亡将士碑",
+            "古钱塘门遗址"
+          ],
+          "cost": 9075.719,
+          "cost_unit": "s",
+          "cost_m": 11959.5,
+          "cost_s": 9078.0,
+          "route_distance_m": 11959.5,
+          "duration_min": 151.3,
+          "elapsed_ms": 9.024,
+          "gap_percent": 0.0,
+          "improvement_percent": null,
+          "segments_m": [
+            1150.8,
+            824.3,
+            314.2,
+            851.1,
+            1268.8,
+            281.2,
+            818.0,
+            1212.1,
+            1970.5,
+            2467.4,
+            801.1
+          ],
+          "segments_min": [
+            14.48,
+            10.56,
+            3.95,
+            10.64,
+            15.86,
+            3.52,
+            10.32,
+            16.44,
+            24.63,
+            30.84,
+            10.01
+          ],
+          "covers_each_attraction_once": true
+        }
+      ]
+    }
+  ]
+}

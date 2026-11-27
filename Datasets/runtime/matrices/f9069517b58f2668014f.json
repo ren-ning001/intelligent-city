@@ -1,0 +1,292 @@
+{
+  "matrix_key": "f9069517b58f2668014f",
+  "matrix_version": 2,
+  "network_cache_key": "2ed88a9df2317b7eee22",
+  "network_type": "walk",
+  "speed_profile": "highway-speed-v1",
+  "weights": [
+    "length",
+    "time"
+  ],
+  "network_m": [
+    [
+      0.0,
+      5543.002,
+      12610.035,
+      12841.733,
+      13090.131
+    ],
+    [
+      5543.002,
+      0.0,
+      13249.043,
+      16830.949,
+      15010.806
+    ],
+    [
+      12610.035,
+      13249.043,
+      0.0,
+      14625.68,
+      2438.255
+    ],
+    [
+      12841.733,
+      16830.949,
+      14625.68,
+      0.0,
+      13667.882
+    ],
+    [
+      13090.131,
+      15010.806,
+      2438.255,
+      13667.882,
+      0.0
+    ]
+  ],
+  "travel_s": [
+    [
+      0.0,
+      4172.249,
+      9471.785,
+      9698.456,
+      9831.855
+    ],
+    [
+      4172.251,
+      0.0,
+      9936.799,
+      12662.963,
+      11258.113
+    ],
+    [
+      9471.785,
+      9936.799,
+      0.0,
+      11002.815,
+      1828.692
+    ],
+    [
+      9698.457,
+      12662.962,
+      11002.816,
+      0.0,
+      10273.009
+    ],
+    [
+      9831.853,
+      11258.112,
+      1828.692,
+      10273.008,
+      0.0
+    ]
+  ],
+  "straight_m": [
+    [
+      0.0,
+      4272.123,
+      11349.438,
+      10555.861,
+      12173.924
+    ],
+    [
+      4272.123,
+      0.0,
+      11599.006,
+      14372.278,
+      12853.46
+    ],
+    [
+      11349.438,
+      11599.006,
+      0.0,
+      11933.169,
+      1608.346
+    ],
+    [
+      10555.861,
+      14372.278,
+      11933.169,
+      0.0,
+      11309.156
+    ],
+    [
+      12173.924,
+      12853.46,
+      1608.346,
+      11309.156,
+      0.0
+    ]
+  ],
+  "unreachable": [],
+  "pairs": [
+    {
+      "from_index": 0,
+      "to_index": 1,
+      "from_name": "华东师范大学（上海市离线数据）",
+      "to_name": "交通大学（上海市离线数据）",
+      "network_m": 5543.002,
+      "travel_s": 4172.249,
+      "straight_m": 4272.123,
+      "ratio": 1.2975
+    },
+    {
+      "from_index": 0,
+      "to_index": 2,
+      "from_name": "华东师范大学（上海市离线数据）",
+      "to_name": "同济大学（上海市离线数据）",
+      "network_m": 12610.035,
+      "travel_s": 9471.785,
+      "straight_m": 11349.438,
+      "ratio": 1.1111
+    },
+    {
+      "from_index": 0,
+      "to_index": 3,
+      "from_name": "华东师范大学（上海市离线数据）",
+      "to_name": "上海大学（上海市离线数据）",
+      "network_m": 12841.733,
+      "travel_s": 9698.456,
+      "straight_m": 10555.861,
+      "ratio": 1.2166
+    },
+    {
+      "from_index": 0,
+      "to_index": 4,
+      "from_name": "华东师范大学（上海市离线数据）",
+      "to_name": "复旦大学（上海市离线数据）",
+      "network_m": 13090.131,
+      "travel_s": 9831.855,
+      "straight_m": 12173.924,
+      "ratio": 1.0753
+    },
+    {
+      "from_index": 1,
+      "to_index": 2,
+      "from_name": "交通大学（上海市离线数据）",
+      "to_name": "同济大学（上海市离线数据）",
+      "network_m": 13249.043,
+      "travel_s": 9936.799,
+      "straight_m": 11599.006,
+      "ratio": 1.1423
+    },
+    {
+      "from_index": 1,
+      "to_index": 3,
+      "from_name": "交通大学（上海市离线数据）",
+      "to_name": "上海大学（上海市离线数据）",
+      "network_m": 16830.949,
+      "travel_s": 12662.963,
+      "straight_m": 14372.278,
+      "ratio": 1.1711
+    },
+    {
+      "from_index": 1,
+      "to_index": 4,
+      "from_name": "交通大学（上海市离线数据）",
+      "to_name": "复旦大学（上海市离线数据）",
+      "network_m": 15010.806,
+      "travel_s": 11258.113,
+      "straight_m": 12853.46,
+      "ratio": 1.1678
+    },
+    {
+      "from_index": 2,
+      "to_index": 3,
+      "from_name": "同济大学（上海市离线数据）",
+      "to_name": "上海大学（上海市离线数据）",
+      "network_m": 14625.68,
+      "travel_s": 11002.815,
+      "straight_m": 11933.169,
+      "ratio": 1.2256
+    },
+    {
+      "from_index": 2,
+      "to_index": 4,
+      "from_name": "同济大学（上海市离线数据）",
+      "to_name": "复旦大学（上海市离线数据）",
+      "network_m": 2438.255,
+      "travel_s": 1828.692,
+      "straight_m": 1608.346,
+      "ratio": 1.516
+    },
+    {
+      "from_index": 3,
+      "to_index": 4,
+      "from_name": "上海大学（上海市离线数据）",
+      "to_name": "复旦大学（上海市离线数据）",
+      "network_m": 13667.882,
+      "travel_s": 10273.009,
+      "straight_m": 11309.156,
+      "ratio": 1.2086
+    }
+  ],
+  "snap": [
+    {
+      "index": 0,
+      "role": "start",
+      "name": "华东师范大学（上海市离线数据）",
+      "latitude": 31.2287099,
+      "longitude": 121.4020383,
+      "node_id": 3808214960,
+      "snap_distance_m": 31.3
+    },
+    {
+      "index": 1,
+      "role": "attraction",
+      "name": "交通大学（上海市离线数据）",
+      "latitude": 31.1994999,
+      "longitude": 121.4312203,
+      "node_id": 1984190476,
+      "snap_distance_m": 52.7
+    },
+    {
+      "index": 2,
+      "role": "attraction",
+      "name": "同济大学（上海市离线数据）",
+      "latitude": 31.2844081,
+      "longitude": 121.5020918,
+      "node_id": 558631487,
+      "snap_distance_m": 6.5
+    },
+    {
+      "index": 3,
+      "role": "attraction",
+      "name": "上海大学（上海市离线数据）",
+      "latitude": 31.3224712,
+      "longitude": 121.3846558,
+      "node_id": 622397771,
+      "snap_distance_m": 32.2
+    },
+    {
+      "index": 4,
+      "role": "attraction",
+      "name": "复旦大学（上海市离线数据）",
+      "latitude": 31.2988024,
+      "longitude": 121.50043,
+      "node_id": 600134645,
+      "snap_distance_m": 31.8
+    }
+  ],
+  "straight_line": {
+    "pair_count": 20,
+    "mean_ratio": 1.2132,
+    "min_ratio": 1.0753,
+    "max_ratio": 1.516
+  },
+  "matrix_build_ms": 1468.075399985537,
+  "matrix_lookup_ms": 0.0,
+  "matrix_elapsed_ms": 1468.075399985537,
+  "cache_hit": false,
+  "component": {
+    "method": "largest_strongly_connected",
+    "nodes_before": 32228,
+    "nodes_after": 32228,
+    "edges_before": 92164,
+    "edges_after": 92164,
+    "removed_nodes": 0,
+    "removed_edges": 0,
+    "strongly_connected": true
+  }
+}

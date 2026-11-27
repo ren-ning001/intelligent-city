@@ -73,7 +73,7 @@ python .\Datasets\prepare_osm.py `
 脚本会依次完成：
 
 1. 从 OSM 下载可步行道路；
-2. 保留道路的有向拓扑、长度和通行属性；
+2. 保留道路的有向拓扑、长度和通行属性，并只保留**最大强连通分量**；
 3. 下载旅游、历史、休闲等 POI；
 4. 将面状景点转换为内部代表点；
 5. 输出 GraphML、GeoPackage、CSV 和数据清单。
@@ -85,6 +85,7 @@ python .\Datasets\prepare_osm.py `
 检查 `processed/manifest.json` 中：
 
 - `node_count` 和 `edge_count` 不为 0；
+- `component.nodes_before/after` 和 `removed_nodes/removed_edges` 记录了强连通清洗的规模变化；
 - `poi_count` 足够支持实验；
 - `network_type` 为 `walk`；
 - 中心点和半径符合预期。

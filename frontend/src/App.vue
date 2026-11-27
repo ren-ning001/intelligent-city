@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { Activity, Bot, Layers3, Map, PanelLeftOpen, Plus, X } from 'lucide-vue-next'
 import AgentPanel from './components/AgentPanel.vue'
 import FloatingPanel from './components/FloatingPanel.vue'
@@ -9,27 +9,37 @@ import {
   getAgentSession,
   getAgentSessions,
   getHealth,
+  optimizeRoute,
   planRoute,
   searchPois,
   streamAgentChat,
 } from './services/api'
 import type {
   AgentTrace,
+  AlgorithmName,
   ChatMessage,
   ConversationSummary,
   GeocodeResult,
   HealthStatus,
+  OptimizeResult,
   PoiFeature,
   PoiSearchResult,
+  RouteContext,
   RouteResult,
+  WeightKind,
 } from './types'
 
 const WEST_LAKE = { latitude: 30.2525, longitude: 120.1552 }
 const health = ref<HealthStatus | null>(null)
 const route = ref<RouteResult | null>(null)
+const priorRoutes = ref<RouteResult[]>([])
 const pois = ref<PoiFeature[]>([])
+const poiLoaded = ref(false)
 const dataSource = ref('')
 const planning = ref(false)
+const optimizing = ref(false)
+const optimizeResult = ref<OptimizeResult | null>(null)
+const selectedAlgorithm = ref<AlgorithmName | ''>('')
 const agentThinking = ref(false)
 const agentSteps = ref<AgentTrace[]>([])
 const plannerOpen = ref(true)
@@ -52,6 +62,7 @@ const messages = ref<ChatMessage[]>([
     ...welcomeMessage,
   },
 ])
+let healthTimer: number | undefined
 
 const mapContext = computed(() => {
   const point = route.value?.visited_points[0] ?? pois.value[0]
@@ -91,10 +102,19 @@ function showToast(message: string) {
   }, 3600)
 }
 
+async function loadHealth() {
+  try {
+    health.value = await getHealth()
+  } catch {
+    health.value = null
+  }
+}
+
 async function loadDemoPois() {
   try {
     const result = await searchPois(WEST_LAKE, ['attraction', 'history', 'park'], 3000)
     pois.value = result.pois
+    poiLoaded.value = true
     dataSource.value = poiSourceLabel(result.source)
   } catch (error) {
     showToast(error instanceof Error ? error.message : 'POI加载失败')
@@ -104,9 +124,13 @@ async function loadDemoPois() {
 async function handlePlan(payload: {
   points: GeocodeResult[]
   categories: string[]
+  weight: WeightKind
 }) {
   if (payload.points.length < 2) return
   planning.value = true
+  priorRoutes.value = []
+  optimizeResult.value = null
+  selectedAlgorithm.value = ''
   selectedPoi.value = null
   try {
     const start = payload.points[0]!
@@ -121,17 +145,118 @@ async function handlePlan(payload: {
         / payload.points.length,
     }
     const [routeResult, poiResult] = await Promise.all([
-      planRoute(start, end, waypoints),
+      planRoute(start, end, waypoints, { weight: payload.weight }),
       searchPois(center, payload.categories, 3000),
     ])
     route.value = routeResult
     pois.value = poiResult.pois
+    poiLoaded.value = true
     dataSource.value = poiSourceLabel(poiResult.source)
   } catch (error) {
     showToast(error instanceof Error ? error.message : '路线规划失败')
   } finally {
     planning.value = false
   }
+}
+
+async function handleOptimize(payload: {
+  start: GeocodeResult
+  attractions: GeocodeResult[]
+  categories: string[]
+  weight: WeightKind
+  closedLoop: boolean
+}) {
+  if (payload.attractions.length < 2) return
+  optimizing.value = true
+  selectedPoi.value = null
+  try {
+    const points = [payload.start, ...payload.attractions]
+    const center = {
+      latitude: points.reduce((sum, point) => sum + point.latitude, 0) / points.length,
+      longitude: points.reduce((sum, point) => sum + point.longitude, 0) / points.length,
+    }
+    const [result, poiResult] = await Promise.all([
+      optimizeRoute(
+        payload.start,
+        payload.attractions,
+        payload.start.display_name.split(',')[0] ?? '起点',
+        payload.attractions.map((point) => point.display_name.split(',')[0] ?? '景点'),
+        { weight: payload.weight, closedLoop: payload.closedLoop },
+      ),
+      searchPois(center, payload.categories, 3000),
+    ])
+    optimizeResult.value = result
+    priorRoutes.value = []
+    const preferred = result.algorithms.find(
+      (item) => item.algorithm === result.preferred_algorithm,
+    ) ?? result.algorithms[0]
+    selectedAlgorithm.value = preferred?.algorithm ?? ''
+    if (preferred) route.value = preferred.route
+    pois.value = poiResult.pois
+    poiLoaded.value = true
+    dataSource.value = poiSourceLabel(poiResult.source)
+  } catch (error) {
+    showToast(error instanceof Error ? error.message : '顺序优化失败')
+  } finally {
+    optimizing.value = false
+  }
+}
+
+async function handleReplan(payload: {
+  points: GeocodeResult[]
+  categories: string[]
+  weight: WeightKind
+  closedLoop: boolean
+}) {
+  if (payload.points.length < 2) return
+  const previous = route.value
+  planning.value = true
+  selectedPoi.value = null
+  try {
+    const first = payload.points[0]!
+    const last = payload.points[payload.points.length - 1]!
+    const start = first
+    const end = payload.closedLoop ? first : last
+    const waypoints = payload.closedLoop
+      ? payload.points.slice(1)
+      : payload.points.slice(1, -1)
+    const center = {
+      latitude:
+        payload.points.reduce((sum, point) => sum + point.latitude, 0)
+        / payload.points.length,
+      longitude:
+        payload.points.reduce((sum, point) => sum + point.longitude, 0)
+        / payload.points.length,
+    }
+    const [routeResult, poiResult] = await Promise.all([
+      planRoute(start, end, waypoints, {
+        weight: payload.weight,
+        closedLoop: payload.closedLoop,
+      }),
+      searchPois(center, payload.categories, 3000),
+    ])
+    optimizeResult.value = null
+    selectedAlgorithm.value = ''
+    if (previous) {
+      priorRoutes.value = [...priorRoutes.value, previous].slice(-5)
+    }
+    route.value = routeResult
+    pois.value = poiResult.pois
+    poiLoaded.value = true
+    dataSource.value = poiSourceLabel(poiResult.source)
+  } catch (error) {
+    showToast(error instanceof Error ? error.message : '仅保留地点规划失败')
+  } finally {
+    planning.value = false
+  }
+}
+
+function handleSelectAlgorithm(algorithm: AlgorithmName) {
+  const selected = optimizeResult.value?.algorithms.find((item) => item.algorithm === algorithm)
+  if (!selected) return
+  priorRoutes.value = []
+  selectedAlgorithm.value = algorithm
+  route.value = selected.route
 }
 
 function addSelectedPoiToRoute() {
@@ -156,6 +281,9 @@ function createNewConversation() {
   messages.value = [{ ...welcomeMessage, id: `welcome-${crypto.randomUUID()}` }]
   agentSteps.value = []
   route.value = null
+  priorRoutes.value = []
+  optimizeResult.value = null
+  selectedAlgorithm.value = ''
   dataSource.value = '新对话'
 }
 
@@ -176,10 +304,51 @@ async function selectConversation(selectedSessionId: string, force = false) {
     if (!messages.value.length) messages.value = [{ ...welcomeMessage }]
     agentSteps.value = history.traces
     route.value = null
+    priorRoutes.value = []
+    optimizeResult.value = null
+    selectedAlgorithm.value = ''
     selectedPoi.value = null
     dataSource.value = '历史对话'
   } catch (error) {
     showToast(error instanceof Error ? error.message : '会话加载失败')
+  }
+}
+
+function samePoint(
+  first: { latitude: number; longitude: number },
+  second: { latitude: number; longitude: number },
+) {
+  return (
+    Math.abs(first.latitude - second.latitude) < 0.000001
+    && Math.abs(first.longitude - second.longitude) < 0.000001
+  )
+}
+
+function buildRouteContext(): RouteContext | null {
+  const current = route.value
+  if (!current) return null
+  const stops = current.visited_points.map((point, index) => {
+    const poi = pois.value.find((item) => samePoint(item, point))
+    return {
+      index: index + 1,
+      name: poi?.name ?? `地点${index + 1}`,
+      latitude: point.latitude,
+      longitude: point.longitude,
+    }
+  })
+  return {
+    distance_m: current.distance_m,
+    estimated_duration_min: current.estimated_duration_min,
+    network_type: current.network_type,
+    weight: current.weight,
+    closed_loop: current.closed_loop,
+    source: optimizeResult.value ? 'optimize' : 'planner',
+    stops,
+    segments: current.segments.map((segment) => ({
+      index: segment.index,
+      distance_m: segment.distance_m,
+      duration_min: segment.duration_min ?? 0,
+    })),
   }
 }
 
@@ -204,10 +373,14 @@ async function handleAgentMessage(message: string) {
       onMessage: (response) => {
         if (response.route) {
           route.value = response.route
+          priorRoutes.value = []
+          optimizeResult.value = null
+          selectedAlgorithm.value = ''
           dataSource.value = 'Agent · OSM真实路网'
         }
         if (response.poi_result) {
           pois.value = response.poi_result.pois
+          poiLoaded.value = true
           dataSource.value = poiSourceLabel(response.poi_result.source, true)
         }
         messages.value.push({
@@ -225,7 +398,7 @@ async function handleAgentMessage(message: string) {
         })
         void refreshAgentSessions()
       },
-    })
+    }, buildRouteContext())
   } catch (error) {
     messages.value.push({
       id: crypto.randomUUID(),
@@ -239,11 +412,11 @@ async function handleAgentMessage(message: string) {
 }
 
 onMounted(async () => {
-  try {
-    health.value = await getHealth()
-  } catch {
+  await loadHealth()
+  if (!health.value) {
     showToast('后端尚未启动，请运行 start-backend.ps1')
   }
+  healthTimer = window.setInterval(loadHealth, 20_000)
   await loadDemoPois()
   await refreshAgentSessions()
   if (
@@ -253,11 +426,20 @@ onMounted(async () => {
     await selectConversation(storedSessionId, true)
   }
 })
+
+onUnmounted(() => {
+  if (healthTimer !== undefined) window.clearInterval(healthTimer)
+})
 </script>
 
 <template>
   <main class="app-shell">
-    <MapCanvas :route="route" :pois="pois" @select-poi="selectedPoi = $event" />
+    <MapCanvas
+      :route="route"
+      :prior-routes="priorRoutes"
+      :pois="pois"
+      @select-poi="selectedPoi = $event"
+    />
     <div class="map-vignette" />
     <div class="ambient ambient--one" />
     <div class="ambient ambient--two" />
@@ -298,10 +480,17 @@ onMounted(async () => {
       <PlannerPanel
         ref="plannerPanel"
         :loading="planning"
+        :optimizing="optimizing"
         :route="route"
-        :poi-count="pois.length"
+        :pois="pois"
+        :poi-count="poiLoaded ? pois.length : null"
         :data-source="dataSource"
+        :comparison="optimizeResult"
+        :selected-algorithm="selectedAlgorithm"
         @plan="handlePlan"
+        @optimize="handleOptimize"
+        @replan="handleReplan"
+        @select-algorithm="handleSelectAlgorithm"
       />
     </FloatingPanel>
 

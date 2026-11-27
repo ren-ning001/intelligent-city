@@ -98,6 +98,40 @@ def json_safe_value(value: Any) -> Any:
     return value
 
 
+def keep_largest_strong_component(graph: Any) -> tuple[Any, dict[str, Any]]:
+    """只保留最大强连通分量，并记录清洗前后的节点/边数。
+
+    OSMnx 的 retain_all=False 只保证弱连通；对步行有向图仍可能存在单行道、
+    断头路等无法互相到达的节点。结题实验要求“每个景点都能到达其他景点”，
+    因此在数据快照阶段统一做一次强连通清洗。
+    """
+    import networkx as nx
+
+    nodes_before = int(graph.number_of_nodes())
+    edges_before = int(graph.number_of_edges())
+    if nodes_before == 0:
+        reduced = graph
+    elif nx.is_strongly_connected(graph):
+        reduced = graph
+    else:
+        largest = max(nx.strongly_connected_components(graph), key=len)
+        reduced = graph.subgraph(largest).copy()
+        reduced.graph.update(graph.graph)
+
+    nodes_after = int(reduced.number_of_nodes())
+    edges_after = int(reduced.number_of_edges())
+    return reduced, {
+        "method": "largest_strongly_connected",
+        "nodes_before": nodes_before,
+        "nodes_after": nodes_after,
+        "edges_before": edges_before,
+        "edges_after": edges_after,
+        "removed_nodes": nodes_before - nodes_after,
+        "removed_edges": edges_before - edges_after,
+        "strongly_connected": True,
+    }
+
+
 def sanitize_geodataframe(geodataframe: Any) -> Any:
     result = geodataframe.copy()
     for column in result.columns:
@@ -205,6 +239,12 @@ def prepare_dataset(config: dict[str, Any], output_dir: Path) -> dict[str, Any]:
         simplify=True,
         retain_all=False,
     )
+    graph, component_stats = keep_largest_strong_component(graph)
+    print(
+        "   强连通清洗："
+        f"{component_stats['nodes_before']} → {component_stats['nodes_after']} 个节点，"
+        f"{component_stats['edges_before']} → {component_stats['edges_after']} 条边"
+    )
 
     graphml_path = raw_dir / "osm_graph.graphml"
     network_gpkg_path = processed_dir / "network.gpkg"
@@ -248,6 +288,7 @@ def prepare_dataset(config: dict[str, Any], output_dir: Path) -> dict[str, Any]:
         "require_poi_name": require_name,
         "node_count": int(graph.number_of_nodes()),
         "edge_count": int(graph.number_of_edges()),
+        "component": component_stats,
         "raw_feature_count": int(len(features)),
         "poi_count": int(len(poi_table)),
         "files": {

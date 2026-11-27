@@ -1,0 +1,390 @@
+{
+  "matrix_key": "ed98121ad08175189cf1",
+  "matrix_version": 2,
+  "network_cache_key": "demo-west-lake-walk",
+  "network_type": "walk",
+  "speed_profile": "highway-speed-v1",
+  "weights": [
+    "length",
+    "time"
+  ],
+  "network_m": [
+    [
+      0.0,
+      2509.829,
+      1748.324,
+      2113.215,
+      1396.122,
+      1003.87
+    ],
+    [
+      2509.829,
+      0.0,
+      1118.294,
+      3261.946,
+      1629.084,
+      1505.959
+    ],
+    [
+      1748.324,
+      1118.294,
+      0.0,
+      3622.56,
+      1877.61,
+      957.15
+    ],
+    [
+      2113.215,
+      3261.946,
+      3622.56,
+      0.0,
+      1970.497,
+      3035.139
+    ],
+    [
+      1396.122,
+      1629.084,
+      1877.61,
+      1970.497,
+      0.0,
+      1220.141
+    ],
+    [
+      1003.87,
+      1505.959,
+      957.15,
+      3035.139,
+      1220.141,
+      0.0
+    ]
+  ],
+  "travel_s": [
+    [
+      0.0,
+      1882.371,
+      1325.314,
+      1584.912,
+      1099.655,
+      752.902
+    ],
+    [
+      1882.371,
+      0.0,
+      841.87,
+      2536.698,
+      1235.775,
+      1129.469
+    ],
+    [
+      1325.314,
+      841.87,
+      0.0,
+      2849.264,
+      1486.479,
+      721.011
+    ],
+    [
+      1584.912,
+      2536.698,
+      2849.264,
+      0.0,
+      1477.873,
+      2315.73
+    ],
+    [
+      1099.655,
+      1235.775,
+      1486.479,
+      1477.873,
+      0.0,
+      987.137
+    ],
+    [
+      752.902,
+      1129.469,
+      721.011,
+      2315.73,
+      987.137,
+      0.0
+    ]
+  ],
+  "straight_m": [
+    [
+      0.0,
+      2118.294,
+      1407.964,
+      1379.557,
+      990.581,
+      842.098
+    ],
+    [
+      2118.294,
+      0.0,
+      750.135,
+      2437.058,
+      1358.266,
+      1279.816
+    ],
+    [
+      1407.964,
+      750.135,
+      0.0,
+      2031.763,
+      880.124,
+      610.884
+    ],
+    [
+      1379.557,
+      2437.058,
+      2031.763,
+      0.0,
+      1152.223,
+      1505.555
+    ],
+    [
+      990.581,
+      1358.266,
+      880.124,
+      1152.223,
+      0.0,
+      439.373
+    ],
+    [
+      842.098,
+      1279.816,
+      610.884,
+      1505.555,
+      439.373,
+      0.0
+    ]
+  ],
+  "unreachable": [],
+  "pairs": [
+    {
+      "from_index": 0,
+      "to_index": 1,
+      "from_name": "断桥残雪",
+      "to_name": "Fukui garden",
+      "network_m": 2509.829,
+      "travel_s": 1882.371,
+      "straight_m": 2118.294,
+      "ratio": 1.1848
+    },
+    {
+      "from_index": 0,
+      "to_index": 2,
+      "from_name": "断桥残雪",
+      "to_name": "中山公园",
+      "network_m": 1748.324,
+      "travel_s": 1325.314,
+      "straight_m": 1407.964,
+      "ratio": 1.2417
+    },
+    {
+      "from_index": 0,
+      "to_index": 3,
+      "from_name": "断桥残雪",
+      "to_name": "八十八师阵亡将士碑",
+      "network_m": 2113.215,
+      "travel_s": 1584.912,
+      "straight_m": 1379.557,
+      "ratio": 1.5318
+    },
+    {
+      "from_index": 0,
+      "to_index": 4,
+      "from_name": "断桥残雪",
+      "to_name": "初阳台",
+      "network_m": 1396.122,
+      "travel_s": 1099.655,
+      "straight_m": 990.581,
+      "ratio": 1.4094
+    },
+    {
+      "from_index": 0,
+      "to_index": 5,
+      "from_name": "断桥残雪",
+      "to_name": "北山街",
+      "network_m": 1003.87,
+      "travel_s": 752.902,
+      "straight_m": 842.098,
+      "ratio": 1.1921
+    },
+    {
+      "from_index": 1,
+      "to_index": 2,
+      "from_name": "Fukui garden",
+      "to_name": "中山公园",
+      "network_m": 1118.294,
+      "travel_s": 841.87,
+      "straight_m": 750.135,
+      "ratio": 1.4908
+    },
+    {
+      "from_index": 1,
+      "to_index": 3,
+      "from_name": "Fukui garden",
+      "to_name": "八十八师阵亡将士碑",
+      "network_m": 3261.946,
+      "travel_s": 2536.698,
+      "straight_m": 2437.058,
+      "ratio": 1.3385
+    },
+    {
+      "from_index": 1,
+      "to_index": 4,
+      "from_name": "Fukui garden",
+      "to_name": "初阳台",
+      "network_m": 1629.084,
+      "travel_s": 1235.775,
+      "straight_m": 1358.266,
+      "ratio": 1.1994
+    },
+    {
+      "from_index": 1,
+      "to_index": 5,
+      "from_name": "Fukui garden",
+      "to_name": "北山街",
+      "network_m": 1505.959,
+      "travel_s": 1129.469,
+      "straight_m": 1279.816,
+      "ratio": 1.1767
+    },
+    {
+      "from_index": 2,
+      "to_index": 3,
+      "from_name": "中山公园",
+      "to_name": "八十八师阵亡将士碑",
+      "network_m": 3622.56,
+      "travel_s": 2849.264,
+      "straight_m": 2031.763,
+      "ratio": 1.783
+    },
+    {
+      "from_index": 2,
+      "to_index": 4,
+      "from_name": "中山公园",
+      "to_name": "初阳台",
+      "network_m": 1877.61,
+      "travel_s": 1486.479,
+      "straight_m": 880.124,
+      "ratio": 2.1333
+    },
+    {
+      "from_index": 2,
+      "to_index": 5,
+      "from_name": "中山公园",
+      "to_name": "北山街",
+      "network_m": 957.15,
+      "travel_s": 721.011,
+      "straight_m": 610.884,
+      "ratio": 1.5668
+    },
+    {
+      "from_index": 3,
+      "to_index": 4,
+      "from_name": "八十八师阵亡将士碑",
+      "to_name": "初阳台",
+      "network_m": 1970.497,
+      "travel_s": 1477.873,
+      "straight_m": 1152.223,
+      "ratio": 1.7102
+    },
+    {
+      "from_index": 3,
+      "to_index": 5,
+      "from_name": "八十八师阵亡将士碑",
+      "to_name": "北山街",
+      "network_m": 3035.139,
+      "travel_s": 2315.73,
+      "straight_m": 1505.555,
+      "ratio": 2.016
+    },
+    {
+      "from_index": 4,
+      "to_index": 5,
+      "from_name": "初阳台",
+      "to_name": "北山街",
+      "network_m": 1220.141,
+      "travel_s": 987.137,
+      "straight_m": 439.373,
+      "ratio": 2.777
+    }
+  ],
+  "snap": [
+    {
+      "index": 0,
+      "role": "start",
+      "name": "断桥残雪",
+      "latitude": 30.261531000000005,
+      "longitude": 120.147367,
+      "node_id": 27271890,
+      "snap_distance_m": 15.6
+    },
+    {
+      "index": 1,
+      "role": "attraction",
+      "name": "Fukui garden",
+      "latitude": 30.2518358,
+      "longitude": 120.1283822,
+      "node_id": 2380102030,
+      "snap_distance_m": 41.3
+    },
+    {
+      "index": 2,
+      "role": "attraction",
+      "name": "中山公园",
+      "latitude": 30.253632,
+      "longitude": 120.13591,
+      "node_id": 775020501,
+      "snap_distance_m": 33.7
+    },
+    {
+      "index": 3,
+      "role": "attraction",
+      "name": "八十八师阵亡将士碑",
+      "latitude": 30.2716919,
+      "longitude": 120.1391244,
+      "node_id": 5535005664,
+      "snap_distance_m": 249.0
+    },
+    {
+      "index": 4,
+      "role": "attraction",
+      "name": "初阳台",
+      "latitude": 30.2614853,
+      "longitude": 120.1370532,
+      "node_id": 5586466264,
+      "snap_distance_m": 18.1
+    },
+    {
+      "index": 5,
+      "role": "attraction",
+      "name": "北山街",
+      "latitude": 30.2581564,
+      "longitude": 120.1395178,
+      "node_id": 6643104320,
+      "snap_distance_m": 56.0
+    }
+  ],
+  "straight_line": {
+    "pair_count": 30,
+    "mean_ratio": 1.5834,
+    "min_ratio": 1.1767,
+    "max_ratio": 2.777
+  },
+  "matrix_build_ms": 793.0474999593571,
+  "matrix_lookup_ms": 0.0,
+  "matrix_elapsed_ms": 793.0474999593571,
+  "cache_hit": false,
+  "component": {
+    "method": "largest_strongly_connected",
+    "nodes_before": 15006,
+    "nodes_after": 15006,
+    "edges_before": 42224,
+    "edges_after": 42224,
+    "removed_nodes": 0,
+    "removed_edges": 0,
+    "strongly_connected": true
+  }
+}

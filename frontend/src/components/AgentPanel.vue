@@ -8,6 +8,7 @@ import {
   Cpu,
   Database,
   History,
+  ListTree,
   LoaderCircle,
   MapPin,
   MessageSquarePlus,
@@ -15,6 +16,7 @@ import {
   Route,
   Search,
   Sparkles,
+  Terminal,
 } from 'lucide-vue-next'
 import type { AgentTrace, ChatMessage, ConversationSummary } from '../types'
 import MarkdownContent from './MarkdownContent.vue'
@@ -51,6 +53,8 @@ function traceIcon(tool: string) {
     tool === 'plan_walking_route'
     || tool === 'publish_tourism_itinerary'
   ) return Route
+  if (tool === 'pwsh' || tool === 'bash') return Terminal
+  if (tool.startsWith('list_mcp_')) return ListTree
   return Cpu
 }
 
@@ -195,7 +199,10 @@ watch(
             <component :is="traceIcon(step.tool)" :size="13" />
           </div>
           <div class="trace-step__content">
-            <strong>{{ step.title }}</strong>
+            <strong>
+              {{ step.title }}
+              <span class="trace-step__tool">{{ step.tool }}</span>
+            </strong>
             <small>{{ step.detail }}</small>
           </div>
           <LoaderCircle v-if="step.status === 'running'" class="trace-step__state spin" :size="13" />
@@ -551,6 +558,20 @@ watch(
   color: rgba(40, 61, 112, 0.48);
   font-size: 8px;
   line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.trace-step__tool {
+  display: inline-block;
+  margin-left: 5px;
+  padding: 0 4px;
+  color: rgba(54, 76, 135, 0.55);
+  border-radius: 4px;
+  background: rgba(77, 107, 254, 0.08);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 7px;
+  font-weight: 500;
+  vertical-align: 1px;
 }
 
 .trace-step__state {
